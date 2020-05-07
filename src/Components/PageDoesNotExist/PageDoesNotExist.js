@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import './Item.css'
 
-export default class Item extends Component {
+export class PageDoesNotExist extends Component {
     render() {
         return (
             <div>
-                Item Page
+                Error 404
             </div>
         )
     }
 }
+
+export default PageDoesNotExist

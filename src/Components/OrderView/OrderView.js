@@ -6,10 +6,10 @@ export class OrderView extends Component {
     render() {
         return (
             <div>
-                
+                Order View
             </div>
         )
     }
 }
 
-export default OrderView
+export default OrderView;

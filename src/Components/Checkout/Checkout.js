@@ -5,7 +5,7 @@ export default class Checkout extends Component {
     render() {
         return (
             <div>
-                
+                Checkout Page
             </div>
         )
     }

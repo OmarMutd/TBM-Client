@@ -5,7 +5,7 @@ export class OrderHistory extends Component {
     render() {
         return (
             <div>
-                
+                Order History
             </div>
         )
     }

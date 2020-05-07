@@ -1,10 +1,35 @@
 import React from 'react';
 import './App.css';
+import {Route, Switch} from 'react-router-dom';
+
+import LandingPage from './Components/LandingPage/LandingPage';
+import SignInPage from './Components/SignInPage/SignInPage';
+import Cart from './Components/Cart/Cart';
+import Checkout from './Components/Checkout/Checkout';
+import Item from './Components/Item/Item';
+import OrderHistory from './Components/OrderHistory/OrderHistory';
+import OrderView from './Components/OrderView/OrderView';
+import Products from './Components/Products/Products';
+import PageDoesNotExist from './Components/PageDoesNotExist/PageDoesNotExist';
+
+
+
+
 
 function App() {
   return (
     <div className="App">
-     <h1>TBM</h1>
+    <Switch>
+       <Route exact path='/' component={LandingPage} />
+       <Route path='/SignInPage' component={SignInPage} />
+       <Route path='/Cart' component={Cart} />
+       <Route path='/Checkout' component={Checkout} />
+       <Route path='/Item' component={Item} />
+       <Route path='/OrderHistory' component={OrderHistory} />
+       <Route path='/OrderView' component={OrderView} />
+       <Route path='/Products' component={Products} />
+       <Route component={PageDoesNotExist} />
+       </Switch>
     </div>
   );
 }
