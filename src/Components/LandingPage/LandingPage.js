@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import './LandingPage.css'
 
-export class LandingPage extends Component {
+export default class LandingPage extends Component {
     render() {
         return (
             <div>
-               Landing Page 
+                    <header role="banner">
+                        <h1>The Black Market</h1>
+                    </header>
+                    <section>
+                        <h2>Description of app</h2>
+                        <h3>Instructions for sign in</h3><br/>
+                            <button type="button">Sign In</button>
+      </section>
             </div>
         )
     }
 }
-
-export default LandingPage
