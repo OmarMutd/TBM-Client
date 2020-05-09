@@ -20,11 +20,15 @@ export class SignUpPage extends Component {
         this.setState({ password: e.target.value })
       }
 
+      handleSubmit = e => {
+        e.preventDefault()
+      } 
+
 
     render() {
         return (
             <div>
-                <form className='signup-form'>
+                <form className='signup-form' onSubmit={(e) => {this.handleSubmit(e)}}>
                     <h2 className="signup-header">Create An Account</h2>
 
                     <div className="username-signup">
