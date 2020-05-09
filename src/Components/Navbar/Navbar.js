@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import "./Navbar.css"
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import "./Navbar.css";
 
 export default class Navbar extends Component {
   
@@ -8,9 +9,9 @@ export default class Navbar extends Component {
             <div>
                <nav role='navigation'>
       <ul className='basic-nav'>
-        <li><a href="www.google.com">Order History</a></li>
+        <Link to ='/OrderHistory'><li>Order History</li></Link>
         <li><a href="www.google.com">Sign Out</a></li>
-        <li><a href="www.google.com">Cart</a></li>
+        <Link to ='/cart'><li>Cart</li></Link>
       </ul>
       <h1 className="logo"><a href="www.google.com">TBM</a></h1>
       <input type="text" placeholder="search"/>
