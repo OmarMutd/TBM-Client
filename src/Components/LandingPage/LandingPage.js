@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import './LandingPage.css'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import './LandingPage.css';
 
 export default class LandingPage extends Component {
     render() {
@@ -11,7 +12,9 @@ export default class LandingPage extends Component {
                     <section>
                         <h2>Description of app</h2>
                         <h3>Instructions for sign in</h3><br/>
-                            <button type="button">Sign In</button>
+                           <Link to='/SignInPage'><button type="button">Sign In</button></Link>
+                           <Link to='/SignUpPage'><button type="button">Sign Up</button></Link> 
+ 
       </section>
             </div>
         )
