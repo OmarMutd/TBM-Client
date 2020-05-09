@@ -10,11 +10,17 @@ class ProductProvider extends Component {
         productDetails: '',
 
     }
+
+    addProductToCart = () => {
+
+    }
+
     render() {
         return (
             <div>
                 <ProductContext.Provider value={{
-                ...this.state
+                ...this.state,
+                addProductToCart: this.addProductToCart
                 }}>
                     {this.props.children}
                 </ProductContext.Provider>
