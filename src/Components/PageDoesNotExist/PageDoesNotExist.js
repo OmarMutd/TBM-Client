@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export class PageDoesNotExist extends Component {
     render() {
         return (
             <div>
-                Error 404
+                <h1>UH-OH!</h1>
+                <h2>This page doesn't exist.</h2>
             </div>
         )
     }
