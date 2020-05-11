@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import { store } from './store'
+import { allTheProducts } from './store'
 const ProductContext = React.createContext();
 
 class ProductProvider extends Component {
     state = {
         cartTotal: 0,
         cart: [],
-        products: store,
+        products: allTheProducts,
         productDetails: '',
+        name: 'bob',
+        age: '7'
 
     }
 
     addProductToCart = () => {
-
+       console.log('Item has been added to cart')
     }
 
     render() {
