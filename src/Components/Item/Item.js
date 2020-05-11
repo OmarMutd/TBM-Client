@@ -12,7 +12,7 @@ export default class Item extends Component {
                  <div className='item-card'>
                      <div className='item-image' onClick={() => console.log('This is the image')}>
                          <Link to='/SingleItem'>
-                             <img className='product-picture' src={img} alt='item-picture' />
+                             <img className='product-picture' src={img} alt='something' />
 
                          </Link>
                      </div>
