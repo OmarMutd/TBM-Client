@@ -5,7 +5,7 @@ export const allTheProducts = [
         description: 'a place to live',
         category: 'homes',
         price: '$500,000',
-        url: 'https://imgur.com/gallery/OA5jUWi',
+        img: 'Img/black-home.jpg',
     },
     {
         id: '2',
@@ -13,14 +13,14 @@ export const allTheProducts = [
         description: 'funny stripes',
         category: 'animal',
         price: '$15,000',
-        url: 'https://imgur.com/gallery/OA5jUWi',
+        img: 'Img/black-zebra.jpg',
     },
     {
         id: '3',
-        title: 'iphone',
-        description: 'cool device',
+        title: 'marker',
+        description: 'draw stuff',
         category: 'tech',
         price: '$1,000',
-        url: 'https://imgur.com/gallery/OA5jUWi',
+        img: 'Img/black-marker.jpg',
     }
 ]

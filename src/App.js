@@ -13,6 +13,7 @@ import OrderView from './Components/OrderView/OrderView';
 import Products from './Components/Products/Products';
 import PageDoesNotExist from './Components/PageDoesNotExist/PageDoesNotExist';
 import Navbar from './Components/Navbar/Navbar';
+import SingleItem from './Components/SingleItem/SingleItem';
 
 
 
@@ -32,6 +33,7 @@ function App() {
        <Route path='/OrderHistory' component={OrderHistory} />
        <Route path='/OrderView' component={OrderView} />
        <Route path='/Products' component={Products} />
+       <Route path='/SingleItem' component={SingleItem} />
        <Route component={PageDoesNotExist} />
        </Switch>
     </div>
