@@ -77,7 +77,7 @@ export default class SignInPage extends Component {
                        
                        <Link to='/'><button>Go back</button></Link>
                        {/* <label htmlFor='signup-button'>Not a registered user? Click here to Sign up.</label> */}
-                       <Link to='/SignUpPage'><button className='signup-button'>Sign Up</button></Link>
+                       <Link to='/SignUp'><button className='signup-button'>Sign Up</button></Link>
                    </div>
 
                 </form>

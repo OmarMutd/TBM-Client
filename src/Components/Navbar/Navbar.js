@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./Navbar.css";
+import TokenService from '../../services/token-services';
 
 export default class Navbar extends Component {
+
+    handleSignOutClick = () => {
+      TokenService.clearAuthToken()
+      
+    }
   
     render() {
         return (
@@ -10,7 +16,7 @@ export default class Navbar extends Component {
                <nav role='navigation'>
       <ul className='basic-nav'>
         <Link to ='/OrderHistory'><li>Order History</li></Link>
-        <li><a href="www.google.com">Sign Out</a></li>
+        <Link to='/'><li>Sign Out</li></Link>
         <Link to ='/cart'><li>Cart</li></Link>
       </ul>
       <h1 className="logo"><a href="www.google.com">TBM</a></h1>
