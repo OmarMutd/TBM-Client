@@ -33,7 +33,7 @@ function App() {
        <Route path='/OrderHistory' component={OrderHistory} />
        <Route path='/OrderView' component={OrderView} />
        <Route path='/Products' component={Products} />
-       <Route path='/SingleItem' component={SingleItem} />
+       <Route path='/SingleItem/:id' component={SingleItem} />
        <Route component={PageDoesNotExist} />
        </Switch>
     </div>

@@ -2,10 +2,26 @@ import React, { Component } from 'react'
 import './Products.css'
 import { ProductConsumer } from '../../context'
 import Item from '../Item/Item'
+import  config from '../../config';
 
-export class Products extends Component {s
+export class Products extends Component {
+    state = {
+        data: []
+    }
+    componentDidMount() {
+        fetch(`${config.API_ENDPOINT}/products`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {this.setState({data: data})});
+    };
+
     render() {
-        // const { id, title, description, category, price, url } = this.props.products
+        const value = this.state.data
+        console.log(value)
         return (
             <div>
                
@@ -16,17 +32,18 @@ export class Products extends Component {s
                     <h2>Grid of products</h2>
                     <div className='all-products'>
                         <div className='products'>
-                        <ProductConsumer>
-                            {value => {
-                                return value.products.map(product => {
-                                    return <Item
-                                        product={product}
-                                        key={product.id}
-                                    />
-                                } )
-                            }}
-                        </ProductConsumer>
+                             {value.map(item => {
+                              return <Item
+                                  product={item}
+                                  key={item.id}
+                              />
+                            })  
+
+                            }
+                        
+                        
                         </div>
+                      
 
                     </div>
                 </section>

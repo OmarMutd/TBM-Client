@@ -68,13 +68,13 @@ export default class Cart extends Component {
           
           </li>
           </ul>
-          <ProductConsumer>
+          {/* <ProductConsumer>
                             {(context) => (
                                <div>
                               <p> Cart Total: ${context.state.cartTotal}</p>
                                 </div>
                             )}
-                            </ProductConsumer>
+                            </ProductConsumer> */}
         <button type="button">Checkout</button>
         <button>Clear Cart</button>
       </section>

@@ -17,12 +17,17 @@ class ProductProvider extends Component {
        console.log('Item has been added to cart')
     }
 
+    itemDetails = () => {
+        console.log('Details of the item')
+    }
+
     render() {
         return (
             <div>
                 <ProductContext.Provider value={{
                 ...this.state,
-                addProductToCart: this.addProductToCart
+                addProductToCart: this.addProductToCart,
+                itemDetails: this.itemDetails
                 }}>
                     {this.props.children}
                 </ProductContext.Provider>

@@ -3,7 +3,7 @@ export const allTheProducts = [
         id: '1',
         title: 'home',
         description: 'a place to live',
-        category: 'homes',
+        category: 'Homes',
         price: '$500,000',
         img: 'Img/black-home.jpg',
     },
@@ -11,7 +11,7 @@ export const allTheProducts = [
         id: '2',
         title: 'zebra',
         description: 'funny stripes',
-        category: 'animal',
+        category: 'Animals',
         price: '$15,000',
         img: 'Img/black-zebra.jpg',
     },
@@ -19,8 +19,8 @@ export const allTheProducts = [
         id: '3',
         title: 'marker',
         description: 'draw stuff',
-        category: 'tech',
-        price: '$1,000',
+        category: 'Art',
+        price: '$1.99',
         img: 'Img/black-marker.jpg',
     }
 ]
