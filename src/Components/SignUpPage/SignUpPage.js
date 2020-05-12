@@ -1,34 +1,50 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './SignUpPage.css';
+import AuthApiService from '../../services/auth-api-services';
 
 export class SignUpPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          username: '',
-          password: '',
-          error: ''
-        }
-      }
+    state = {
+      error: null
+    }
+      
 
-      handleUsername = e => {
-        this.setState({ username: e.target.value })
-      }
+      // handleUsername = e => {
+      //   this.setState({ username: e.target.value })
+      // }
     
-      handlPassword = e => {
-        this.setState({ password: e.target.value })
-      }
+      // handlPassword = e => {
+      //   this.setState({ password: e.target.value })
+      // }
 
       handleSubmit = e => {
         e.preventDefault()
+        
+        const username = e.target.elements[0].value
+        const password = e.target.elements[1].value
+
+        this.setState({ error: null})
+        AuthApiService.postUser({
+          username: username,
+          password: password
+        })
+        .then(() => {
+          console.log("success")
+        })
+        .catch(res => {
+          this.setState({ error: res.error })
+        })
       } 
 
 
     render() {
+      const { error } = this.state
         return (
             <div>
-                <form className='signup-form' onSubmit={(e) => {this.handleSubmit(e)}}>
+              <div role= "alert">
+                {error && <p className="sign-error">{error}</p>}
+              </div>
+                <form className='signup-form' onSubmit={this.handleSubmit}>
                     <h2 className="signup-header">Create An Account</h2>
 
                     <div className="username-signup">
@@ -38,8 +54,7 @@ export class SignUpPage extends Component {
                     placeholder='Username'
                     className='input-field'
                     type='text'
-                    value={this.state.username}
-                    onChange={this.handleUsername}
+                    required
                     />
                     </div>
                     <div className="password-signup">
@@ -49,14 +64,13 @@ export class SignUpPage extends Component {
                     placeholder='Password'
                     className='input-field'
                     type='text'
-                    value={this.state.password}
-                    onChange={this.handlPassword}
+                    required
                     />
                    </div>
 
                    <div className='useful-buttons'>
                        {/* <button>Sign In</button> */}
-                       <button className='signup-button'>Sign Up</button>
+                       <button className='signup-button' type="submit">Sign Up</button>
                        <Link to='/'><button>Go back</button></Link>
                        {/* <label htmlFor='signup-button'>Not a registered user? Click here to Sign up.</label> */}
                    </div>
