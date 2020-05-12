@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Route, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import LandingPage from './Components/LandingPage/LandingPage';
 import SignInPage from './Components/SignInPage/SignInPage';
@@ -21,7 +21,7 @@ import SingleItem from './Components/SingleItem/SingleItem';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Navbar/>
     <Switch>
        <Route exact path='/' component={LandingPage} />
