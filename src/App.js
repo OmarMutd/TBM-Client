@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Route, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import LandingPage from './Components/LandingPage/LandingPage';
 import SignInPage from './Components/SignInPage/SignInPage';
@@ -13,6 +13,7 @@ import OrderView from './Components/OrderView/OrderView';
 import Products from './Components/Products/Products';
 import PageDoesNotExist from './Components/PageDoesNotExist/PageDoesNotExist';
 import Navbar from './Components/Navbar/Navbar';
+import SingleItem from './Components/SingleItem/SingleItem';
 
 
 
@@ -20,7 +21,7 @@ import Navbar from './Components/Navbar/Navbar';
 function App() {
 
   return (
-    <div className="App">
+    <div className='App'>
       <Navbar/>
     <Switch>
        <Route exact path='/' component={LandingPage} />
@@ -32,6 +33,7 @@ function App() {
        <Route path='/OrderHistory' component={OrderHistory} />
        <Route path='/OrderView' component={OrderView} />
        <Route path='/Products' component={Products} />
+       <Route path='/SingleItem/:id' component={SingleItem} />
        <Route component={PageDoesNotExist} />
        </Switch>
     </div>
