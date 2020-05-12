@@ -5,6 +5,11 @@ import { Link } from 'react-router-dom';
 import './SignInPage.css';
 
 export default class SignInPage extends Component {
+
+    static defaultProps = {
+      onLoginSuccess: () => {}
+    }
+
     state = {
       error: null
     }
@@ -13,8 +18,8 @@ export default class SignInPage extends Component {
       e.preventDefault()
       this.setState({ error: null})
 
-      const username = e.target.elements[1].value
-      const password = e.target.elements[2].value
+      const username = e.target.elements[0].value
+      const password = e.target.elements[1].value
 
       AuthApiService.postLogin({
         username: username,
@@ -23,6 +28,7 @@ export default class SignInPage extends Component {
         .then(res => {
 
           TokenService.saveAuthToken(res.authToken)
+          this.props.onLoginSuccess()
           
         })
         .catch(res => {
@@ -30,13 +36,6 @@ export default class SignInPage extends Component {
         })
     }
 
-      // handleUsername = e => {
-      //   this.setState({ username: e.target.value })
-      // }
-    
-      // handlPassword = e => {
-      //   this.setState({ password: e.target.value })
-      // }
       
       render() {
         const { error } = this.state
