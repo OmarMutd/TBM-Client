@@ -18,8 +18,8 @@ import SingleItem from './Components/SingleItem/SingleItem';
 
 
 
-
 function App() {
+
   return (
     <div className='App'>
       <Navbar/>
