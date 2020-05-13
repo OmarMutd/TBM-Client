@@ -41,6 +41,7 @@ export default class SingleItem extends Component {
                       <p>{title}</p>
                       <p>{price}</p>
                       <p>Category: {category}</p>
+                      <div className='product-desc'>{description}</div>
                       <button><Link to='/Products'>Go Back</Link></button>
                  </div>
             
