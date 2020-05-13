@@ -1,53 +1,80 @@
-* {
-    box-sizing: border-box;
+.nav-bar {
+  background-color: grey;
+  padding: 20px 50px 20px 50px;
+  user-select: none;
+}
+
+.nav-bar > .right {
+  float: right;
+}
+
+.nav-bar > .right > * {
+  margin-left: 5px;
+}
+
+.nav-bar > .left {
+  float: left;
+}
+
+.nav-bar > .left > * {
+  margin-right: 5px;
+}
+
+.nav-bar > .left > *, .nav-bar > .right > * {
+  padding: 11.4px;
+  display: inline-block;
+  text-align: center;
+  min-width: 50px;
+}
+
+.nav-bar *:hover{
+  cursor: pointer;
+}
+
+.clear-fix {
+  clear: both;
+}
+
+.nav-bar .nav-bar-icon {
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-bar {
+      padding: 40px 20px 20px 20px;
+      max-height: 0;
+      overflow: hidden;
   }
-  
-  body {
-    font-family: "Open Sans",
-    sans-serif; 
-    font-size: 20px;
-    color: #444;
-    text-align: center;
-    line-height: 1.5;
+
+  .nav-bar > .left, .nav-bar > .right {
+      display: none;
   }
-  
-  nav,
-  footer {
-    padding: 1% 0;
-    background-color: #aaa;
+
+  .nav-bar-icon {
+      display: block !important;
   }
-  
-  section {
-    min-height: 100px;
-    padding: 1% 0;
-    background-color: #eee;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-bar.toggled {
+      padding: 60px 0 0 0;
+      max-height: 1500px;
+      transition: max-height 1s;
   }
-  
-  section:nth-child(even) {
-    padding: 5% 0;
-    background-color: #ddd;
+
+  .nav-bar.toggled > .left {
+      border-bottom: 1px solid black;
+      margin: 15px 0 0 0 ;
   }
-  
-  .basic-nav,
-  .categories {
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    text-align: left;
+
+  .nav-bar.toggled *:not(.nav-bar-lead):not(.nav-bar-icon) {
+      float: none;
+      display: block !important;
+      text-align: left;
+      margin: 0;
   }
-  
-  ul.basic-nav,
-  ul.categories,
-  ul.items {
-    list-style: none;
-  }
-  
-  ul.basic-nav > li,
-  ul.categories > li {
-    padding: 8px;
-  }
-  
-  ul.items > li {
-    text-align: left;
-    margin-left: 10px;
-  }
+}

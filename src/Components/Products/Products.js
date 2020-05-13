@@ -24,9 +24,8 @@ export class Products extends Component {
         console.log(value);
         return (
             <div>
-               
                 <section>
-                    <h2>Welcome to the products page!</h2>
+                    <h2>Featured Category</h2>
                 </section>
                 <section>
                     <h2>Grid of products</h2>
@@ -43,4 +42,4 @@ export class Products extends Component {
     }
 }
 
-export default Products;
+export default Products
