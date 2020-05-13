@@ -36,6 +36,7 @@ export default class SingleItem extends Component {
                       <p>{title}</p>
                       <p>{price}</p>
                       <p>Category: {category}</p>
+                      <button><Link to='/Products'>Go Back</Link></button>
                  </div>
             
             </div>
