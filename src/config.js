@@ -1,4 +1,4 @@
 export default {
-    // API_ENDPOINT: 'idk yet'
-    TOKEN: 'try2guess'
-}
+    API_ENDPOINT: 'https://protected-oasis-11818.herokuapp.com/api',
+    TOKEN: 'try2guess',
+};

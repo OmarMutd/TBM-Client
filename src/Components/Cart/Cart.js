@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './Cart.css'
+import { ProductConsumer } from '../../context'
+
 
 export default class Cart extends Component {
     render() {
@@ -35,6 +37,13 @@ export default class Cart extends Component {
           
           </li>
           </ul>
+          {/* <ProductConsumer>
+                            {(context) => (
+                               <div>
+                              <p> Cart Total: ${context.state.cartTotal}</p>
+                                </div>
+                            )}
+                            </ProductConsumer> */}
         <button type="button">Checkout</button>
         <button>Clear Cart</button>
       </section>
