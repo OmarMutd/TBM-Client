@@ -23,6 +23,11 @@ export default class SingleItem extends Component {
         .then(response => response.json())
         .then(data => {this.setState({data: data})});
     };
+
+    addProductToCart = () => {
+        console.log('Item has been added to cart')
+     };
+
     render() {
         const {id, title, description, category, price, url} = this.state.data;
         return (
@@ -31,11 +36,12 @@ export default class SingleItem extends Component {
                      <div className='item-image' onClick={() => console.log('This is the image')}>
                          <Link to={`/SingleItem/${id}`}><img src={url} alt={description} /></Link>
                      </div>
-                     <button onClick={() => console.log('Item has been added to cart!')}>Add to Cart</button>
+                     <button onClick={this.addProductToCart}>Add to Cart</button>
                      <div className='product-information'></div>
                       <p>{title}</p>
                       <p>{price}</p>
                       <p>Category: {category}</p>
+                      <div className='product-desc'>{description}</div>
                       <button><Link to='/Products'>Go Back</Link></button>
                  </div>
             

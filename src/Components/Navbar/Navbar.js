@@ -41,6 +41,8 @@ class Navbar extends Component {
             <p onClick onClick={() => console.log('This is the image')} >Animals</p>
             <Link to={{pathname:`/Category/Animals`}}><Navlinks text='Animals'/></Link>
             {/* <Link to={{pathname:`/Category/Vehicles`}}><Navlinks text='Vehicles'/></Link> */}
+            <Link to={{pathname:`/Category/Animals`}}><Navlinks text='Animals'/></Link>
+            <Link to={{pathname:`/Category/Vehicles`}}><Navlinks text='Vehicles'/></Link>
             <Link to={{pathname:`/Category/Furniture`}}><Navlinks text='Furniture'/></Link>
             <Link to={{pathname:`/Category/Households`}}><Navlinks text='Households'/></Link>
             </section>

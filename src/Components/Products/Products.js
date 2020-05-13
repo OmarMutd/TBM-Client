@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Products.css';
-import { ProductConsumer } from '../../context';
 import Item from '../Item/Item';
 import  config from '../../config';
 
