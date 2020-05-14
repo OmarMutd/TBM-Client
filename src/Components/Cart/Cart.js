@@ -6,47 +6,23 @@ export default class Cart extends Component {
         return (
             <div className='.cart'>
               <h2>Shopping Cart</h2>
-
-
-            </div>
+              <div>
+              
+              <div className='item-card'>
+                     <div className='item-image' onClick={() => console.log('This is the image')}>
+                       <li><img src='img/black-zebra.jpg' alt="thumbnail-black-socks"></img></li>
+                     </div>
+                     <button onClick={() => console.log('Item has been added to cart!')}>Add to Cart</button>
+                     <div className='product-information'></div>
+                      <p>Zebra</p>
+                      <p>price: $1,000</p>
+                 </div>
+              </div>
+              </div>
         )
     }
 }
 
-{/* <section>
-        <h2>Shopping Cart</h2>
-      </section>
-      <section>
-        <h3>List of items</h3>
-        <ul className="items">
-          <li><img src="" alt="thumbnail-black-socks"></img></li>
-          <li><p>Black Socks</p></li>
-          <li><p>Quantity: <select id="quantity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-          <button>Remove</button></p></li>
-          <li><p>Price: $12.99</p></li>
-          <br/>
-          <br/>
-          <li><img src="" alt="thumbnail-black-pens"></img></li>
-          <li><p>Black Pens</p></li>
-          <li><p>Quantity: <select id="quantity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-            <button>Remove</button></p></li>
-          <li><p>Price: $2.99</p>
-          
-          </li>
-          </ul>
-          {/* <ProductConsumer>
-                            {(context) => (
-                               <div>
-                              <p> Cart Total: ${context.state.cartTotal}</p>
-                                </div>
-                            )}
-                            </ProductConsumer> */}
+
+       
    

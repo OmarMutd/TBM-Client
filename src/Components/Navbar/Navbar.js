@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon }  from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/fontawesome-free-solid'
-
-import Navlinks from './Navlinks'
-import Lead from './Lead'
-
-import './Navbar.css'
+import { FontAwesomeIcon }  from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/fontawesome-free-solid';
+import Navlinks from './Navlinks';
+import Lead from './Lead';
+import './Navbar.css';
 
 class Navbar extends Component {
 
@@ -29,7 +27,6 @@ class Navbar extends Component {
     }
   }
 
-
   render = () => {
     let nav_bar_class = `nav-bar ${this.state.menu_class}`
     return (
@@ -38,13 +35,10 @@ class Navbar extends Component {
             <Lead text="The Black Market" />
             <section className='left'>
             <Link to='/Products'><Navlinks text='All'/></Link>
-            <p onClick onClick={() => console.log('This is the image')} >Animals</p>
-            <Link to={{pathname:`/Category/Animals`}}><Navlinks text='Animals'/></Link>
-            {/* <Link to={{pathname:`/Category/Vehicles`}}><Navlinks text='Vehicles'/></Link> */}
-            <Link to={{pathname:`/Category/Animals`}}><Navlinks text='Animals'/></Link>
-            <Link to={{pathname:`/Category/Vehicles`}}><Navlinks text='Vehicles'/></Link>
-            <Link to={{pathname:`/Category/Furniture`}}><Navlinks text='Furniture'/></Link>
-            <Link to={{pathname:`/Category/Households`}}><Navlinks text='Households'/></Link>
+            <Link to={{pathname:`/Category/animals`}}><Navlinks text='Animals'/></Link>
+            <Link to={{pathname:`/Category/vehicle`}}><Navlinks text='Vehicles'/></Link>
+            <Link to={{pathname:`/Category/furniture`}}><Navlinks text='Furniture'/></Link>
+            <Link to={{pathname:`/Category/household`}}><Navlinks text='Households'/></Link>
             </section>
             
             <section className='right'>
