@@ -1,7 +1,11 @@
-import React, { Component } from 'react'
-import './OrderHistory.css'
+import React, { Component } from 'react';
+import './OrderHistory.css';
+import Order from '../Order/Order';
 
 export default class OrderHistory extends Component {
+    states = {
+        orders: [],
+    }
     render() {
         return (
             <div className='.orderhistory'>
@@ -22,6 +26,7 @@ export default class OrderHistory extends Component {
                       <li><p>Price: $2.99</p></li>
                     </ul>
                 </section>
+                <Order />
             </div>
         )
     }

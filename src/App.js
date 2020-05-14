@@ -9,7 +9,7 @@ import Cart from './Components/Cart/Cart';
 import Checkout from './Components/Checkout/Checkout';
 import Item from './Components/Item/Item';
 import OrderHistory from './Components/OrderHistory/OrderHistory';
-import OrderView from './Components/OrderView/OrderView';
+import Order from './Components/Order/Order';
 import Products from './Components/Products/Products';
 import PageDoesNotExist from './Components/PageDoesNotExist/PageDoesNotExist';
 import Navbar from './Components/Navbar/Navbar';
@@ -26,13 +26,12 @@ function App() {
       <Navbar/>
     <Switch>
        <Route exact path='/' component={LandingPage} />
-       <Route path='/SignIn' component={SignInPage} />
-       <Route path='/SignUp' component={SignUpPage} />
+       <Route path='/SignIn' component={SignIn} />
+       <Route path='/SignUp' component={SignUp} />
        <Route path='/Cart' component={Cart} />
        <Route path='/Checkout' component={Checkout} />
        <Route path='/Item' component={Item} />
        <Route path='/OrderHistory' component={OrderHistory} />
-       <Route path='/OrderView' component={OrderView} />
        <Route path='/Products' component={Products} />
        <Route path='/Category/:category' component={Category} />
        <Route path='/SingleItem/:id' component={SingleItem} />

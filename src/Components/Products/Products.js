@@ -18,9 +18,12 @@ export class Products extends Component {
         .then(data => {this.setState({ data: data })});
     };
 
+    addToCart = () => {
+        console.log('item added to cart')
+      }
+
     render() {
         const value = this.state.data;
-        console.log(value);
         return (
             <div>
                 <section>
@@ -30,7 +33,7 @@ export class Products extends Component {
                     <div className='all-products'>
                         <div className='products'>
                              {value.map(item => {
-                              return <Item product={item} key={item.id} />;
+                              return <Item product={item} key={item.id} onClick={this.addToCart} />;
                             })}
                         </div>
                     </div>

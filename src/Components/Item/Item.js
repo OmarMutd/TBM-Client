@@ -3,6 +3,10 @@ import './Item.css'
 import { Link } from 'react-router-dom';
 
 export default class Item extends Component {
+
+    addToCart = () => {
+        console.log('item added to cart')
+      }
    
     render() {
         const {id, title, description, category, price, url} = this.props.product;
@@ -14,11 +18,10 @@ export default class Item extends Component {
                      <div className='item-image' onClick={() => console.log('This is the image')}>
                          <Link to={{pathname:`/SingleItem/${id}`}}><img src={url} alt={description}/></Link>
                      </div>
-                     <button onClick={() => console.log('Item has been added to cart!')}>Add to Cart</button>
+                     <button onClick={this.addToCart}>Add to Cart</button>
                      <div className='product-information'></div>
                       <p>{title}</p>
                       <p>{price}</p>
-                      <p>Category: {category}</p>
                  </div>
             
             </div>

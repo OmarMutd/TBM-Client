@@ -1,22 +1,33 @@
-import React, { Component } from 'react'
-import './Cart.css'
+import React, { Component } from 'react';
+import './Cart.css';
+import CartItem from '../CartItem/CartItem';
+import  config from '../../config';
 
 export default class Cart extends Component {
+  state = {
+    cart: [],
+  };
+
+  componentDidMount() {
+    fetch(`${config.API_ENDPOINT}/orders/cart/2`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(cart => {this.setState({ cart: cart })});
+};
+
+
     render() {
         return (
-            <div className='.cart'>
+            <div className='.1cart'>
               <h2>Shopping Cart</h2>
+              <CartItem cart={this.state.cart}/>
+              <button>Clear cart</button>
+              <button>Checkout</button>
               <div>
-              
-              <div className='item-card'>
-                     <div className='item-image' onClick={() => console.log('This is the image')}>
-                       <li><img src='img/black-zebra.jpg' alt="thumbnail-black-socks"></img></li>
-                     </div>
-                     <button onClick={() => console.log('Item has been added to cart!')}>Add to Cart</button>
-                     <div className='product-information'></div>
-                      <p>Zebra</p>
-                      <p>price: $1,000</p>
-                 </div>
               </div>
               </div>
         )
