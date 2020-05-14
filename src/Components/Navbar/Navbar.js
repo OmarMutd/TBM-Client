@@ -17,7 +17,7 @@ class Navbar extends Component {
     }
   }
 
-  /*setToggleNavbarClass = () => {
+  setToggleNavbarClass = () => {
     if (this.state.menu_class === '') {
       this.setState({
         menu_class: 'toggled',
@@ -27,7 +27,7 @@ class Navbar extends Component {
         menu_class: '',
       })
     }
-  }*/
+  }
 
 
   render = () => {

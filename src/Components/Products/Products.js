@@ -25,10 +25,9 @@ export class Products extends Component {
         return (
             <div>
                 <section>
-                    <h2>Featured Category</h2>
+                    <h2>All Products</h2>
                 </section>
                 <section>
-                    <h2>Grid of products</h2>
                     <div className='all-products'>
                         <div className='products'>
                              {value.map(item => {
