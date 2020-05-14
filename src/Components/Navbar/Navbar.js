@@ -17,7 +17,7 @@ class Navbar extends Component {
     }
   }
 
-  setToggleNavbarClass = () => {
+  /*setToggleNavbarClass = () => {
     if (this.state.menu_class === '') {
       this.setState({
         menu_class: 'toggled',
@@ -27,7 +27,7 @@ class Navbar extends Component {
         menu_class: '',
       })
     }
-  }
+  }*/
 
 
   render = () => {
@@ -38,18 +38,18 @@ class Navbar extends Component {
             <Lead text="The Black Market" />
             <section className='left'>
             <Link to='/Products'><Navlinks text='All'/></Link>
-            <p onClick onClick={() => console.log('This is the image')} >Animals</p>
             <Link to={{pathname:`/Category/Animals`}}><Navlinks text='Animals'/></Link>
-            {/* <Link to={{pathname:`/Category/Vehicles`}}><Navlinks text='Vehicles'/></Link> */}
+            <Link to={{pathname:`/Category/Vehicles`}}><Navlinks text='Vehicles'/></Link>
             <Link to={{pathname:`/Category/Furniture`}}><Navlinks text='Furniture'/></Link>
             <Link to={{pathname:`/Category/Households`}}><Navlinks text='Households'/></Link>
             </section>
-            
-            <section className='right'>
-              <form>
+            <section classname='search'>
+            <form>
               <input type="text" placeholder="Search.." name="search"/>
               <button type="submit">Submit</button>
             </form>
+            </section>            
+            <section className='right'>              
             <Link to='/OrderHistory'><Navlinks text='Order History' /></Link>
             <Link to='/'><Navlinks text='Sign Out' /></Link>
               <Link to='/Cart'><Navlinks text='Cart' /></Link>
