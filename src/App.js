@@ -23,19 +23,20 @@ function App() {
   return (
     <div className='App'>
       <Navbar/>
-    <Switch>
-       <Route exact path='/' component={LandingPage} />
-       <Route path='/SignInPage' component={SignInPage} />
-       <Route path='/SignUpPage' component={SignUpPage} />
-       <Route path='/Cart' component={Cart} />
-       <Route path='/Checkout' component={Checkout} />
-       <Route path='/Item' component={Item} />
-       <Route path='/OrderHistory' component={OrderHistory} />
-       <Route path='/OrderView' component={OrderView} />
-       <Route path='/Products' component={Products} />
-       <Route path='/SingleItem/:id' component={SingleItem} />
-       <Route component={PageDoesNotExist} />
-       </Switch>
+      <Switch>
+        <Route exact path='/' component={LandingPage} />
+        <Route path='/SignIn' component={SignIn} />
+        <Route path='/SignUp' component={SignUp} />
+        <Route path='/Cart' component={Cart} />
+        <Route path='/Checkout' component={Checkout} />
+        <Route path='/Item' component={Item} />
+        <Route path='/OrderHistory' component={OrderHistory} />
+        <Route path='/OrderView' component={OrderView} />
+        <Route path='/Products' component={Products} />
+        <Route path='/SingleItem/:id' component={SingleItem} />
+        <Route component={PageDoesNotExist} />
+      </Switch>
+
     </div>
   );
 }
