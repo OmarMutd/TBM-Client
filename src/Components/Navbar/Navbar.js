@@ -15,7 +15,7 @@ class Navbar extends Component {
     }
   }
 
-  setToggleNavbarClass = () => {
+  /*setToggleNavbarClass = () => {
     if (this.state.menu_class === '') {
       this.setState({
         menu_class: 'toggled',
@@ -25,7 +25,7 @@ class Navbar extends Component {
         menu_class: '',
       })
     }
-  }
+  }*/
 
   render = () => {
     let nav_bar_class = `nav-bar ${this.state.menu_class}`
@@ -40,12 +40,13 @@ class Navbar extends Component {
             <Link to={{pathname:`/Category/furniture`}}><Navlinks text='Furniture'/></Link>
             <Link to={{pathname:`/Category/household`}}><Navlinks text='Households'/></Link>
             </section>
-            
-            <section className='right'>
-              <form>
+            <section classname='search'>
+            <form>
               <input type="text" placeholder="Search.." name="search"/>
               <button type="submit">Submit</button>
             </form>
+            </section>            
+            <section className='right'>              
             <Link to='/OrderHistory'><Navlinks text='Order History' /></Link>
             <Link to='/'><Navlinks text='Sign Out' /></Link>
               <Link to='/Cart'><Navlinks text='Cart' /></Link>
