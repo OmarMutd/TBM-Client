@@ -1,29 +1,53 @@
 import React, { Component } from 'react';
+import TokenService from '../../services/token-services'
+import AuthApiService from '../../services/auth-api-services'
 import { Link } from 'react-router-dom';
 import './SignInPage.css';
 
 export default class SignInPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          username: '',
-          password: '',
-          error: '',
-        }
-      }
 
-      handleUsername = e => {
-        this.setState({ username: e.target.value })
-      }
-    
-      handlPassword = e => {
-        this.setState({ password: e.target.value })
-      }
+    static defaultProps = {
+      onLoginSuccess: () => {}
+    }
+
+    state = {
+      error: null
+    }
+
+    handleSubmitJwtAuth = e => {
+      e.preventDefault()
+      this.setState({ error: null})
+
+      const username = e.target.elements[0].value
+      const password = e.target.elements[1].value
+
+      AuthApiService.postLogin({
+        username: username,
+        password: password
+      })
+        .then(res => {
+
+          TokenService.saveAuthToken(res.authToken)
+          this.props.onLoginSuccess()
+          
+        })
+        .catch(res => {
+          this.setState({ error: res.error })
+        })
+    }
+
       
       render() {
+        const { error } = this.state
         return (
             <div>
-                <form className='signup-form'>
+              <div role="alert">
+                {error && <p className="sign-error">{error}</p>}
+              </div>
+                <form 
+                className='signup-form'
+                onSubmit={this.handleSubmitJwtAuth}
+                >
                     <h2 className="signup-header">Sign In</h2>
 
                     <div className="username-signup">
@@ -33,8 +57,7 @@ export default class SignInPage extends Component {
                     placeholder='Username'
                     className='input-field'
                     type='text'
-                    value={this.state.username}
-                    onChange={this.handleUsername}
+                    required
                     />
                     </div>
                     <br/>
@@ -45,13 +68,12 @@ export default class SignInPage extends Component {
                     placeholder='Password'
                     className='input-field'
                     type='text'
-                    value={this.state.password}
-                    onChange={this.handlPassword}
+                    required
                     />
                    </div>
 
                    <div className='useful-buttons'>
-                       <button>Sign In</button>
+                       <button typer="submit" className="sign">Sign In</button>
                        
                        <Link to='/'><button>Go back</button></Link>
                        {/* <label htmlFor='signup-button'>Not a registered user? Click here to Sign up.</label> */}

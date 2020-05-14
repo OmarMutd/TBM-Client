@@ -3,8 +3,8 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 
 import LandingPage from './Components/LandingPage/LandingPage';
-import SignInPage from './Components/SignInPage/SignInPage';
-import SignUpPage from './Components/SignUpPage/SignUpPage';
+import SignIn from './Components/SignInPage/SignIn';
+import SignUp from './Components/SignUpPage/SignUp';
 import Cart from './Components/Cart/Cart';
 import Checkout from './Components/Checkout/Checkout';
 import Item from './Components/Item/Item';
@@ -26,8 +26,8 @@ function App() {
       <Navbar/>
     <Switch>
        <Route exact path='/' component={LandingPage} />
-       <Route path='/SignInPage' component={SignInPage} />
-       <Route path='/SignUpPage' component={SignUpPage} />
+       <Route path='/SignIn' component={SignInPage} />
+       <Route path='/SignUp' component={SignUpPage} />
        <Route path='/Cart' component={Cart} />
        <Route path='/Checkout' component={Checkout} />
        <Route path='/Item' component={Item} />
