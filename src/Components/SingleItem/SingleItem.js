@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import  config from '../../config';
+import './SingleItem.css';
 
 
 
@@ -36,6 +37,7 @@ export default class SingleItem extends Component {
                       <p>{title}</p>
                       <p>{price}</p>
                       <p>Category: {category}</p>
+                      <button><Link to='/Products'>Go Back</Link></button>
                  </div>
             
             </div>
