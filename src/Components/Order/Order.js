@@ -22,7 +22,7 @@ export class Order extends Component {
     render() {
         return (
             <div>
-                <h2>Your Order History</h2>
+                <h2>This is an Order.</h2>
             </div>
         )
     }
