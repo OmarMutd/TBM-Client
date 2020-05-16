@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 
+
 import LandingPage from "./Components/LandingPage/LandingPage";
 import SignIn from "./Components/SignInPage/SignIn";
 import SignUp from "./Components/SignUpPage/SignUp";
@@ -16,6 +17,8 @@ import Navbar from "./Components/Navbar/Navbar";
 import SingleItem from "./Components/SingleItem/SingleItem";
 import LoginContext from "./LoginContext";
 import TokenService from "./services/token-services";
+import Category from './Components/Category/Category';
+
 
 class App extends Component {
   state = {
@@ -24,12 +27,12 @@ class App extends Component {
 
   updateLogIn = () => {
     if (TokenService.hasAuthToken()) {
-      console.log("TRUE");
+     
       this.setState({
         loggedIn: true,
       });
     } else {
-      console.log("FALSE");
+      
       this.setState({
         loggedIn: false,
       });
@@ -41,6 +44,7 @@ class App extends Component {
       loggedIn: this.state.loggedIn,
       updateLogIn: this.updateLogIn,
     };
+
 
     return (
       <div className="App">
@@ -54,8 +58,8 @@ class App extends Component {
             <Route path="/Checkout" component={Checkout} />
             <Route path="/Item" component={Item} />
             <Route path="/OrderHistory" component={OrderHistory} />
-            <Route path="/OrderView" component={OrderView} />
             <Route path="/Products" component={Products} />
+            <Route path='/Category/:category' component={Category} />
             <Route path="/SingleItem/:id" component={SingleItem} />
             <Route component={PageDoesNotExist} />
           </Switch>
@@ -63,6 +67,7 @@ class App extends Component {
       </div>
     );
   }
+
 }
 
 export default App;

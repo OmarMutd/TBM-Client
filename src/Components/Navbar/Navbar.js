@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -61,8 +62,7 @@ class Navbar extends Component {
             </form>
             <SignInOut />
             {/* <Link to='/OrderHistory'><Navlinks text='Order History' /></Link>
-            <Link to='/'><Navlinks text='Sign Out' /></Link>
-              <Link to='/Cart'><Navlinks text='Cart' /></Link> */}
+
           </section>
           <FontAwesomeIcon
             icon={faBars}

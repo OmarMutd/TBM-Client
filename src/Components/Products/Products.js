@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Products.css';
-import { ProductConsumer } from '../../context';
 import Item from '../Item/Item';
 import  config from '../../config';
 
@@ -19,20 +18,22 @@ export class Products extends Component {
         .then(data => {this.setState({ data: data })});
     };
 
+    addToCart = () => {
+        console.log('item added to cart')
+      }
+
     render() {
         const value = this.state.data;
-        console.log(value);
         return (
             <div>
                 <section>
-                    <h2>Featured Category</h2>
+                    <h2>All Products</h2>
                 </section>
                 <section>
-                    <h2>Grid of products</h2>
                     <div className='all-products'>
                         <div className='products'>
                              {value.map(item => {
-                              return <Item product={item} key={item.id} />;
+                              return <Item product={item} key={item.id} onClick={this.addToCart} />;
                             })}
                         </div>
                     </div>
