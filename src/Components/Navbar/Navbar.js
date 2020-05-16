@@ -6,12 +6,13 @@ import TokenService from "../../services/token-services";
 import Navlinks from "./Navlinks";
 import Lead from "./Lead";
 import SignInOut from "./SignInOut";
-
+import config from "../../config";
 import "./Navbar.css";
 
 class Navbar extends Component {
   state = {
     menu_class: "",
+    data: [],
   };
 
   setToggleNavbarClass = () => {
@@ -26,14 +27,34 @@ class Navbar extends Component {
     }
   };
 
+  componentDidMount() {
+    fetch(`${config.API_ENDPOINT}/products/categories`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState({
+          data: data,
+        })
+      );
+  }
+
   render() {
     let nav_bar_class = `nav-bar ${this.state.menu_class}`;
+    const categories_lower = this.state.data;
+    const categories = categories_lower.map(function (str) {
+      return str.charAt(0).toUpperCase() + str.slice(1).replace(/ -/, ":");
+    });
+    console.log(categories);
 
     return (
       <div>
         <div className={nav_bar_class}>
           <Lead text="The Black Market" />
-          <section className="left">
+          {/* <section className="left">
             <Link to="/Products">
               <Navlinks text="All" />
             </Link>
@@ -49,6 +70,18 @@ class Navbar extends Component {
             <Link to={{ pathname: `/Category/household` }}>
               <Navlinks text="Households" />
             </Link>
+          </section> */}
+          <section className="left">
+            <Link to="/Products">
+              <Navlinks text="All" />
+            </Link>
+            {categories.map((category) => {
+              return (
+                <Link key={category} to={{ pathname: `/Category/${category}` }}>
+                  <div className="nav-bar-item">{category}</div>
+                </Link>
+              );
+            })}
           </section>
 
           <section className="right">
@@ -59,7 +92,6 @@ class Navbar extends Component {
             <SignInOut />
 
             {/* <Link to='/OrderHistory'><Navlinks text='Order History' /></Link> */}
-
           </section>
           <FontAwesomeIcon
             icon={faBars}
