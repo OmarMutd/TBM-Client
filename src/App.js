@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 
-
 import LandingPage from "./Components/LandingPage/LandingPage";
 import SignIn from "./Components/SignInPage/SignIn";
 import SignUp from "./Components/SignUpPage/SignUp";
@@ -16,8 +15,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import SingleItem from "./Components/SingleItem/SingleItem";
 import LoginContext from "./LoginContext";
 import TokenService from "./services/token-services";
-import Category from './Components/Category/Category';
-
+import Category from "./Components/Category/Category";
 
 class App extends Component {
   state = {
@@ -26,12 +24,10 @@ class App extends Component {
 
   updateLogIn = () => {
     if (TokenService.hasAuthToken()) {
-
       this.setState({
         loggedIn: true,
       });
     } else {
-
       this.setState({
         loggedIn: false,
       });
@@ -43,7 +39,6 @@ class App extends Component {
       loggedIn: this.state.loggedIn,
       updateLogIn: this.updateLogIn,
     };
-
 
     return (
       <div className="App">
@@ -58,7 +53,7 @@ class App extends Component {
             <Route path="/Item" component={Item} />
             <Route path="/OrderHistory" component={OrderHistory} />
             <Route path="/Products" component={Products} />
-            <Route path='/Category/:category' component={Category} />
+            <Route path="/Category/:category" component={Category} />
             <Route path="/SingleItem/:id" component={SingleItem} />
             <Route component={PageDoesNotExist} />
           </Switch>
@@ -66,7 +61,6 @@ class App extends Component {
       </div>
     );
   }
-
 }
 
 export default App;
