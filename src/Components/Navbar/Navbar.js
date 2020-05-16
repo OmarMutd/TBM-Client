@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -38,13 +37,10 @@ class Navbar extends Component {
             <Link to="/Products">
               <Navlinks text="All" />
             </Link>
-            <p onClick onClick={() => console.log("This is the image")}>
-              Animals
-            </p>
             <Link to={{ pathname: `/Category/animals` }}>
               <Navlinks text="Animals" />
             </Link>
-            <Link to={{ pathname: `/Category/vehicles` }}>
+            <Link to={{ pathname: `/Category/vehicle` }}>
               <Navlinks text="Vehicles" />
             </Link>
             <Link to={{ pathname: `/Category/furniture` }}>
@@ -61,7 +57,8 @@ class Navbar extends Component {
               <button type="submit">Submit</button>
             </form>
             <SignInOut />
-            <Link to='/OrderHistory'><Navlinks text='Order History' /></Link>
+
+            {/* <Link to='/OrderHistory'><Navlinks text='Order History' /></Link> */}
 
           </section>
           <FontAwesomeIcon
