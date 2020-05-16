@@ -70,7 +70,13 @@ class SignInPage extends Component {
               required
             />
           </div>
-          <p className='no-account'>Don't have an account?<Link to="/SignUp" className='sign-up'> Sign Up</Link></p>
+          <p className="no-account">
+            Don't have an account?
+            <Link to="/SignUp" className="sign-up">
+              {" "}
+              Sign Up
+            </Link>
+          </p>
 
           <div className="useful-buttons">
             <button typer="submit" className="sign">
@@ -78,16 +84,18 @@ class SignInPage extends Component {
             </button>
 
             <Link to="/">
-
               <button>Go back</button>
             </Link>
             {/* <label htmlFor='signup-button'>Not a registered user? Click here to Sign up.</label> */}
-            <Link replace to="/SignUp">
+            <Link
+              to={{
+                pathname: "/SignUp",
+                state: { fromSignIn: true },
+              }}
+            >
               <button className="signup-button">Sign Up</button>
 
-      
-              <button className='go-back-button'>Go back</button>
-
+              <button className="go-back-button">Go back</button>
             </Link>
           </div>
         </form>
