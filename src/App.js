@@ -1,43 +1,68 @@
-import React from 'react';
-import './App.css';
-import {Route, Switch} from 'react-router-dom';
+import React, { Component } from "react";
+import "./App.css";
+import { Route, Switch } from "react-router-dom";
 
-import LandingPage from './Components/LandingPage/LandingPage';
-import SignIn from './Components/SignInPage/SignIn';
-import SignUp from './Components/SignUpPage/SignUp';
-import Cart from './Components/Cart/Cart';
-import Checkout from './Components/Checkout/Checkout';
-import Item from './Components/Item/Item';
-import OrderHistory from './Components/OrderHistory/OrderHistory';
-import OrderView from './Components/OrderView/OrderView';
-import Products from './Components/Products/Products';
-import PageDoesNotExist from './Components/PageDoesNotExist/PageDoesNotExist';
-import Navbar from './Components/Navbar/Navbar';
-import SingleItem from './Components/SingleItem/SingleItem';
+import LandingPage from "./Components/LandingPage/LandingPage";
+import SignIn from "./Components/SignInPage/SignIn";
+import SignUp from "./Components/SignUpPage/SignUp";
+import Cart from "./Components/Cart/Cart";
+import Checkout from "./Components/Checkout/Checkout";
+import Item from "./Components/Item/Item";
+import OrderHistory from "./Components/OrderHistory/OrderHistory";
+import OrderView from "./Components/OrderView/OrderView";
+import Products from "./Components/Products/Products";
+import PageDoesNotExist from "./Components/PageDoesNotExist/PageDoesNotExist";
+import Navbar from "./Components/Navbar/Navbar";
+import SingleItem from "./Components/SingleItem/SingleItem";
+import LoginContext from "./LoginContext";
+import TokenService from "./services/token-services";
 
+class App extends Component {
+  state = {
+    loggedIn: TokenService.hasAuthToken(),
+  };
 
+  updateLogIn = () => {
+    if (TokenService.hasAuthToken()) {
+      console.log("TRUE");
+      this.setState({
+        loggedIn: true,
+      });
+    } else {
+      console.log("FALSE");
+      this.setState({
+        loggedIn: false,
+      });
+    }
+  };
 
+  render() {
+    const contextValue = {
+      loggedIn: this.state.loggedIn,
+      updateLogIn: this.updateLogIn,
+    };
 
-
-function App() {
-  return (
-    <div className="App">
-      <Navbar/>
-      <Switch>
-        <Route exact path='/' component={LandingPage} />
-        <Route path='/SignIn' component={SignIn} />
-        <Route path='/SignUp' component={SignUp} />
-        <Route path='/Cart' component={Cart} />
-        <Route path='/Checkout' component={Checkout} />
-        <Route path='/Item' component={Item} />
-        <Route path='/OrderHistory' component={OrderHistory} />
-        <Route path='/OrderView' component={OrderView} />
-        <Route path='/Products' component={Products} />
-        <Route path='/SingleItem' component={SingleItem} />
-        <Route component={PageDoesNotExist} />
-      </Switch>
-    </div>
-  );
+    return (
+      <div className="App">
+        <LoginContext.Provider value={contextValue}>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/SignIn" component={SignIn} />
+            <Route path="/SignUp" component={SignUp} />
+            <Route path="/Cart" component={Cart} />
+            <Route path="/Checkout" component={Checkout} />
+            <Route path="/Item" component={Item} />
+            <Route path="/OrderHistory" component={OrderHistory} />
+            <Route path="/OrderView" component={OrderView} />
+            <Route path="/Products" component={Products} />
+            <Route path="/SingleItem/:id" component={SingleItem} />
+            <Route component={PageDoesNotExist} />
+          </Switch>
+        </LoginContext.Provider>
+      </div>
+    );
+  }
 }
 
 export default App;
