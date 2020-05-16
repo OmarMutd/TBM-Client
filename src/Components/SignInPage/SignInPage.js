@@ -9,7 +9,6 @@ import "./SignInPage.css";
 class SignInPage extends Component {
   static contextType = LoginContext;
 
-
   state = {
     error: null,
   };
@@ -58,7 +57,6 @@ class SignInPage extends Component {
               placeholder="Username"
               className="input-field"
               type="text"
-
               required
             />
           </div>
@@ -69,12 +67,10 @@ class SignInPage extends Component {
               placeholder="Password"
               className="input-field"
               type="text"
-
               required
             />
           </div>
           <br />
-
 
           <div className="useful-buttons">
             <button typer="submit" className="sign">
@@ -85,14 +81,13 @@ class SignInPage extends Component {
               <button>Go back</button>
             </Link>
             {/* <label htmlFor='signup-button'>Not a registered user? Click here to Sign up.</label> */}
-            <Link to="/SignUp">
+            <Link replace to="/SignUp">
               <button className="signup-button">Sign Up</button>
             </Link>
           </div>
         </form>
       </div>
     );
-
   }
 }
 
