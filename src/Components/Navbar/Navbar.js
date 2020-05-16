@@ -37,13 +37,10 @@ class Navbar extends Component {
             <Link to="/Products">
               <Navlinks text="All" />
             </Link>
-            <p onClick onClick={() => console.log("This is the image")}>
-              Animals
-            </p>
             <Link to={{ pathname: `/Category/animals` }}>
               <Navlinks text="Animals" />
             </Link>
-            <Link to={{ pathname: `/Category/vehicles` }}>
+            <Link to={{ pathname: `/Category/vehicle` }}>
               <Navlinks text="Vehicles" />
             </Link>
             <Link to={{ pathname: `/Category/furniture` }}>
