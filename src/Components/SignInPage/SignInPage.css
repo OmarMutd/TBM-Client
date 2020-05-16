@@ -109,3 +109,22 @@ text-transform: uppercase;
  .sign-up:hover {
     color: blue;
 } 
+
+.signup-form {
+    /* border-radius:15px; */
+    width: 80%;
+    margin: 0 auto;
+    max-width: 80%;
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 600px) {
+    .signup-form {
+      width: 35%;
+      padding-bottom: 12px;
+    }
+  }
