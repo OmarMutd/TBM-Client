@@ -79,16 +79,9 @@ class SignInPage extends Component {
 
             <Link to="/">
 
-              <button>Go back</button>
-            </Link>
-            {/* <label htmlFor='signup-button'>Not a registered user? Click here to Sign up.</label> */}
-            <Link replace to="/SignUp">
-              <button className="signup-button">Sign Up</button>
-
-      
               <button className='go-back-button'>Go back</button>
-
             </Link>
+
           </div>
         </form>
       </div>
