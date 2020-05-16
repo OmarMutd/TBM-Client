@@ -60,7 +60,6 @@ export default class SignInPage extends Component {
               required
             />
           </div>
-          <br />
           <div className="password-signup">
             <label htmlFor='password-input'></label>
             <input
@@ -71,13 +70,14 @@ export default class SignInPage extends Component {
               required
             />
           </div>
+          <br />
 
           <div className='useful-buttons'>
             <button type="submit" className="sign">Sign In</button>
 
-            <Link to='/'><button>Go back</button></Link>
+            <Link to='/'><button className='go-back-button'>Go back</button></Link>
             {/* <label htmlFor='signup-button'>Not a registered user? Click here to Sign up.</label> */}
-            <Link to='/SignUpPage'><button className='signup-button'>Sign Up</button></Link>
+            <Link to='/SignUp'><button className='sign-up-button'>Sign Up</button></Link>
           </div>
 
         </form>

@@ -1,0 +1,97 @@
+.sign {
+color: black;
+text-align:center;
+transition: all 0.2s;
+font-weight:300;
+box-sizing: border-box;
+text-decoration:none;
+border:0.1em solid black;
+margin:0 0.3em 0.3em 0;
+border-radius:0.12em;
+display:inline-block;
+padding:0.35em 1.2em;
+text-transform: uppercase;
+display: inline-block;
+}
+
+.sign:hover {
+    color: black;
+    background-color: green;
+    cursor: pointer;
+
+}
+
+.go-back-button {
+color: black;
+text-align:center;
+transition: all 0.2s;
+font-weight:300;
+box-sizing: border-box;
+text-decoration:none;
+border:0.1em solid black;
+margin:0 0.3em 0.3em 0;
+border-radius:0.12em;
+display:inline-block;
+padding:0.35em 1.2em;
+text-transform: uppercase;
+display: inline-block;
+
+}
+
+.go-back-button:hover {
+    color: black;
+    background-color: rgb(238, 84, 84);
+    cursor: pointer;
+
+}
+
+.sign-up-button {
+color: black;
+text-align:center;
+transition: all 0.2s;
+font-weight:300;
+box-sizing: border-box;
+text-decoration:none;
+border:0.1em solid black;
+margin:0 0.3em 0.3em 0;
+border-radius:0.12em;
+display:inline-block;
+padding:0.35em 1.2em;
+text-transform: uppercase;
+
+}
+
+.sign-up-button:hover {
+    color: black;
+    background-color: green;
+    cursor: pointer;
+
+}
+
+.input-field {
+    /* border-radius: 0;
+    padding: 15px 20px; */
+    border: none;
+    font-family: Poppins-Regular;
+    font-size: 15px;
+    color: black;
+    line-height: 1.2;
+    height: 45px;
+    background: transparent;
+    padding: 0 5px;
+    border-bottom: 2px solid black;
+    outline: 0;
+}
+
+.input-field:focus {
+    border-color: blue;
+}
+
+
+
+.sign-in-page {
+    /* background: blue; */
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 77px 55px 33px 55px;
+}
