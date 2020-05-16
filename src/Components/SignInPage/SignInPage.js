@@ -70,7 +70,7 @@ class SignInPage extends Component {
               required
             />
           </div>
-          <br />
+          <p className='no-account'>Don't have an account?<Link to="/SignUp" className='sign-up'> Sign Up</Link></p>
 
           <div className="useful-buttons">
             <button typer="submit" className="sign">
@@ -78,11 +78,16 @@ class SignInPage extends Component {
             </button>
 
             <Link to="/">
+
               <button>Go back</button>
             </Link>
             {/* <label htmlFor='signup-button'>Not a registered user? Click here to Sign up.</label> */}
             <Link replace to="/SignUp">
               <button className="signup-button">Sign Up</button>
+
+      
+              <button className='go-back-button'>Go back</button>
+
             </Link>
           </div>
         </form>
