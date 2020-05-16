@@ -9,6 +9,7 @@ import "./SignInPage.css";
 class SignInPage extends Component {
   static contextType = LoginContext;
 
+
   state = {
     error: null,
   };
@@ -57,6 +58,7 @@ class SignInPage extends Component {
               placeholder="Username"
               className="input-field"
               type="text"
+
               required
             />
           </div>
@@ -68,9 +70,11 @@ class SignInPage extends Component {
               placeholder="Password"
               className="input-field"
               type="text"
+
               required
             />
           </div>
+
 
           <div className="useful-buttons">
             <button typer="submit" className="sign">
@@ -88,6 +92,7 @@ class SignInPage extends Component {
         </form>
       </div>
     );
+
   }
 }
 

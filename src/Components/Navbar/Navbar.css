@@ -1,5 +1,5 @@
 .nav-bar {
-  background-color: grey;
+  border-style: none none double;
   padding: 20px 50px 20px 50px;
   user-select: none;
 }
@@ -27,9 +27,12 @@
   min-width: 50px;
 }
 
-.nav-bar *:hover{
-  cursor: pointer;
+.nav-bar > .left > *, .nav-bar > .right > *:hover{
+  background-color: black;
+  color: white;
 }
+
+
 
 .clear-fix {
   clear: both;
@@ -56,25 +59,5 @@
 
   .nav-bar-icon {
       display: block !important;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .nav-bar.toggled {
-      padding: 60px 0 0 0;
-      max-height: 1500px;
-      transition: max-height 1s;
-  }
-
-  .nav-bar.toggled > .left {
-      border-bottom: 1px solid black;
-      margin: 15px 0 0 0 ;
-  }
-
-  .nav-bar.toggled *:not(.nav-bar-lead):not(.nav-bar-icon) {
-      float: none;
-      display: block !important;
-      text-align: left;
-      margin: 0;
   }
 }

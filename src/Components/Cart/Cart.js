@@ -1,54 +1,39 @@
-import React, { Component } from 'react'
-import './Cart.css'
-import { ProductConsumer } from '../../context'
-
+import React, { Component } from 'react';
+import './Cart.css';
+import CartItem from '../CartItem/CartItem';
+import  config from '../../config';
 
 export default class Cart extends Component {
+  state = {
+    cart: [],
+  };
+
+  componentDidMount() {
+    fetch(`${config.API_ENDPOINT}/orders/cart/2`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(cart => {this.setState({ cart: cart })});
+};
+
+
     render() {
         return (
-            <div className='.cart'>
-
-<section>
-        <h2>Shopping Cart</h2>
-      </section>
-      <section>
-        <h3>List of items</h3>
-        <ul className="items">
-          <li><img src="" alt="thumbnail-black-socks"></img></li>
-          <li><p>Black Socks</p></li>
-          <li><p>Quantity: <select id="quantity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-          <button>Remove</button></p></li>
-          <li><p>Price: $12.99</p></li>
-          <br/>
-          <br/>
-          <li><img src="" alt="thumbnail-black-pens"></img></li>
-          <li><p>Black Pens</p></li>
-          <li><p>Quantity: <select id="quantity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-            <button>Remove</button></p></li>
-          <li><p>Price: $2.99</p>
-          
-          </li>
-          </ul>
-          {/* <ProductConsumer>
-                            {(context) => (
-                               <div>
-                              <p> Cart Total: ${context.state.cartTotal}</p>
-                                </div>
-                            )}
-                            </ProductConsumer> */}
-        <button type="button">Checkout</button>
-        <button>Clear Cart</button>
-      </section>
-
-            </div>
+            <div className='.1cart'>
+              <h2>Shopping Cart</h2>
+              <CartItem cart={this.state.cart}/>
+              <button>Clear cart</button>
+              <button>Checkout</button>
+              <div>
+              </div>
+              </div>
         )
     }
 }
+
+
+       
+   

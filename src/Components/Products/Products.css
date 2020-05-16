@@ -1,0 +1,5 @@
+@media screen and (max-width: 600px) {
+    .all-products {
+        display: grid;
+      }
+}
