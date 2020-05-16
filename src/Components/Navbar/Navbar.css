@@ -1,83 +1,75 @@
 .nav-bar {
-  border-style: none none double;
-  padding: 20px 50px 20px 50px;
+  padding: 20px 10px 5px 10px;
   user-select: none;
+  background-color: black;
+  width: 100%;
+}
+.link-row {
+  display: flex;
+  justify-content: space-between;
 }
 
-.nav-bar > .right {
-  float: right;
+.nav-bar .right {
+  display: flex;
 }
-
-.nav-bar > .right > * {
-  margin-left: 5px;
+.nav-bar .left {
+  display: flex;
 }
-
-.nav-bar > .left {
-  float: left;
-}
-
-.nav-bar > .left > * {
-  margin-right: 5px;
-}
-
-.nav-bar > .left > *, .nav-bar > .right > * {
-  padding: 11.4px;
-  display: inline-block;
+.nav-bar .left > *,
+.nav-bar .right > * {
+  padding: 10px;
   text-align: center;
   min-width: 50px;
+  text-decoration: none;
 }
-
-.nav-bar > .left > *:hover, .nav-bar > .right > *:hover{
-  background-color: black;
-  color: white;
+.nav-bar > .left:hover,
+.nav-bar > .right:hover {
+  background-color: white;
+  color: black;
 }
-
-
-
 .clear-fix {
   clear: both;
 }
-
 .nav-bar .nav-bar-icon {
   padding: 10px;
   position: absolute;
   top: 0;
   right: 0;
   display: none;
+  color: white !important;
+}
+.search-bar-icon {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
   .nav-bar {
-      padding: 40px 20px 20px 20px;
-      max-height: 0;
-      overflow: hidden;
+    padding: 40px 20px 20px 20px;
+    max-height: 0;
+    overflow: hidden;
   }
-
-  .nav-bar > .left, .nav-bar > .right {
-      display: none;
+  .nav-bar > .left,
+  .nav-bar > .right {
+    display: none;
   }
-
   .nav-bar-icon {
-      display: block !important;
+    display: block !important;
   }
 }
-
 @media screen and (max-width: 600px) {
   .nav-bar.toggled {
-      padding: 60px 0 0 0;
-      max-height: 1500px;
-      transition: max-height 1s;
+    padding: 60px 0 0 0;
+    max-height: 1500px;
+    transition: max-height 1s;
   }
-
   .nav-bar.toggled > .left {
-      border-bottom: 1px solid black;
-      margin: 15px 0 0 0 ;
+    border-bottom: 1px solid black;
+    margin: 15px 0 0 0;
   }
-
   .nav-bar.toggled *:not(.nav-bar-lead):not(.nav-bar-icon) {
-      float: none;
-      display: block !important;
-      text-align: left;
-      margin: 0;
+    float: none;
+    display: block !important;
+    text-align: left;
+    margin: 0;
   }
 }

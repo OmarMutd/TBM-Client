@@ -1,17 +1,17 @@
 .nav-bar-lead {
-    padding: 10px;
-    background-color: #000000;
-    color: white;
-    display: inline-block;
-    float: left;
-    font-size: 18px;
+  color: white;
+  display: inline-block;
+  float: none;
+  font-size: 25px;
+  font-family: "Anton", sans-serif;
 }
 
-@media screen and (max-width: 600px) {
-    .nav-bar-lead {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        float: none;
-    }
+@media screen and (min-width: 600px) {
+  .nav-bar-lead {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+
+    font-size: 45px;
+  }
 }
