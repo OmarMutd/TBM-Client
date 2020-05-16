@@ -10,7 +10,6 @@ import Cart from "./Components/Cart/Cart";
 import Checkout from "./Components/Checkout/Checkout";
 import Item from "./Components/Item/Item";
 import OrderHistory from "./Components/OrderHistory/OrderHistory";
-import OrderView from "./Components/OrderView/OrderView";
 import Products from "./Components/Products/Products";
 import PageDoesNotExist from "./Components/PageDoesNotExist/PageDoesNotExist";
 import Navbar from "./Components/Navbar/Navbar";
@@ -27,12 +26,12 @@ class App extends Component {
 
   updateLogIn = () => {
     if (TokenService.hasAuthToken()) {
-     
+
       this.setState({
         loggedIn: true,
       });
     } else {
-      
+
       this.setState({
         loggedIn: false,
       });
