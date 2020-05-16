@@ -95,3 +95,17 @@ text-transform: uppercase;
     overflow: hidden;
     padding: 77px 55px 33px 55px;
 }
+
+.no-account {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+}
+
+.sign-up {
+    text-decoration: none;
+    color: black;
+}
+
+ .sign-up:hover {
+    color: blue;
+} 
