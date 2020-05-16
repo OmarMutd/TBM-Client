@@ -62,7 +62,6 @@ class SignInPage extends Component {
               required
             />
           </div>
-          <br />
           <div className="password-signup">
             <label htmlFor="password-input"></label>
             <input
@@ -74,6 +73,7 @@ class SignInPage extends Component {
               required
             />
           </div>
+          <br />
 
 
           <div className="useful-buttons">
