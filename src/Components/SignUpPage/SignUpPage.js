@@ -1,42 +1,59 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import './SignUpPage.css';
-import AuthApiService from '../../services/auth-api-services';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import "./SignUpPage.css";
+import AuthApiService from "../../services/auth-api-services";
+import LoginContext from "../../LoginContext";
+import TokenService from "../../services/token-services";
 
-export class SignUpPage extends Component {
-  static defaultProps = {
-    onRegistrationSuccess: () => { }
-  }
+
+class SignUpPage extends Component {
+  static contextType = LoginContext;
 
   state = {
-    error: null
-  }
+    error: null,
+  };
 
+  handleSignInSuccess = () => {
+    this.context.updateLogIn();
+    this.setState({});
 
+    this.props.history.goBack();
+  };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
 
-  handleSubmit = e => {
-    e.preventDefault()
+    const username = e.target.elements[0].value;
+    const password = e.target.elements[1].value;
 
-    const username = e.target.elements[0].value
-    const password = e.target.elements[1].value
+    this.setState({ error: null });
 
-    this.setState({ error: null })
+    
     AuthApiService.postUser({
       username: username,
-      password: password
+      password: password,
     })
       .then(() => {
-        console.log("success")
-        this.props.onRegistrationSuccess()
-      })
-      .catch(res => {
-        this.setState({ error: res.error })
-      })
-  }
 
+        AuthApiService.postLogin({
+          username: username,
+          password: password,
+        }).then((res) => {
+          console.log("AUTH TOKEN", res.authToken);
+          TokenService.saveAuthToken(res.authToken);
+
+
+          this.handleSignInSuccess();
+        });
+      })
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
+  };
 
   render() {
+
     const { error } = this.state
     return (
       <div>
@@ -53,10 +70,12 @@ export class SignUpPage extends Component {
               placeholder='Username'
               className='input-field'
               type='text'
+
               required
             />
           </div>
           <div className="password-signup">
+
             <label htmlFor='password-input'></label>
             <input
               id='password-input'
@@ -75,7 +94,8 @@ export class SignUpPage extends Component {
         </form>
       </div>
     )
+
   }
 }
 
-export default SignUpPage;
+export default withRouter(SignUpPage);
