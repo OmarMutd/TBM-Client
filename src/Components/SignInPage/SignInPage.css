@@ -1,0 +1,144 @@
+.sign {
+color: black;
+text-align:center;
+transition: all 0.2s;
+font-weight:300;
+box-sizing: border-box;
+text-decoration:none;
+border:0.1em solid black;
+margin:0 0.3em 0.3em 0;
+border-radius:0.12em;
+display:inline-block;
+padding:0.35em 1.2em;
+text-transform: uppercase;
+display: inline-block;
+}
+
+.sign:hover {
+    color: black;
+    background-color: green;
+    cursor: pointer;
+
+}
+
+.go-back-button {
+color: black;
+text-align:center;
+transition: all 0.2s;
+font-weight:300;
+box-sizing: border-box;
+text-decoration:none;
+border:0.1em solid black;
+margin:0 0.3em 0.3em 0;
+border-radius:0.12em;
+display:inline-block;
+padding:0.35em 1.2em;
+text-transform: uppercase;
+display: inline-block;
+
+}
+
+.go-back-button:hover {
+    color: black;
+    background-color: rgb(238, 84, 84);
+    cursor: pointer;
+
+}
+
+.sign-up-button {
+color: black;
+text-align:center;
+transition: all 0.2s;
+font-weight:300;
+box-sizing: border-box;
+text-decoration:none;
+border:0.1em solid black;
+margin:0 0.3em 0.3em 0;
+border-radius:0.12em;
+display:inline-block;
+padding:0.35em 1.2em;
+text-transform: uppercase;
+
+}
+
+.sign-up-button:hover {
+    color: black;
+    background-color: green;
+    cursor: pointer;
+
+}
+
+.input-field {
+    /* border-radius: 0;
+    padding: 15px 20px; */
+    border: none;
+    font-family: Poppins-Regular;
+    font-size: 15px;
+    color: black;
+    line-height: 1.2;
+    height: 45px;
+    background: transparent;
+    padding: 0 5px;
+    border-bottom: 2px solid black;
+    outline: 0;
+}
+
+.input-field:focus {
+    border-color: blue;
+}
+
+
+
+.sign-in-page {
+    /* background: blue; */
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 77px 55px 33px 55px;
+}
+
+.no-account {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+}
+
+.sign-up {
+    text-decoration: none;
+    color: black;
+}
+
+ .sign-up:hover {
+    color: blue;
+} 
+
+.signup-form {
+    /* border-radius:15px; */
+    width: 80%;
+    margin: 0 auto;
+    max-width: 80%;
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+    margin-top: 20px;
+}
+
+.cart-logo {
+   
+    height: 50px;
+    width: 50px;
+    -moz-border-radius: 30px; 
+    border-radius: 30px;
+    font-size: 2em;
+    padding-bottom: 5px;
+}
+
+.signup-header {
+    padding-bottom: 5px;
+}
+
+@media only screen and (min-width: 600px) {
+    .signup-form {
+      width: 35%;
+      padding-bottom: 12px;
+    }
+  }

@@ -1,67 +1,105 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import './SignInPage.css';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import TokenService from "../../services/token-services";
+import AuthApiService from "../../services/auth-api-services";
+import { Link } from "react-router-dom";
+import LoginContext from "../../LoginContext";
+import "./SignInPage.css";
+import CartLogo from '../../favicon.ico'
 
-export default class SignInPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          username: '',
-          password: '',
-          error: '',
-        }
-      }
+class SignInPage extends Component {
+  static contextType = LoginContext;
 
-      handleUsername = e => {
-        this.setState({ username: e.target.value })
-      }
-    
-      handlPassword = e => {
-        this.setState({ password: e.target.value })
-      }
-      
-      render() {
-        return (
-            <div>
-                <form className='signup-form'>
-                    <h2 className="signup-header">Sign In</h2>
+  state = {
+    error: null,
+  };
 
-                    <div className="username-signup">
-                    <label htmlFor='username-input'></label>
-                    <input
-                    id='username-input'
-                    placeholder='Username'
-                    className='input-field'
-                    type='text'
-                    value={this.state.username}
-                    onChange={this.handleUsername}
-                    />
-                    </div>
-                    <br/>
-                    <div className="password-signup">
-                   <label htmlFor='password-input'></label>
-                    <input
-                    id='password-input'
-                    placeholder='Password'
-                    className='input-field'
-                    type='text'
-                    value={this.state.password}
-                    onChange={this.handlPassword}
-                    />
-                   </div>
+  handleSignInSuccess = () => {
+    this.context.updateLogIn();
+    this.setState({});
 
-                   <div className='useful-buttons'>
-                       <button>Sign In</button>
-                       
-                       <Link to='/'><button>Go back</button></Link>
-                       {/* <label htmlFor='signup-button'>Not a registered user? Click here to Sign up.</label> */}
-                       <Link to='/SignUpPage'><button className='signup-button'>Sign Up</button></Link>
-                   </div>
+    this.props.history.goBack();
+  };
 
-                </form>
-            </div>
-        )
-    }
+  handleSubmitJwtAuth = (e) => {
+    e.preventDefault();
+    this.setState({ error: null });
+
+    const username = e.target.elements[0].value;
+    const password = e.target.elements[1].value;
+
+    AuthApiService.postLogin({
+      username: username,
+      password: password,
+    })
+      .then((res) => {
+        console.log("AUTH TOKEN", res.authToken);
+        TokenService.saveAuthToken(res.authToken);
+
+        this.handleSignInSuccess();
+      })
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
+  };
+
+  render() {
+    const { error } = this.state;
+    return (
+      <div>
+        <div role="alert">{error && <p className="sign-error">{error}</p>}</div>
+        <form className="signup-form" onSubmit={this.handleSubmitJwtAuth}>
+          <h2 className="signup-header">Sign In</h2>
+          <img className='cart-logo' alt="favicon" src={CartLogo}></img>
+
+          <div className="username-signup">
+            <label htmlFor="username-input"></label>
+            <input
+              id="username-input"
+              placeholder="Username"
+              className="input-field"
+              type="text"
+              required
+            />
+          </div>
+          <div className="password-signup">
+            <label htmlFor="password-input"></label>
+            <input
+              id="password-input"
+              placeholder="Password"
+              className="input-field"
+              type="text"
+              required
+            />
+          </div>
+          <p className="no-account">
+            Don't have an account?
+            <Link to="/SignUp" className="signup-button">
+              {" "}
+              Sign Up
+            </Link>
+          </p>
+
+          <div className="useful-buttons">
+            <button typer="submit" className="sign">
+              Sign In
+            </button>
+
+            <Link to="/">
+              <button className="go-back-button">Go back</button>
+            </Link>
+            <Link
+              to={{
+                pathname: "/SignUp",
+                state: { fromSignIn: true },
+              }}
+            >
+            </Link>
+          </div>
+        </form>
+      </div>
+    );
+  }
 }
 
-
+export default withRouter(SignInPage);

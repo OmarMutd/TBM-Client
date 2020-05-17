@@ -1,0 +1,21 @@
+.wrapper { 
+    height: 100%;
+    width: 100%;
+    position: absolute; 
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  background-size: 1800% 1800%;
+  
+  
+  -webkit-animation: glowing 13s ease infinite;
+  -z-animation: glowing 13s ease infinite;
+  -o-animation: glowing 13s ease infinite;
+  animation: glowing 13s ease infinite;}
+  
+ 
+  @keyframes glowing { 
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+  }
+
+

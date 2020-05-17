@@ -12,8 +12,8 @@ export default class LandingPage extends Component {
                     <section>
                         <h2>Description of app</h2>
                         <h3>Instructions for sign in</h3><br/>
-                           <Link to='/SignInPage'><button type="button">Sign In</button></Link>
-                           <Link to='/SignUpPage'><button type="button">Sign Up</button></Link> 
+                           <Link to='/SignIn'><button type="button">Sign In</button></Link>
+                           <Link to='/SignUp'><button type="button">Sign Up</button></Link> 
  
       </section>
             </div>

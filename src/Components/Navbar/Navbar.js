@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faSearch } from "@fortawesome/fontawesome-free-solid";
+import { faBars } from "@fortawesome/fontawesome-free-solid";
 import Navlinks from "./Navlinks";
 import Lead from "./Lead";
+import SignInOut from "./SignInOut";
+import config from "../../config";
 import "./Navbar.css";
+
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      menu_class: "",
-    };
-  }
+  state = {
+    menu_class: "",
+    data: [],
+    query: "",
+  };
+
   setToggleNavbarClass = () => {
     if (this.state.menu_class === "") {
       this.setState({
@@ -23,50 +26,81 @@ class Navbar extends Component {
       });
     }
   };
-  render = () => {
+
+  componentDidMount() {
+    fetch(`${config.API_ENDPOINT}/products/categories`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState({
+          data: data,
+        })
+      );
+  }
+
+  handleSearch = (e) => {
+    e.preventDefault();
+    console.log(this.state.query);
+  };
+
+  handleChange = (event) => {
+    this.setState({
+      query: event.target.value,
+    });
+  };
+
+  render() {
     let nav_bar_class = `nav-bar ${this.state.menu_class}`;
+    const categories_lower = this.state.data;
+    const categories = categories_lower.map(function (str) {
+      return str.charAt(0).toUpperCase() + str.slice(1).replace(/ -/, ":");
+    });
+
     return (
       <div>
         <div className={nav_bar_class}>
           <Lead text="The Black Market" />
-          <section className="search">
-            <form className="search-bar">
-              <input type="text" placeholder="Search.." name="search" />
-              <button type="submit">
-                <FontAwesomeIcon icon={faSearch} className="search-bar-icon" />
-              </button>
-            </form>
+
+          <section className="left">
+            <Link to="/Products">
+              <Navlinks text="All" />
+            </Link>
+            {categories.map((category) => {
+              return (
+                <Link
+                  key={category}
+                  to={{ pathname: `/Category/${category.toLowerCase()}` }}
+                >
+                  <div className="nav-bar-item">{category}</div>
+                </Link>
+              );
+            })}
           </section>
-          <div className="link-row">
-            <section className="left">
-              <Link to="/Products">
-                <Navlinks text="All" />
+
+          <section className="right">
+            <form onSubmit={this.handleSearch}>
+              <input
+                type="text"
+                value={this.state.query}
+                onChange={this.handleChange}
+                placeholder="Search.."
+                name="search"
+              />
+              <Link
+                to={{
+                  pathname: `/SearchResults`,
+                  state: { query: this.state.query },
+                }}
+              >
+                <button type="submit">Submit</button>
               </Link>
-              <Link to={{ pathname: `/Category/Animals` }}>
-                <Navlinks text="Animals" />
-              </Link>
-              <Link to={{ pathname: `/Category/Vehicles` }}>
-                <Navlinks text="Vehicles" />
-              </Link>
-              <Link to={{ pathname: `/Category/Furniture` }}>
-                <Navlinks text="Furniture" />
-              </Link>
-              <Link to={{ pathname: `/Category/Households` }}>
-                <Navlinks text="Households" />
-              </Link>
-            </section>
-            <section className="right">
-              <Link to="/OrderHistory">
-                <Navlinks text="Order History" />
-              </Link>
-              <Link to="/">
-                <Navlinks text="Sign Out" />
-              </Link>
-              <Link to="/Cart">
-                <Navlinks text="Cart" />
-              </Link>
-            </section>
-          </div>
+            </form>
+            <SignInOut />
+          </section>
           <FontAwesomeIcon
             icon={faBars}
             className="nav-bar-icon"
@@ -76,6 +110,7 @@ class Navbar extends Component {
         </div>
       </div>
     );
-  };
+  }
 }
+
 export default Navbar;
