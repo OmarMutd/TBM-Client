@@ -1,16 +1,15 @@
 .nav-bar-item:hover {
-    background-color: black;
-    color: white;
+  background-color: white;
+  color: black;
 }
 
 .nav-bar-item {
-    background-color: #ddd;
-    border: none;
-    color: black;
-    padding: 16px 32px;
-    text-align: center;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition: 0.3s;
-  }
-  
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  margin: 4px 2px;
+  transition: 0.3s;
+}
