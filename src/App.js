@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
-
 import LandingPage from "./Components/LandingPage/LandingPage";
 import SignIn from "./Components/SignInPage/SignIn";
 import SignUp from "./Components/SignUpPage/SignUp";
@@ -16,6 +15,7 @@ import SingleItem from "./Components/SingleItem/SingleItem";
 import LoginContext from "./LoginContext";
 import TokenService from "./services/token-services";
 import Category from "./Components/Category/Category";
+import SearchResults from "./Components/SearchResults/SearchResults";
 
 class App extends Component {
   state = {
@@ -53,6 +53,7 @@ class App extends Component {
             <Route path="/Item" component={Item} />
             <Route path="/OrderHistory" component={OrderHistory} />
             <Route path="/Products" component={Products} />
+            <Route path="/SearchResults" component={SearchResults} />
             <Route path="/Category/:category" component={Category} />
             <Route path="/SingleItem/:id" component={SingleItem} />
             <Route component={PageDoesNotExist} />
