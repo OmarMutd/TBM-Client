@@ -42,7 +42,6 @@ export class Category extends Component {
     const value = this.state.data;
     const category = this.state.category;
     const title = this.capitalize(category);
-    console.log(title);
 
     return (
       <div>
