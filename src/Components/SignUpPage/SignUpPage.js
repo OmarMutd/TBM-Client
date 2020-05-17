@@ -5,6 +5,8 @@ import "./SignUpPage.css";
 import AuthApiService from "../../services/auth-api-services";
 import LoginContext from "../../LoginContext";
 import TokenService from "../../services/token-services";
+import CartLogo from '../../favicon.ico'
+
 
 class SignUpPage extends Component {
   static contextType = LoginContext;
@@ -66,6 +68,7 @@ class SignUpPage extends Component {
         <div role="alert">{error && <p className="sign-error">{error}</p>}</div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
           <h2 className="signup-header">Create An Account</h2>
+          <img className='cart-logo' alt="favicon" src={CartLogo}></img>
 
           <div className="username-signup">
             <label htmlFor="username-input"></label>
