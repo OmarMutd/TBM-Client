@@ -9,7 +9,7 @@ export default class Cart extends Component {
   };
 
   componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/cart/2`, {
+    fetch(`${config.API_ENDPOINT}/cart/1`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -26,6 +26,7 @@ export default class Cart extends Component {
         <h2>Shopping Cart</h2>
         <CartItem cart={this.state.cart} />
         <button>Clear cart</button>
+        <p>Cart Total(# items): $</p>
         <button>Checkout</button>
         <div>
         </div>

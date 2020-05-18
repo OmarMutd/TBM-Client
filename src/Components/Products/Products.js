@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Products.css';
 import Item from '../Item/Item';
-import  config from '../../config';
+import config from '../../config';
 
 export class Products extends Component {
     state = {
@@ -14,13 +14,9 @@ export class Products extends Component {
                 'Content-Type': 'application/json',
             },
         })
-        .then(response => response.json())
-        .then(data => {this.setState({ data: data })});
+            .then(response => response.json())
+            .then(data => { this.setState({ data: data }) });
     };
-
-    addToCart = () => {
-        console.log('item added to cart')
-      }
 
     render() {
         const value = this.state.data;
@@ -32,8 +28,8 @@ export class Products extends Component {
                 <section>
                     <div className='all-products'>
                         <div className='products'>
-                             {value.map(item => {
-                              return <Item product={item} key={item.id} onClick={this.addToCart} />;
+                            {value.map(item => {
+                                return <Item product={item} key={item.id} onClick={this.addToCart} />;
                             })}
                         </div>
                     </div>
