@@ -13,6 +13,7 @@ class Navbar extends Component {
     menu_class: "",
     data: [],
     query: "",
+    quantity: "",
   };
 
   setToggleNavbarClass = () => {
@@ -27,7 +28,7 @@ class Navbar extends Component {
     }
   };
 
-  componentDidMount() {
+  fetchCategories = () => {
     fetch(`${config.API_ENDPOINT}/products/categories`, {
       method: "GET",
       headers: {
@@ -40,6 +41,33 @@ class Navbar extends Component {
           data: data,
         })
       );
+  };
+
+  fetchCartQuantity = () => {
+    fetch(`${config.API_ENDPOINT}/cart/1`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState({
+          quantity: data.length,
+        })
+      );
+  };
+
+  componentDidMount() {
+    this.fetchCartQuantity();
+    this.fetchCategories();
+  }
+
+  componentDidUpdate(prevProps) {
+    const quantity = this.state.quantity;
+    if (quantity != prevProps.quantity) {
+      this.fetchCartQuantity();
+    }
   }
 
   handleSearch = (e) => {
@@ -99,7 +127,7 @@ class Navbar extends Component {
                 <button type="submit">Submit</button>
               </Link>
             </form>
-            <SignInOut />
+            <SignInOut quantity={this.state.quantity} />
           </section>
           <FontAwesomeIcon
             icon={faBars}
