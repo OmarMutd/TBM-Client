@@ -56,6 +56,7 @@ export class CartItem extends Component {
                     return <div key={cartItem.id}><Link to={{ pathname: `/SingleItem/${cartItem.id}` }}><img src={cartItem.url} alt={cartItem.description} /></Link>
                       <p>{cartItem.title}</p>
                       <p>{cartItem.price}</p>
+                      <p>Quantity: [# here]</p>
                       <button className='inc-item' onClick={this.incrementItem}>+</button>
                       <button className='dec-item' onClick={this.decrementItem}>-</button>
                       <button className='remove-all' onClick={() => this.removeItem(`${cartItem.id}`)}>Remove</button>
