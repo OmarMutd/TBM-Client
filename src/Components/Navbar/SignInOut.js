@@ -43,7 +43,7 @@ export default class SignInOut extends Component {
         </div>
         <div className="nav-bar-item">
           <Link className="nav-bar-item" to="/Cart">
-            Cart
+            Cart ({this.props.quantity})
           </Link>
         </div>
       </div>

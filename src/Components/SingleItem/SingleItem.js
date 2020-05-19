@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import  config from '../../config';
+import config from '../../config';
 import './SingleItem.css';
 
 
@@ -9,8 +9,9 @@ export default class SingleItem extends Component {
     state = {
         data: [],
     };
+
     componentDidMount() {
-    this.getSingleItem()
+        this.getSingleItem()
     }
 
     getSingleItem = () => {
@@ -21,31 +22,58 @@ export default class SingleItem extends Component {
                 'Content-Type': 'application/json',
             },
         })
-        .then(response => response.json())
-        .then(data => {this.setState({data: data})});
+            .then(response => response.json())
+            .then(data => { this.setState({ data: data }) });
     };
 
-    addProductToCart = () => {
-        console.log('Item has been added to cart')
-     };
+    addToCart = (id) => {
+        const user_id = "1"
+        const product_id = id
+        const quantity = "1"
+        const added_item = { user_id: user_id, product_id: product_id, quantity: quantity }
+        fetch(`${config.API_ENDPOINT}/cart`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(added_item)
+        })
+            .then(response => response.json())
+            .then(singleitem => console.log(singleitem));
+    };
 
     render() {
-        const {id, title, description, category, price, url} = this.state.data;
+        const { id, title, description, category, price, url } = this.state.data;
         return (
             <div>
-                 <div className='item-card'>
-                     <div className='item-image' onClick={() => console.log('This is the image')}>
-                         <Link to={`/SingleItem/${id}`}><img src={url} alt={description} /></Link>
-                     </div>
-                     <button onClick={this.addProductToCart}>Add to Cart</button>
-                     <div className='product-information'></div>
-                      <p>{title}</p>
-                      <p>{price}</p>
-                      <p>Category: {category}</p>
-                      <div className='product-desc'>{description}</div>
-                      <button><Link to='/Products'>Go Back</Link></button>
-                 </div>
-            
+                <div className='item-card'>
+                    <div className='item-image' onClick={() => console.log('This is the image')}>
+                        <Link to={`/SingleItem/${id}`}><img src={url} alt={description} /></Link>
+                    </div>
+                    <button onClick={() => this.addToCart(`${id}`)}>Add to Cart</button>
+                    <div className='product-information'></div>
+                    <p>{title}</p>
+                    <p>{price}</p>
+                    <p>quantity:
+                        <select>
+                            <option> 1 </option>
+                            <option> 2 </option>
+                            <option> 3 </option>
+                            <option> 4 </option>
+                            <option> 5 </option>
+                            <option> 6 </option>
+                            <option> 7 </option>
+                            <option> 8 </option>
+                            <option> 9 </option>
+                            <option> 10 </option>
+                        </select>
+                    </p>
+
+                    <p>Category: {category}</p>
+                    <div className='product-desc'>{description}</div>
+                    <button><Link to='/Products'>Go Back</Link></button>
+                </div>
+
             </div>
         );
     }

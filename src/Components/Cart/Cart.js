@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Cart.css';
 import CartItem from '../CartItem/CartItem';
-import  config from '../../config';
+import config from '../../config';
 
 export default class Cart extends Component {
   state = {
@@ -9,31 +9,32 @@ export default class Cart extends Component {
   };
 
   componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/orders/cart/2`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+    fetch(`${config.API_ENDPOINT}/cart/1`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
-    .then(response => response.json())
-    .then(cart => {this.setState({ cart: cart })});
-};
+      .then(response => response.json())
+      .then(cart => { this.setState({ cart: cart }) });
+  };
 
 
-    render() {
-        return (
-            <div className='.1cart'>
-              <h2>Shopping Cart</h2>
-              <CartItem cart={this.state.cart}/>
-              <button>Clear cart</button>
-              <button>Checkout</button>
-              <div>
-              </div>
-              </div>
-        )
-    }
+  render() {
+    return (
+      <div className='.1cart'>
+        <h2>Shopping Cart</h2>
+        <CartItem cart={this.state.cart} />
+        <button>Clear cart</button>
+        <p>Cart Total(# items): $</p>
+        <button>Checkout</button>
+        <div>
+        </div>
+      </div>
+    )
+  }
 }
 
 
-       
-   
+
+
