@@ -19,13 +19,26 @@ export default class Cart extends Component {
       .then(cart => { this.setState({ cart: cart }) });
   };
 
+  clearCart = (id) => {
+    const user_id = "1"
+    fetch(`${config.API_ENDPOINT}/cart`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user_id)
+    })
+      .then(response => response.json())
+      .then(removeditem => console.log(removeditem));
+  };
+
 
   render() {
     return (
       <div className='.1cart'>
         <h2>Shopping Cart</h2>
         <CartItem cart={this.state.cart} />
-        <button>Clear cart</button>
+        <button onClick={() => this.clearCart}>Clear cart</button>
         <p>Cart Total(# items): $</p>
         <button>Checkout</button>
         <div>

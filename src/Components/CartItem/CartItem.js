@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import config from '../../config';
+
 
 
 export class CartItem extends Component {
@@ -27,11 +29,18 @@ export class CartItem extends Component {
     }
   }
 
-  removeItem = () => {
-    this.setState({
-      quantity: 0
+  removeItem = (id) => {
+    fetch(`${config.API_ENDPOINT}/cart/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
-  }
+      .then(response => response.json())
+      .then(removeditem => console.log(removeditem));
+  };
+
+
 
   render() {
     const cart = this.props.cart
@@ -47,19 +56,18 @@ export class CartItem extends Component {
                     return <div key={cartItem.id}><Link to={{ pathname: `/SingleItem/${cartItem.id}` }}><img src={cartItem.url} alt={cartItem.description} /></Link>
                       <p>{cartItem.title}</p>
                       <p>{cartItem.price}</p>
+                      <button className='inc-item' onClick={this.incrementItem}>+</button>
+                      <button className='dec-item' onClick={this.decrementItem}>-</button>
+                      <button className='remove-all' onClick={() => this.removeItem(`${cartItem.id}`)}>Remove</button>
                     </div>
                   })
                 }
 
               </div>
-              <button onClick={this.addToCart}>Add to Cart</button>
               <div className='product-information'></div>
 
             </div>
           </div>
-          <button className='inc-item' onClick={this.incrementItem}>+</button>
-          <button className='dec-item' onClick={this.decrementItem}>-</button>
-          <button className='remove-all' onClick={this.removeItem}>Remove</button>
 
         </div>
       </div>
