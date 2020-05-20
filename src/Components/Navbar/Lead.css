@@ -2,16 +2,14 @@
   color: white;
   display: inline-block;
   float: none;
-  font-size: 35px;
+  font-size: 25px;
   font-family: "Anton", sans-serif;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) {
   .nav-bar-lead {
-    position: absolute;
     top: 5px;
     left: 10px;
-
-    font-size: 20px;
+    font-size: 50px;
   }
 }

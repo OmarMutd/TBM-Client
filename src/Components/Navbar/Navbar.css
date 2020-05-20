@@ -1,6 +1,6 @@
 .nav-bar {
-  padding: 20px 0 5px;
-  max-height: 0;
+  padding: 5px 0 5px;
+  max-height: 10vh;
   overflow: hidden;
   background-color: black;
 }
@@ -18,11 +18,7 @@
   min-width: 50px;
   text-decoration: none;
 }
-.nav-bar > .left:hover,
-.nav-bar > .right:hover {
-  background-color: white;
-  color: black;
-}
+
 .clear-fix {
   clear: both;
 }
@@ -41,6 +37,8 @@
 .search-bar-icon {
   cursor: pointer;
 }
+.search-bar {
+}
 
 @media screen and (min-width: 600px) {
   .nav-bar {
@@ -49,9 +47,7 @@
     user-select: none;
     max-height: none;
   }
-  .nav-bar > .left,
-  .nav-bar > .right {
-  }
+
   .nav-bar-icon {
     visibility: hidden;
   }
@@ -60,9 +56,9 @@
     justify-content: space-between;
   }
 }
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 600px) {
   .nav-bar.toggled {
-    padding: 60px 0 0 0;
+    padding: 10px 0 0 0;
     max-height: 1500px;
     transition: max-height 1s;
   }

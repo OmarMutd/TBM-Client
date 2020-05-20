@@ -42,6 +42,10 @@ class App extends Component {
 
     return (
       <div className="App">
+        <link
+          href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap"
+          rel="stylesheet"
+        />
         <LoginContext.Provider value={contextValue}>
           <Navbar />
           <Switch>
