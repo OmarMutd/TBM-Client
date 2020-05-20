@@ -29,18 +29,26 @@ export class CartItem extends Component {
     }
   }
 
-  removeItem = (id) => {
+  removeItem(id) {
+    const user_id = "1"
     fetch(`${config.API_ENDPOINT}/cart/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify({ user_id })
     })
-      .then(response => response.json())
-      .then(removeditem => console.log(removeditem));
+      .then((res) => res.text())
+      .then((text) => text.length ? JSON.parse(text) : {})
+      .then(() => {
+        this.props.setCart(this.props.cart.filter(v => v.id !== +id));
+      })
+      .catch((error) => {
+        throw error;
+      })
+
+
   };
-
-
 
   render() {
     const cart = this.props.cart
