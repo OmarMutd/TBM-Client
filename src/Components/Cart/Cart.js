@@ -40,12 +40,15 @@ export default class Cart extends Component {
     const itemsInCart = this.state.cart;
     if (itemsInCart.length !== prevState.cart.length) {
       this.getCart(itemsInCart);
-      // this.setState({ cart: itemsInCart });
     }
   }
 
   setCart(cart) {
     this.setState({ cart: cart })
+  }
+
+  updateCartTotal = () => {
+
   }
 
 
@@ -57,8 +60,8 @@ export default class Cart extends Component {
       <div className='.1cart'>
         <h2>Shopping Cart</h2>
         <CartItem setCart={this.setCart.bind(this)} cart={this.state.cart} />
-        <button onClick={() => this.clearCart}>Clear cart</button>
-        <p>Cart Total(# items): $</p>
+        <button className='clear-cart' onClick={() => this.clearCart}>Clear cart</button>
+        <p className='cart-total-title'>Cart Total: $</p>
         <button>Checkout</button>
         <div>
         </div>
