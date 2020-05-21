@@ -65,7 +65,7 @@ export default class Cart extends Component {
         <CartItem setCart={this.setCart.bind(this)} cart={this.state.cart} />
         <button className='clear-cart' onClick={() => this.clearCart()}>Clear cart</button>
         <p className='cart-total-title'>Cart Total: $</p>
-        <button>Checkout</button>
+        <button className='cart-checkout'>Checkout</button>
         {/* {this.state.cart.length} */}
         <div>
         </div>

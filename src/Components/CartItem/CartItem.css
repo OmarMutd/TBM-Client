@@ -2,20 +2,7 @@
     margin: 30px;
 }
 
-.shop-item-title {
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 15px;
-}
 
-.shop-item-price {
-    flex-grow: 1;
-    color: #333;
-}
 
 .shop-items {
     display: flex;
