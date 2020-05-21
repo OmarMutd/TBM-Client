@@ -71,13 +71,9 @@ export class CartItem extends Component {
                     </div>
                   })
                 }
-
               </div>
-              {/* <div className='product-information'></div> */}
-
             </div>
           </div>
-
         </div>
       </div>
     )

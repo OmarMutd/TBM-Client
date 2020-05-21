@@ -1,0 +1,27 @@
+render() {
+    return (
+      <div className='.1cart'>
+        {(() => {
+          if (this.state.cart.Object.length > 0) {
+            return (
+              <div>
+                <h2>Shopping Cart</h2>
+                <CartItem setCart={this.setCart.bind(this)} cart={this.state.cart} />
+                <button className='clear-cart' onClick={() => this.clearCart}>Clear cart</button>
+                <p className='cart-total-title'>Cart Total: $</p>
+                <button>Checkout</button>
+              </div>
+            )
+          }
+          else {
+            return (
+              <div>
+                <EmptyCart />
+              </div>
+            )
+          }
+        })}
+      </div>
+    )
+  }
+}
