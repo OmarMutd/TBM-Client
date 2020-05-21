@@ -11,12 +11,12 @@
 }
 
 
-.cart-row {
-    display: flex;
-    border-bottom: 1px solid black;
+.cart-row {    
     /* line-height: 14px; */
+    /* display: flex;
+    border-bottom: 1px solid black;
     width: 450px;
-    padding-left: 80px;
+    padding-left: 80px; */
 }
 
 
@@ -126,6 +126,10 @@
      width: 55px;
     }
     .cart-row {
-        padding-left: 0px;
+     padding-left: 0px;
+    display: flex;
+    border-bottom: 1px solid black;
+    width: 450px;
+    padding-left: 80px;
     }
   }
