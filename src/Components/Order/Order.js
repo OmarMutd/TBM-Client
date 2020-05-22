@@ -9,9 +9,7 @@ export class Order extends Component {
     total: 0,
   };
 
-  componentDidMount() {
-    console.log(this.props.orders);
-  }
+  componentDidMount() {}
 
   parseNumber(strg) {
     var strg = strg || "";
@@ -44,13 +42,18 @@ export class Order extends Component {
       return <div>Loading...</div>;
     } else if (orders.length && Object.keys(groupedOrders).length) {
       return orderEntries.map(([invoiceId, products]) => {
+        const totalOrder = products.reduce((acc, cartItem) => {
+          let priceWithoutSym = cartItem.price.slice(1);
+          let price = this.parseNumber(priceWithoutSym);
+          let amount = price * cartItem.quantity;
+          return acc + amount;
+        }, 0);
         return (
           <div key={invoiceId}>
             <div>
               <h2>Order #{invoiceId}</h2>
               <h3>Products Purchased:</h3>
             </div>
-
             {products.map(({ id, title, price, quantity, url }) => {
               let cost = this.parseNumber(price.slice(1));
               let total = cost * quantity;
@@ -64,7 +67,7 @@ export class Order extends Component {
                 </div>
               );
             })}
-            <h3>Order Total = </h3>
+            <h3>Order Total = ${totalOrder}.00</h3>
           </div>
         );
       });
