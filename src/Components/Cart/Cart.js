@@ -1,35 +1,35 @@
-import React, { Component } from 'react';
-import './Cart.css';
-import CartItems from '../CartItem/CartItem';
-import config from '../../config';
-import EmptyCart from './EmptyCart';
+import React, { Component } from "react";
+import "./Cart.css";
+import CartItems from "../CartItem/CartItem";
+import config from "../../config";
+import EmptyCart from "./EmptyCart";
 
 export default class Cart extends Component {
   state = {
     cart: {},
     total: 0,
-
   };
 
   getCart() {
     fetch(`${config.API_ENDPOINT}/cart/1`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
-      .then(response => response.json())
-      .then(items => items.reduce((cart, item) => {
-        if (!cart[item.id]) {
-          cart[item.id] = item
-          return cart
-        }
-        cart[item.id].quantity += 1
-        return cart
-      }, {}))
-      .then(this.setCart.bind(this))
+      .then((response) => response.json())
+      .then((items) =>
+        items.reduce((cart, item) => {
+          if (!cart[item.id]) {
+            cart[item.id] = item;
+            return cart;
+          }
+          cart[item.id].quantity += 1;
+          return cart;
+        }, {})
+      )
+      .then(this.setCart.bind(this));
   }
-
 
   componentDidMount() {
     const cart = this.state.cart;
@@ -45,67 +45,75 @@ export default class Cart extends Component {
   }
 
   setCart(cart) {
-    this.setState({ cart: cart })
+    this.setState({ cart: cart });
     this.updateTotal();
   }
 
   clearCart = () => {
-    const user_id = "1"
+    const user_id = "1";
     fetch(`${config.API_ENDPOINT}/cart`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user_id })
+      body: JSON.stringify({ user_id }),
     })
       .then((res) => res.text())
-      .then((text) => text.length ? JSON.parse(text) : {})
-      .then(() => window.location.reload())
+      .then((text) => (text.length ? JSON.parse(text) : {}))
+      .then(() => window.location.reload());
   };
 
-
   updateTotal() {
-    this.setState({ total: Object.entries(this.state.cart).reduce((sum, [id, item]) => sum + (+item.price.slice(1)) * item.quantity, 0) })
+    this.setState({
+      total: Object.entries(this.state.cart).reduce(
+        (sum, [id, item]) => sum + +item.price.slice(1) * item.quantity,
+        0
+      ),
+    });
   }
 
   incrementItem(id) {
-    const item = { ...this.state.cart[id] }
-    item.quantity += 1
-    const cart = { ...this.state.cart }
-    cart[id] = item
-    this.setCart(cart)
+    const item = { ...this.state.cart[id] };
+    item.quantity += 1;
+    const cart = { ...this.state.cart };
+    cart[id] = item;
+    this.setCart(cart);
   }
 
   decrementItem(id) {
-    const item = { ...this.state.cart[id] }
-    item.quantity -= 1
-    const cart = { ...this.state.cart }
-    cart[id] = item
-    this.setCart(cart)
+    const item = { ...this.state.cart[id] };
+    item.quantity -= 1;
+    const cart = { ...this.state.cart };
+    cart[id] = item;
+    this.setCart(cart);
   }
 
-
   render() {
-    const cartItems = Object.values(this.state.cart)
+    const cartItems = Object.values(this.state.cart);
     if (cartItems.length > 0) {
       return (
-        <div className='.1cart'>
+        <div className=".1cart">
           <h2>Shopping Cart</h2>
-          <CartItems setCart={this.setCart.bind(this)} cart={cartItems} incrementItem={this.incrementItem.bind(this)} decrementItem={this.decrementItem.bind(this)} />
-          <button className='clear-cart' onClick={() => this.clearCart()}>Clear cart</button>
-          <p className='cart-total-title'>Cart Total: ${this.state.total}</p>
-          <button className='cart-checkout'>Checkout</button>
-          <div>
-          </div>
+          <CartItems
+            setCart={this.setCart.bind(this)}
+            cart={cartItems}
+            incrementItem={this.incrementItem.bind(this)}
+            decrementItem={this.decrementItem.bind(this)}
+          />
+          <button className="clear-cart" onClick={() => this.clearCart()}>
+            Clear cart
+          </button>
+          <p className="cart-total-title">Cart Total: ${this.state.total}</p>
+          <button className="cart-checkout">Checkout</button>
+          <div></div>
         </div>
-      )
-    }
-    else {
+      );
+    } else {
       return (
         <div>
           <EmptyCart />
         </div>
-      )
+      );
     }
   }
 }

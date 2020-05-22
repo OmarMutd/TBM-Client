@@ -92,43 +92,44 @@ class Navbar extends Component {
       <div>
         <div className={nav_bar_class}>
           <Lead text="The Black Market" />
-
-          <section className="left">
-            <Link to="/Products">
-              <Navlinks text="All" />
+          <form className="search-bar" onSubmit={this.handleSearch}>
+            <input
+              type="text"
+              value={this.state.query}
+              onChange={this.handleChange}
+              placeholder="Search.."
+              name="search"
+            />
+            <Link
+              to={{
+                pathname: `/SearchResults`,
+                state: { query: this.state.query },
+              }}
+            >
+              <button type="submit">Submit</button>
             </Link>
-            {categories.map((category) => {
-              return (
-                <Link
-                  key={category}
-                  to={{ pathname: `/Category/${category.toLowerCase()}` }}
-                >
-                  <div className="nav-bar-item">{category}</div>
-                </Link>
-              );
-            })}
-          </section>
-
-          <section className="right">
-            <form onSubmit={this.handleSearch}>
-              <input
-                type="text"
-                value={this.state.query}
-                onChange={this.handleChange}
-                placeholder="Search.."
-                name="search"
-              />
-              <Link
-                to={{
-                  pathname: `/SearchResults`,
-                  state: { query: this.state.query },
-                }}
-              >
-                <button type="submit">Submit</button>
+          </form>
+          <div className="link-row">
+            <section className="left">
+              <Link to="/Products">
+                <Navlinks text="All" />
               </Link>
-            </form>
-            <SignInOut quantity={this.state.quantity} />
-          </section>
+              {categories.map((category) => {
+                return (
+                  <Link
+                    key={category}
+                    to={{ pathname: `/Category/${category.toLowerCase()}` }}
+                  >
+                    <div className="nav-bar-item">{category}</div>
+                  </Link>
+                );
+              })}
+            </section>
+
+            <section className="right">
+              <SignInOut quantity={this.state.quantity} />
+            </section>
+          </div>
           <FontAwesomeIcon
             icon={faBars}
             className="nav-bar-icon"

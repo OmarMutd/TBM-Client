@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/fontawesome-free-solid";
 import TokenService from "../../services/token-services";
 import Navlinks from "./Navlinks";
-import Lead from "./Lead";
 import LoginContext from "../../LoginContext";
 
 import "./Navbar.css";

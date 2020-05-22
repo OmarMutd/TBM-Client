@@ -9,15 +9,7 @@ class Lead extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap"
-          rel="stylesheet"
-        />
-        <div className="nav-bar-lead">{this.text}</div>
-      </div>
-    );
+    return <div className="nav-bar-lead">{this.text}</div>;
   }
 }
 

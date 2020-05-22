@@ -8,7 +8,7 @@
   max-width: 300px;
   margin: auto;
   text-align: center;
-  font-family: arial;
+  font-family: "Roboto", sans-serif;
 }
 
 .item_item-card button {
@@ -21,6 +21,7 @@
   cursor: pointer;
   width: 100%;
   font-size: 18px;
+  font-family: "Roboto", sans-serif;
 }
 
 .item_item-card button:hover {

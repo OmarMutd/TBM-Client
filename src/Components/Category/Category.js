@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import config from "../../config";
 import Item from "../Item/Item";
+import "./Category.css";
 
 export class Category extends Component {
   state = {
@@ -46,7 +47,7 @@ export class Category extends Component {
     return (
       <div>
         {/* Change category to plural and first letter capital */}
-        <h2>{title}</h2>
+        <h1 className="category-title">{title}</h1>
         <div className="all-products">
           <div className="products">
             {value.map((item) => {
