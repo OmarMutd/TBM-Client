@@ -62,12 +62,16 @@ export class Order extends Component {
                 <div key={id}>
                   {/* <img src={url} /> */}
                   <h4>
-                    {title}: {quantity} x {price} = ${total}.00
+                    {title}: {quantity} x {price} = $
+                    {total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.00
                   </h4>
                 </div>
               );
             })}
-            <h3>Order Total = ${totalOrder}.00</h3>
+            <h3>
+              Order Total = $
+              {totalOrder.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.00
+            </h3>
           </div>
         );
       });
