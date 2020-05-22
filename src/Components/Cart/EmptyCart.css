@@ -1,0 +1,7 @@
+.empty-text {
+        background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: 'Allan';font-size: 100px;
+        padding-top: 50px;
+      }
