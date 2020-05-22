@@ -43,14 +43,17 @@ export class CartItem extends Component {
 
                 {
                   cart.map(cartItem => {
-                    return <div className='cart-row' key={cartItem.id}><Link to={{ pathname: `/SingleItem/${cartItem.id}` }}><img className='cart-item-image' src={cartItem.url} alt={cartItem.description} /></Link>
-                      <p data-tip={cartItem.title} className='cart-item-title'>{cartItem.title}</p>
+                    return <div className='cart-row' key={cartItem.id}>
+                      <Link to={{ pathname: `/SingleItem/${cartItem.id}` }}>
+                        <img className='cart-item-image' src={cartItem.url} alt={cartItem.description} />
+                      </Link>
+                      <p data-tip='Product' className='cart-item-title'>{cartItem.title}</p>
                       <ReactTooltip />
-                      <p data-tip={cartItem.price} className='cart-price'>{cartItem.price}</p>
+                      <p data-tip='Price' className='cart-price'>{cartItem.price}</p>
                       <ReactTooltip />
-                      <p className='item-count'>{cartItem.quantity}</p>
-                      <button className='inc-item' onClick={() => this.props.incrementItem(cartItem.id)}>+</button>
-                      <button className='dec-item' onClick={() => this.props.decrementItem(cartItem.id)}>-</button>
+                      <p data-tip='Quantity' className='item-count'>{cartItem.quantity}</p>
+                      {/* <button className='inc-item' onClick={() => this.props.incrementItem(cartItem.id)}>+</button>
+                      <button className='dec-item' onClick={() => this.props.decrementItem(cartItem.id)}>-</button> */}
                       <button data-tip='Remove item from cart' className='remove-btn' onClick={() => this.removeItem(`${cartItem.id}`)}><i className="fa fa-trash"></i></button>
                       <ReactTooltip />
                     </div>

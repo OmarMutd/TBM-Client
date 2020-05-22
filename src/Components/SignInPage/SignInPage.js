@@ -74,7 +74,7 @@ class SignInPage extends Component {
           </div>
           <p className="no-account">
             Don't have an account?
-            <Link to="/SignUp" className="signup-button">
+            <Link to="/SignUp" className="sign-up">
               {" "}
               Sign Up
             </Link>

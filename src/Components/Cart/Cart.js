@@ -37,15 +37,18 @@ export default class Cart extends Component {
     this.updateTotal();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const itemsInCart = this.state.cart;
-    if (itemsInCart.length !== prevState.cart.length) {
-      this.getCart(itemsInCart);
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   const itemsInCart = this.state.cart;
+  //   if (itemsInCart.length !== prevState.cart.length) {
+  //     this.getCart(itemsInCart);
+  //   }
+  // }
 
   setCart(cart) {
-    this.setState({ cart: cart });
+    console.log(this.state.cart)
+    if (Object.keys(this.state.cart) !== 0) {
+      this.setState({ cart: cart });
+    }
     this.updateTotal();
   }
 
