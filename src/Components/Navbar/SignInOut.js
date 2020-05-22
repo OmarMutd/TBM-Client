@@ -66,7 +66,7 @@ export default class SignInOut extends Component {
   render() {
     const loggedIn = this.context.loggedIn;
 
-    if (loggedIn == true) {
+    if (loggedIn === true) {
       return this.renderSignOutLink();
     } else {
       return this.renderSignInLink();

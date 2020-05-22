@@ -63,9 +63,9 @@ class Navbar extends Component {
     this.fetchCategories();
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     const quantity = this.state.quantity;
-    if (quantity != prevProps.quantity) {
+    if (quantity !== prevState.quantity) {
       this.fetchCartQuantity();
     }
   }
