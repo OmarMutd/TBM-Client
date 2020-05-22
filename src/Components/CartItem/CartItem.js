@@ -69,12 +69,13 @@ export class CartItem extends Component {
                       <ReactTooltip />
                       <p data-tip={cartItem.price} className='cart-price'>{cartItem.price}</p>
                       <ReactTooltip />
-                      <p className='item-count'>10</p>
+                      <p className='item-count'>#</p>
                       <button className='inc-item' onClick={this.incrementItem}>+</button>
                       <button className='dec-item' onClick={this.decrementItem}>-</button>
-                      <button data-tip='Remove item from cart' className='remove-btn' onClick={() => this.removeItem(`${cartItem.id}`)}><i class="fa fa-trash"></i></button>
+                      <button data-tip='Remove item from cart' className='remove-btn' onClick={() => this.removeItem(`${cartItem.id}`)}><i className="fa fa-trash"></i></button>
                       <ReactTooltip />
                     </div>
+
                   })
                 }
               </div>

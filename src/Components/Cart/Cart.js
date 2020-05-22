@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './Cart.css';
-import CartItem from '../CartItem/CartItem';
+import CartItems from '../CartItem/CartItem';
 import config from '../../config';
-// import EmptyCart from './EmptyCart';
+import EmptyCart from './EmptyCart';
 
 export default class Cart extends Component {
   state = {
     cart: [],
+    total: 0,
+
   };
 
   getCart() {
@@ -17,13 +19,14 @@ export default class Cart extends Component {
       },
     })
       .then(response => response.json())
-      .then(cart => { this.setState({ cart: cart }) });
+      .then(this.setCart.bind(this));
   };
 
 
   componentDidMount() {
     const cart = this.state.cart;
     this.getCart(cart);
+    this.updateTotal();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -37,10 +40,7 @@ export default class Cart extends Component {
   setCart(cart) {
     console.log(cart)
     this.setState({ cart: cart })
-  }
-
-  updateCartTotal = () => {
-
+    this.updateTotal();
   }
 
   clearCart = () => {
@@ -58,18 +58,32 @@ export default class Cart extends Component {
   };
 
 
+  updateTotal() {
+    // * item.quantity
+    this.setState({ total: this.state.cart.reduce((sum, item) => sum + (+item.price.slice(1)), 0) })
+  }
+
+
   render() {
-    return (
-      <div className='.1cart'>
-        <h2>Shopping Cart</h2>
-        <CartItem setCart={this.setCart.bind(this)} cart={this.state.cart} />
-        <button className='clear-cart' onClick={() => this.clearCart()}>Clear cart</button>
-        <p className='cart-total-title'>Cart Total: $</p>
-        <button className='cart-checkout'>Checkout</button>
-        {/* {this.state.cart.length} */}
-        <div>
+    if (this.state.cart.length > 0) {
+      return (
+        <div className='.1cart'>
+          <h2>Shopping Cart</h2>
+          <CartItems setCart={this.setCart.bind(this)} cart={this.state.cart} />
+          <button className='clear-cart' onClick={() => this.clearCart()}>Clear cart</button>
+          <p className='cart-total-title'>Cart Total: ${this.state.total}</p>
+          <button className='cart-checkout'>Checkout</button>
+          <div>
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
+    else {
+      return (
+        <div>
+          <EmptyCart />
+        </div>
+      )
+    }
   }
 }
