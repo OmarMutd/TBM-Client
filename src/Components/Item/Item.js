@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import "./Item.css";
 import { Link } from "react-router-dom";
 import config from "../../config";
-import ProductContext from "../../context";
+import LoginContext from "../../LoginContext";
 
 export default class Item extends Component {
-  static contextType = ProductContext;
+  static contextType = LoginContext;
 
   addToCart = (id) => {
     const user_id = "1";

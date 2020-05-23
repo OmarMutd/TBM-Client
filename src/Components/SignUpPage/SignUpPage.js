@@ -57,18 +57,15 @@ class SignUpPage extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props.location.state);
     if (this.props.location.state) {
       this.setState({
         fromSignIn: this.props.location.state.fromSignIn,
         fromLanding: this.props.location.state.fromLanding,
       });
-      console.log(this.state);
     }
   }
 
   render() {
-    console.log(this.state.fromLanding);
     const { error } = this.state;
     return (
       <div>
