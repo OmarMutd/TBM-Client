@@ -1,0 +1,30 @@
+.order-row {
+  border: 1px;
+  border-style: solid;
+  margin-bottom: 10px;
+}
+
+.order-img {
+  max-width: 40%;
+  margin: auto;
+}
+
+@media screen and (min-width: 910px) {
+  .order-row {
+    list-style-type: none;
+    margin: auto;
+    margin-bottom: 15px;
+    overflow: hidden;
+    max-width: 75%;
+  }
+  .order-img {
+    max-width: 10%;
+    padding: 0 10px;
+    margin: 0;
+  }
+
+  .single-order {
+    display: flex;
+    padding-bottom: 10px;
+  }
+}
