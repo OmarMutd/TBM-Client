@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Order.css";
-import { Link } from "react-router-dom";
 import _ from "lodash";
 
 export class Order extends Component {

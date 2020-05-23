@@ -5,10 +5,8 @@ import "./SignUpPage.css";
 import AuthApiService from "../../services/auth-api-services";
 import LoginContext from "../../LoginContext";
 import TokenService from "../../services/token-services";
-import CartLogo from '../../favicon.ico';
-import ReactTooltip from 'react-tooltip';
-
-
+import CartLogo from "../../favicon.ico";
+import ReactTooltip from "react-tooltip";
 
 class SignUpPage extends Component {
   static contextType = LoginContext;
@@ -20,7 +18,7 @@ class SignUpPage extends Component {
 
   handleSignInSuccess = () => {
     this.context.updateLogIn();
-    this.setState({});
+
     if (this.state.fromSignIn === true) {
       this.props.history.go(-2);
     } else {
@@ -56,6 +54,7 @@ class SignUpPage extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props.location.state);
     if (this.props.location.state) {
       this.setState({
         fromSignIn: this.props.location.state.fromSignIn,
@@ -64,13 +63,14 @@ class SignUpPage extends Component {
   }
 
   render() {
+    console.log(this.state.fromSignIn);
     const { error } = this.state;
     return (
       <div>
         <div role="alert">{error && <p className="sign-error">{error}</p>}</div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
           <h2 className="signup-header">Create An Account</h2>
-          <img className='cart-logo' alt="favicon" src={CartLogo}></img>
+          <img className="cart-logo" alt="favicon" src={CartLogo}></img>
 
           <div className="username-signup">
             <label htmlFor="username-input"></label>
@@ -91,7 +91,12 @@ class SignUpPage extends Component {
               type="text"
               required
             />
-            <p className='tip' data-tip="Password must have atleast one uppercase and one lowercase character, one special character, and one number.">?</p>
+            <p
+              className="tip"
+              data-tip="Password must have atleast one uppercase and one lowercase character, one special character, and one number."
+            >
+              ?
+            </p>
             <ReactTooltip />
           </div>
           <p className="no-account">
