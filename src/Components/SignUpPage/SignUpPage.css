@@ -6,4 +6,7 @@
     border-radius: 50%;
     display: inline-block;
     font-size: 10px;
+    position: absolute;
+    right: 750px;
+    bottom: 340px;
 }
