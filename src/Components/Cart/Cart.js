@@ -110,6 +110,23 @@ export default class Cart extends Component {
     this.setCart(cart);
   }
 
+
+  checkoutCart = () => {
+    fetch(`${config.API_ENDPOINT}/cart/history/1`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+      })
+      .then(() => {
+        this.props.history.push('/OrderHistory')
+      })
+  }
+
   render() {
     const cartItems = Object.values(this.state.cart);
     if (cartItems.length > 0) {
@@ -130,7 +147,7 @@ export default class Cart extends Component {
             {this.state.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             .00
           </p>
-          <button className="cart-checkout">Checkout</button>
+          <button className="cart-checkout" onClick={() => this.checkoutCart()}>Checkout</button>
           <div></div>
         </div>
       );
