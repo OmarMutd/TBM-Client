@@ -12,6 +12,7 @@ export default class SignInOut extends Component {
   state = {
     menu_class: "",
     loggedIn: this.context.loggedIn,
+    quantity: this.context.quantity,
   };
 
   handleSignOutClick = () => {
@@ -39,7 +40,7 @@ export default class SignInOut extends Component {
         </div>
         <div className="nav-bar-item">
           <Link className="nav-bar-item" to="/Cart">
-            Cart ({this.props.quantity})
+            Cart ({this.context.quantity})
           </Link>
         </div>
       </div>

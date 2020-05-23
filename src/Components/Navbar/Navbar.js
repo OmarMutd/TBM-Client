@@ -7,10 +7,10 @@ import Lead from "./Lead";
 import SignInOut from "./SignInOut";
 import config from "../../config";
 import "./Navbar.css";
-import ProductContext from "../../context";
+import LoginContext from "../../LoginContext";
 
 class Navbar extends Component {
-  static contextType = ProductContext;
+  static contextType = LoginContext;
 
   state = {
     menu_class: "",
@@ -63,7 +63,6 @@ class Navbar extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props.value);
     this.setState({
       quantity: this.context.quantity,
     });
@@ -80,7 +79,6 @@ class Navbar extends Component {
 
   handleSearch = (e) => {
     e.preventDefault();
-    console.log(this.state.query);
   };
 
   handleChange = (event) => {

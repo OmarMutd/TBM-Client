@@ -16,10 +16,12 @@ import LoginContext from "./LoginContext";
 import TokenService from "./services/token-services";
 import Category from "./Components/Category/Category";
 import SearchResults from "./Components/SearchResults/SearchResults";
+import config from "./config";
 
 class App extends Component {
   state = {
     loggedIn: TokenService.hasAuthToken(),
+    quantity: 0,
   };
 
   updateLogIn = () => {
@@ -34,9 +36,30 @@ class App extends Component {
     }
   };
 
+  fetchCartQuantity = () => {
+    fetch(`${config.API_ENDPOINT}/cart/1`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState({
+          quantity: data.length,
+        })
+      );
+  };
+
+  componentDidMount() {
+    this.fetchCartQuantity();
+  }
+
   render() {
     const contextValue = {
       loggedIn: this.state.loggedIn,
+      quantity: this.state.quantity,
+      fetchCartQuantity: this.fetchCartQuantity,
       updateLogIn: this.updateLogIn,
     };
 
