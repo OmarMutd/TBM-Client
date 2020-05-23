@@ -10,3 +10,12 @@
     right: 750px;
     bottom: 340px;
 }
+
+.signup-button{
+    text-decoration: none;
+    color: black;
+}
+
+.signup-button:hover {
+    color: blue
+}

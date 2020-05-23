@@ -5,10 +5,9 @@ import LandingPage from "./Components/LandingPage/LandingPage";
 import SignIn from "./Components/SignInPage/SignIn";
 import SignUp from "./Components/SignUpPage/SignUp";
 import Cart from "./Components/Cart/Cart";
-import Checkout from "./Components/Checkout/Checkout";
-import Item from "./Components/Item/Item";
 import OrderHistory from "./Components/OrderHistory/OrderHistory";
 import Products from "./Components/Products/Products";
+import Item from "./Components/Item/Item";
 import PageDoesNotExist from "./Components/PageDoesNotExist/PageDoesNotExist";
 import Navbar from "./Components/Navbar/Navbar";
 import SingleItem from "./Components/SingleItem/SingleItem";
@@ -16,6 +15,8 @@ import LoginContext from "./LoginContext";
 import TokenService from "./services/token-services";
 import Category from "./Components/Category/Category";
 import SearchResults from "./Components/SearchResults/SearchResults";
+import PrivateRoute from './Utilities/PrivateRoute';
+import PublicRoute from './Utilities/PublicRoute';
 
 class App extends Component {
   state = {
@@ -50,12 +51,11 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={LandingPage} />
-            <Route path="/SignIn" component={SignIn} />
-            <Route path="/SignUp" component={SignUp} />
-            <Route path="/Cart" component={Cart} />
-            <Route path="/Checkout" component={Checkout} />
-            <Route path="/Item" component={Item} />
-            <Route path="/OrderHistory" component={OrderHistory} />
+            <PublicRoute path="/SignIn" component={SignIn} />
+            <PublicRoute path="/SignUp" component={SignUp} />
+            <PrivateRoute path="/Cart" component={Cart} />
+            <PrivateRoute path="/OrderHistory" component={OrderHistory} />
+            <Route path='/Item' component={Item} />
             <Route path="/Products" component={Products} />
             <Route path="/SearchResults" component={SearchResults} />
             <Route path="/Category/:category" component={Category} />
