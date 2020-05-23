@@ -74,6 +74,7 @@ class SignInPage extends Component {
           </div>
           <p className="no-account">
             Don't have an account?
+
             <Link
               to={{
                 pathname: "/SignUp",
@@ -83,6 +84,7 @@ class SignInPage extends Component {
               }}
               className="signup-button"
             >
+
               {" "}
               Sign Up
             </Link>
