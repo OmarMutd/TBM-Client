@@ -98,14 +98,6 @@ class SignInPage extends Component {
             <Link to="/">
               <button className="go-back-button">Go back</button>
             </Link>
-            {/* <Link
-              to={{
-                pathname: "/SignUp",
-                state: {
-                  fromSignIn: true,
-                },
-              }}
-            ></Link> */}
           </div>
         </form>
       </div>

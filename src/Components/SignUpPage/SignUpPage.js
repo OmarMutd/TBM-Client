@@ -14,6 +14,7 @@ class SignUpPage extends Component {
   state = {
     error: null,
     fromSignIn: false,
+    fromLanding: false,
   };
 
   handleSignInSuccess = () => {
@@ -21,6 +22,8 @@ class SignUpPage extends Component {
 
     if (this.state.fromSignIn === true) {
       this.props.history.go(-2);
+    } else if (this.state.fromLanding === true) {
+      this.props.history.push("/Products");
     } else {
       this.props.history.goBack();
     }
@@ -58,12 +61,14 @@ class SignUpPage extends Component {
     if (this.props.location.state) {
       this.setState({
         fromSignIn: this.props.location.state.fromSignIn,
+        fromLanding: this.props.location.state.fromLanding,
       });
+      console.log(this.state);
     }
   }
 
   render() {
-    console.log(this.state.fromSignIn);
+    console.log(this.state.fromLanding);
     const { error } = this.state;
     return (
       <div>
