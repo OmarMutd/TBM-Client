@@ -1,41 +1,51 @@
 import React, { Component } from "react";
+import config from "./config";
 
 const ProductContext = React.createContext({
-  addProductToCart: () => {},
+  changeCartCount: () => {},
 });
 
-class ProductProvider extends Component {
+export default ProductContext;
+
+export class ProductProvider extends Component {
   state = {
-    cartTotal: 0,
-    cart: [],
-    productDetails: "",
+    quantity: "",
   };
 
-  addProductToCart = () => {
-    console.log("Item has been added to cart");
+  changeCartCount = () => {
+    this.setState({
+      cartCount: this.state.cartCount + 2,
+    });
   };
 
-  itemDetails = () => {
-    console.log("Details of the item");
+  fetchCartQuantity = () => {
+    fetch(`${config.API_ENDPOINT}/cart/1`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState({
+          quantity: data.length,
+        })
+      );
   };
 
   render() {
+    const value = {
+      quantity: this.state.quantity,
+      cartCount: this.state.cartCount,
+      changeCartCount: this.changeCartCount,
+      fetchCartQuantity: this.fetchCartQuantity,
+    };
     return (
       <div>
-        <ProductContext.Provider
-          value={{
-            ...this.state,
-            addProductToCart: this.addProductToCart,
-            itemDetails: this.itemDetails,
-          }}
-        >
+        <ProductContext.Provider value={value}>
           {this.props.children}
         </ProductContext.Provider>
       </div>
     );
   }
 }
-
-const ProductConsumer = ProductContext.Consumer;
-
-export { ProductProvider, ProductConsumer };

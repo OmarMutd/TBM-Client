@@ -5,7 +5,6 @@ import Navlinks from "./Navlinks";
 import LoginContext from "../../LoginContext";
 
 import "./Navbar.css";
-import Cart from "../Cart/Cart";
 
 export default class SignInOut extends Component {
   static contextType = LoginContext;

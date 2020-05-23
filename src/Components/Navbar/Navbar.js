@@ -7,13 +7,17 @@ import Lead from "./Lead";
 import SignInOut from "./SignInOut";
 import config from "../../config";
 import "./Navbar.css";
+import ProductContext from "../../context";
 
 class Navbar extends Component {
+  static contextType = ProductContext;
+
   state = {
     menu_class: "",
     data: [],
     query: "",
     quantity: "",
+    cartIncrement: "",
   };
 
   setToggleNavbarClass = () => {
@@ -59,6 +63,10 @@ class Navbar extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props.value);
+    this.setState({
+      quantity: this.context.quantity,
+    });
     this.fetchCartQuantity();
     this.fetchCategories();
   }
