@@ -31,11 +31,12 @@ A lot of companies like to sell things online, so why not show that you are capa
 
 ### Instructions
 
-Run `npm i` to install required depedencies
+Run `npm i` to install required depedencies.
 
-Run `npm start` to start the app
+Run `npm start` to start the app.
 
-Run `npm t` to test the app
+Run `npm t` to test the app.
+-------------------------------------------------------------------------------------------------------------------
 
 
 ### Componenets
