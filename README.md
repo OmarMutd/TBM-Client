@@ -54,9 +54,6 @@ Run `npm t` to test the app.
 -------------------------------------------------------------------------------------------------------------------
 
 
-
-
-
 ### Tech Stack
 
 Client:
@@ -67,8 +64,6 @@ Client:
 * CSS
 * Jest
 * Enzyme
-
-
 
 Server:
 
@@ -91,9 +86,9 @@ Server:
 
  ------------------------------------------------------------------------------------------------------------------
 
-### Created by
+### Created by:
 
 * Dan Bartlett
 * Sean McCoy
-* Omar Muhanna
+* Omar Muhanna [Github](https://github.com/OmarMutd "Github title")
 * Laura Spieker
