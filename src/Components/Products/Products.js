@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Products.css";
 import Item from "../Item/Item";
 import config from "../../config";
+import ScrollToTop from "react-scroll-up";
+
 
 export class Products extends Component {
   state = {
@@ -24,6 +26,9 @@ export class Products extends Component {
     const value = this.state.data;
     return (
       <div>
+        <ScrollToTop showUnder={160}>
+          <button className='scroll-button'>UP</button>
+        </ScrollToTop>
         <section>
           <h2>All Products</h2>
         </section>
