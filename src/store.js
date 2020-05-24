@@ -24,3 +24,5 @@ export const allTheProducts = [
         img: 'Img/black-marker.jpg',
     }
 ]
+
+// Sliding banner
