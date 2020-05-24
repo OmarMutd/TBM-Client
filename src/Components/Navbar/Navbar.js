@@ -7,13 +7,17 @@ import Lead from "./Lead";
 import SignInOut from "./SignInOut";
 import config from "../../config";
 import "./Navbar.css";
+import LoginContext from "../../LoginContext";
 
 class Navbar extends Component {
+  static contextType = LoginContext;
+
   state = {
     menu_class: "",
     data: [],
     query: "",
     quantity: "",
+    cartIncrement: "",
   };
 
   setToggleNavbarClass = () => {
@@ -59,6 +63,9 @@ class Navbar extends Component {
   };
 
   componentDidMount() {
+    this.setState({
+      quantity: this.context.quantity,
+    });
     this.fetchCartQuantity();
     this.fetchCategories();
   }
@@ -72,7 +79,6 @@ class Navbar extends Component {
 
   handleSearch = (e) => {
     e.preventDefault();
-    console.log(this.state.query);
   };
 
   handleChange = (event) => {

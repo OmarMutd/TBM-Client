@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import config from "../../config";
 import "./SingleItem.css";
+import LoginContext from "../../LoginContext";
 
 export default class SingleItem extends Component {
+  static contextType = LoginContext;
+
   state = {
     data: [],
   };
@@ -43,30 +46,28 @@ export default class SingleItem extends Component {
       body: JSON.stringify(added_item),
     })
       .then((response) => response.json())
-      .then((singleitem) => console.log(singleitem));
+      .then((singleitem) => this.context.fetchCartQuantity());
   };
 
   render() {
     const { id, title, description, category, price, url } = this.state.data;
     return (
-      <div className="item-card">
-        <div className="item-column">
-          <div
-            className="item-image"
-            onClick={() => console.log("This is the image")}
-          >
+      <div>
+        <div className="item-card">
+          <div className="item-image">
             <Link to={`/SingleItem/${id}`}>
               <img src={url} alt={description} />
             </Link>
           </div>
-        </div>
-        <div className="item-column">
+          <button onClick={() => this.addToCart(`${id}`)}>Add to Cart</button>
           <div className="product-information"></div>
           <p>{title}</p>
           <p>{price}</p>
           <p>Category: {category}</p>
           <div className="product-desc">{description}</div>
-          <button onClick={() => this.addToCart(`${id}`)}>Add to Cart</button>
+          <button>
+            <Link to="/Products">Go Back</Link>
+          </button>
         </div>
       </div>
     );

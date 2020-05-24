@@ -16,7 +16,7 @@ export default class LandingPage extends Component {
           <Link to="/SignIn">
             <button type="button">Sign In</button>
           </Link>
-          <Link to="/SignUp">
+          <Link to={{ pathname: "/SignUp", state: { fromLanding: true } }}>
             <button type="button">Sign Up</button>
           </Link>
         </section>

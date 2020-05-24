@@ -5,7 +5,7 @@ import AuthApiService from "../../services/auth-api-services";
 import { Link } from "react-router-dom";
 import LoginContext from "../../LoginContext";
 import "./SignInPage.css";
-import CartLogo from '../../favicon.ico'
+import CartLogo from "../../favicon.ico";
 
 class SignInPage extends Component {
   static contextType = LoginContext;
@@ -33,7 +33,6 @@ class SignInPage extends Component {
       password: password,
     })
       .then((res) => {
-        console.log("AUTH TOKEN", res.authToken);
         TokenService.saveAuthToken(res.authToken);
 
         this.handleSignInSuccess();
@@ -50,7 +49,7 @@ class SignInPage extends Component {
         <div role="alert">{error && <p className="sign-error">{error}</p>}</div>
         <form className="signup-form" onSubmit={this.handleSubmitJwtAuth}>
           <h2 className="signup-header">Sign In</h2>
-          <img className='cart-logo' alt="favicon" src={CartLogo}></img>
+          <img className="cart-logo" alt="favicon" src={CartLogo}></img>
 
           <div className="username-signup">
             <label htmlFor="username-input"></label>
@@ -74,7 +73,15 @@ class SignInPage extends Component {
           </div>
           <p className="no-account">
             Don't have an account?
-            <Link to="/SignUp" className="signup-button">
+            <Link
+              to={{
+                pathname: "/SignUp",
+                state: {
+                  fromSignIn: true,
+                },
+              }}
+              className="signup-button"
+            >
               {" "}
               Sign Up
             </Link>
@@ -87,13 +94,6 @@ class SignInPage extends Component {
 
             <Link to="/">
               <button className="go-back-button">Go back</button>
-            </Link>
-            <Link
-              to={{
-                pathname: "/SignUp",
-                state: { fromSignIn: true },
-              }}
-            >
             </Link>
           </div>
         </form>

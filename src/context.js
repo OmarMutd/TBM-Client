@@ -1,36 +1,51 @@
-import React, { Component } from 'react';
-const ProductContext = React.createContext();
+import React, { Component } from "react";
+import config from "./config";
 
-class ProductProvider extends Component {
-    state = {
-        cartTotal: 0,
-        cart: [],
-        productDetails: '',
+const ProductContext = React.createContext({
+  changeCartCount: () => {},
+});
+
+export default ProductContext;
+
+export class ProductProvider extends Component {
+  state = {
+    quantity: "",
+  };
+
+  changeCartCount = () => {
+    this.setState({
+      cartCount: this.state.cartCount + 2,
+    });
+  };
+
+  fetchCartQuantity = () => {
+    fetch(`${config.API_ENDPOINT}/cart/1`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState({
+          quantity: data.length,
+        })
+      );
+  };
+
+  render() {
+    const value = {
+      quantity: this.state.quantity,
+      cartCount: this.state.cartCount,
+      changeCartCount: this.changeCartCount,
+      fetchCartQuantity: this.fetchCartQuantity,
     };
-
-    addProductToCart = () => {
-       console.log('Item has been added to cart')
-    };
-
-    itemDetails = () => {
-        console.log('Details of the item')
-    };
-
-    render() {
-        return (
-            <div>
-                <ProductContext.Provider value={{
-                ...this.state,
-                addProductToCart: this.addProductToCart,
-                itemDetails: this.itemDetails,
-                }}>
-                    {this.props.children}
-                </ProductContext.Provider>
-            </div>
-        );
-    }
+    return (
+      <div>
+        <ProductContext.Provider value={value}>
+          {this.props.children}
+        </ProductContext.Provider>
+      </div>
+    );
+  }
 }
-
-const ProductConsumer = ProductContext.Consumer;
-
-export { ProductProvider, ProductConsumer };

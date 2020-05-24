@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import "./Item.css";
 import { Link } from "react-router-dom";
 import config from "../../config";
+import LoginContext from "../../LoginContext";
 
 export default class Item extends Component {
+  static contextType = LoginContext;
+
   addToCart = (id) => {
     const user_id = "1";
     const product_id = id;
@@ -23,6 +26,7 @@ export default class Item extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({ data: data });
+        this.context.fetchCartQuantity();
       });
   };
 

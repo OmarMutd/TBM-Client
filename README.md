@@ -1,68 +1,97 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## TBM - The Black Market
 
-### `npm start`
+-------------------------------------------------------------------------------------------------------------------
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Logo Here
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+-------------------------------------------------------------------------------------------------------------------
 
-### `npm test`
+### [Live Link to app here]
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-------------------------------------------------------------------------------------------------------------------
 
-### `npm run build`
+### Link to server code
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-------------------------------------------------------------------------------------------------------------------
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Screen flows here
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Ex: Cart Page in moble & desktop view, 404 page, Products page, Order History Page, TIE FIGHTER.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-------------------------------------------------------------------------------------------------------------------
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Description
 
-## Learn More
+TBM [The Black Market] is an ecommerce app that allows users to shop with dummy products. Uses can add items to their cart, search for items by category or query, remove an item from their cart or even delete the whole cart. After users are satisfied with their cart they can checkout and then the order will be added to their order history. Shop as much as you like because you have an infinite amount of money but only the brave ones dare visit `http://localhost:3000/PageDoesNotExist.`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-------------------------------------------------------------------------------------------------------------------
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Purpose behind TBM
 
-### Code Splitting
+A lot of companies like to sell things online, so why not show that you are capable of understanding the logic and programming behind an ecommerce application by building your own ecommerce app.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+-------------------------------------------------------------------------------------------------------------------
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Instructions
 
-### Making a Progressive Web App
+Run `npm i` to install required depedencies.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Run `npm start` to start the app.
 
-### Advanced Configuration
+Run `npm t` to test the app.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+-------------------------------------------------------------------------------------------------------------------
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Componenets
 
-### `npm run build` fails to minify
+-------------------------------------------------------------------------------------------------------------------
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Tech Stack
+
+Client:
+
+* React
+* JavaScript
+* HTML
+* CSS
+* Jest
+* Enzyme
+
+Server:
+
+* Node
+* Express
+* PostgreSQL
+* Mocha
+* Chai
+* Jasmine
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+### Features for the Future
+ * Way for users to +/- items while in cart by 1.
+ * Way for users to favorite an item in cart that would be added to a favorite page [Can also unfavorite].
+ * Dark mode.
+ * Ability to delete your account.
+ * Inhanced feedback when checking out.
+
+------------------------------------------------------------------------------------------------------------------
+
+### Created by:
+
+* **Dan Bartlett** [Github](https://github.com/danbart909 "Github title") |  [Linkedin](https://www.linkedin.com/in/dan-bartlett-1b1a191a4/ "Linkedin title") | Portfolio
+
+* **Sean McCoy** [Github](https://github.com/shmccoy "Github title") | [Linkedin](https://www.linkedin.com/in/seanhmccoy/ "Linkedin title") | Portfolio
+
+* **Omar Muhanna** [Github](https://github.com/OmarMutd "Github title") | [Linkedin](https://www.linkedin.com/in/omar-muhanna-profile/ "Linkedin title") | Portfolio
+
+* **Laura Spieker** [Github](https://github.com/ljspiek "Github title") | [Linkedin](https://www.linkedin.com/in/laura-spieker-minneapolis/ "Linkedin title") | Portfolio
