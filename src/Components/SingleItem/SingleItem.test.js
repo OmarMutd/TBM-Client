@@ -7,7 +7,7 @@ it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render
         (<BrowserRouter>
-            <SingleItem />
+            <SingleItem match={{ params: { id: 1 } }} />
         </BrowserRouter>,
             div)
     ReactDOM.unmountComponentAtNode(div);

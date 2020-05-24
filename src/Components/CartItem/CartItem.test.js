@@ -7,7 +7,7 @@ it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render
         (<BrowserRouter>
-            <CartItem />
+            <CartItem cart={{}} />
         </BrowserRouter>,
             div)
     ReactDOM.unmountComponentAtNode(div);
