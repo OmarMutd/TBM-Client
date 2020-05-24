@@ -36,6 +36,7 @@ Run `npm i` to install required depedencies.
 Run `npm start` to start the app.
 
 Run `npm t` to test the app.
+
 -------------------------------------------------------------------------------------------------------------------
 
 
