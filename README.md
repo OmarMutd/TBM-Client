@@ -88,7 +88,10 @@ Server:
 
 ### Created by:
 
-* **Dan Bartlett** [Github](https://github.com/danbart909 "Github title")
-* **Sean McCoy** [Github](https://github.com/shmccoy "Github title")
-* **Omar Muhanna** [Github](https://github.com/OmarMutd "Github title")
-* **Laura Spieker** [Github](https://github.com/ljspiek "Github title")
+* **Dan Bartlett** [Github](https://github.com/danbart909 "Github title") |  [Linkedin](https://www.linkedin.com/in/dan-bartlett-1b1a191a4/ "Linkedin title")
+
+* **Sean McCoy** [Github](https://github.com/shmccoy "Github title") | [Linkedin](https://www.linkedin.com/in/seanhmccoy/ "Linkedin title")
+
+* **Omar Muhanna** [Github](https://github.com/OmarMutd "Github title") | [Linkedin](https://www.linkedin.com/in/omar-muhanna-profile/ "Linkedin title")
+
+* **Laura Spieker** [Github](https://github.com/ljspiek "Github title") | [Linkedin](https://www.linkedin.com/in/laura-spieker-minneapolis/ "Linkedin title")
