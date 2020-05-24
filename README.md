@@ -88,7 +88,7 @@ Server:
 
 ### Created by:
 
-* Dan Bartlett
-* Sean McCoy
-* Omar Muhanna [Github](https://github.com/OmarMutd "Github title")
-* Laura Spieker
+* **Dan Bartlett** [Github](https://github.com/danbart909 "Github title")
+* **Sean McCoy** [Github](https://github.com/shmccoy "Github title")
+* **Omar Muhanna** [Github](https://github.com/OmarMutd "Github title")
+* **Laura Spieker** [Github](https://github.com/ljspiek "Github title")
