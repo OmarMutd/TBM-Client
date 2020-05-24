@@ -24,11 +24,17 @@ Ex: Cart Page in moble & desktop view, 404 page, Products page, Order History Pa
 
 TBM [The Black Market] is an ecommerce app that allows users to shop with dummy products. Uses can add items to their cart, search for items by category or query, remove an item from their cart or even delete the whole cart. After users are satisfied with their cart they can checkout and then order will be added to their order history. Shop as much as you like because you have an infinite amount of money but only the brave ones dare visit http://localhost:3000/PageDoesNotExist.
 
+### Purpose behind TBM
+
+A lot of companies like to sell things online, so why not show that you are capable of understanding the logic and programming behind ecommerce by building your own ecommerce app.  
+
 
 ### Instructions
 
 Run `npm i` to install required depedencies
+
 Run `npm start` to start the app
+
 Run `npm t` to test the app
 
 
