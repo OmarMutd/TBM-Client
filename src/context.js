@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import config from "./config";
+import TokenService from './services/token-services'
 
 const ProductContext = React.createContext({
   changeCartCount: () => {},
@@ -23,6 +24,7 @@ export class ProductProvider extends Component {
       method: "GET",
       headers: {
         "Content-type": "application/json",
+        "Authorization": `Bearer ${TokenService.getAuthToken()}`
       },
     })
       .then((response) => response.json())
