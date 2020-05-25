@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import "./OrderHistory.css";
 import Order from "../Order/Order";
 import config from "../../config";
+
 import TokenService from '../../services/token-services'
+
+import ScrollToTop from "react-scroll-up";
+
+
 
 export default class OrderHistory extends Component {
   state = {
@@ -38,6 +43,9 @@ export default class OrderHistory extends Component {
     } else {
       return (
         <div className=".1cart">
+          <ScrollToTop showUnder={200}>
+            <button className='scroll-button'>UP</button>
+          </ScrollToTop>
           <h1>Order History</h1>
           <Order orders={this.state.orders} />
         </div>
