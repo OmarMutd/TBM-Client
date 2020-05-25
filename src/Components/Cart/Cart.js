@@ -3,6 +3,7 @@ import "./Cart.css";
 import CartItems from "../CartItem/CartItem";
 import config from "../../config";
 import EmptyCart from "./EmptyCart";
+import TokenService from '../../services/token-services'
 
 export default class Cart extends Component {
   state = {
@@ -15,6 +16,7 @@ export default class Cart extends Component {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${TokenService.getAuthToken()}`
       },
     })
       .then((response) => response.json())
@@ -57,6 +59,7 @@ export default class Cart extends Component {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({ user_id }),
     })
@@ -110,10 +113,11 @@ export default class Cart extends Component {
   }
 
   checkoutCart = () => {
-    fetch(`${config.API_ENDPOINT}/cart/history/1`, {
+    fetch(`${config.API_ENDPOINT}/cart/checkout/1`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${TokenService.getAuthToken()}`
       },
     })
       .then((res) => {

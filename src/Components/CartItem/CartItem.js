@@ -4,6 +4,7 @@ import config from "../../config";
 import "./CartItem.css";
 import ReactTooltip from "react-tooltip";
 import LoginContext from "../../LoginContext";
+import TokenService from '../../services/token-services'
 
 export class CartItem extends Component {
   static contextType = LoginContext;
@@ -14,6 +15,7 @@ export class CartItem extends Component {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({ user_id }),
     })

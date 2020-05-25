@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./OrderHistory.css";
 import Order from "../Order/Order";
 import config from "../../config";
+import TokenService from '../../services/token-services'
 
 export default class OrderHistory extends Component {
   state = {
@@ -13,6 +14,7 @@ export default class OrderHistory extends Component {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${TokenService.getAuthToken()}`
       },
     })
       .then((response) => response.json())
