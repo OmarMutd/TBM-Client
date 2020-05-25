@@ -22,6 +22,7 @@
   border: 1px;
   border-style: solid;
   margin-bottom: 10px;
+  width: auto;
 }
 
 .cart-price {
@@ -96,9 +97,7 @@
   color: white;
   background-color: #eb5757;
   border: none;
-  /* border-radius: .3em; */
-  height: 30px;
-  width: 100%;
+
   font-weight: bold;
 }
 
@@ -133,17 +132,14 @@
     display: flex;
     border-bottom: 1px solid black;
     width: 450px;
-    padding-left: 7px;
     line-height: 14px;
+    height: 40%;
   }
   .cart-price {
     width: 50%;
   }
   .cart-item-image {
-    /* border-radius: 8px;    */
     height: 50px;
-    padding-bottom: 5px;
-    padding-right: 50px;
   }
   .cart-item-title {
     padding-right: 30px;

@@ -37,8 +37,6 @@
 .search-bar-icon {
   cursor: pointer;
 }
-.search-bar {
-}
 
 @media screen and (min-width: 910px) {
   .nav-bar {

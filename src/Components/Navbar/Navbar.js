@@ -97,7 +97,9 @@ class Navbar extends Component {
     return (
       <div>
         <div className={nav_bar_class}>
-          <Lead text="The Black Market" />
+          <Link to="/Products">
+            <Lead text="The Black Market" />
+          </Link>
           <form className="search-bar" onSubmit={this.handleSearch}>
             <input
               type="text"
