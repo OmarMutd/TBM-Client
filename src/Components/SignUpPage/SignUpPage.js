@@ -90,7 +90,7 @@ class SignUpPage extends Component {
               id="password-input"
               placeholder="Password"
               className="input-field"
-              type="text"
+              type="password"
               required
             />
             <p
