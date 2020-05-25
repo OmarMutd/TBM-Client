@@ -10,7 +10,7 @@ export default class OrderHistory extends Component {
   };
 
   componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/cart/history/1`, {
+    fetch(`${config.API_ENDPOINT}/cart/history/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

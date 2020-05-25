@@ -50,7 +50,7 @@ class Navbar extends Component {
   };
 
   fetchCartQuantity = () => {
-    fetch(`${config.API_ENDPOINT}/cart/1`, {
+    fetch(`${config.API_ENDPOINT}/cart/`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -69,8 +69,10 @@ class Navbar extends Component {
     this.setState({
       quantity: this.context.quantity,
     });
-    this.fetchCartQuantity();
     this.fetchCategories();
+    if (TokenService.hasAuthToken()){
+      this.fetchCartQuantity()
+    };
   }
 
   componentDidUpdate(prevProps, prevState) {
