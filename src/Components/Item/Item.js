@@ -5,6 +5,9 @@ import config from "../../config";
 import LoginContext from "../../LoginContext";
 
 export default class Item extends Component {
+  state = {
+    message: ''
+  }
   static contextType = LoginContext;
 
   addToCart = (id) => {
@@ -27,7 +30,11 @@ export default class Item extends Component {
       .then((data) => {
         this.setState({ data: data });
         this.context.fetchCartQuantity();
-      });
+      })
+      .then(
+        this.setState({ message: 'Added to Cart!' }),
+        setTimeout(() => this.setState({ message: '' }), 1500)
+      )
   };
 
   render() {
@@ -39,6 +46,7 @@ export default class Item extends Component {
             <Link to={{ pathname: `/SingleItem/${id}` }}>
               <img src={url} alt={description} />
             </Link>
+            <div className='added-to-cart-message'>{this.state.message}</div>
           </div>
           <button onClick={() => this.addToCart(`${id}`)}>Add to Cart</button>
           <div className="product-information"></div>

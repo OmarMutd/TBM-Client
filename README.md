@@ -49,7 +49,26 @@ Run `npm t` to test the app.
 -------------------------------------------------------------------------------------------------------------------
 
 
-### Componenets
+### Some of our Components...
+
+| Component  | Description |
+| ------------- | ------------- |
+| Cart          |  Makes `GET` request to fetch user cart and renders cart items.  |
+| EmptyCart     |  Displays the empty cart text when nothing is in users cart.     |
+| CartItem     |   Renders each item in the cart.     |
+| Category     |   Displays category in navbar by Animals, Vehicles, Household, or Furniture.     |
+| Item     |   Each indivdual product that is displayed on the product page.     |
+| LandingPage     |   First Page the users sees when they open up the application.     |
+| Navbar     |   Navigation bar which contains cart, order history, sign in/out, and other important stuff.     |
+| CartItem     |   Renders each item in the cart.     |
+| Order     |   Each individual order within the order history.     |
+| OrderHistory     |   Makes `GET` request to display users order history.     |
+| Products     |   Renders each item on the products page by displaying Item component.     |
+| SearchResults     |   Allows users to search by item name.     |
+| SingleItem     |  Allows users to access a single item view of any item.    |
+
+
+
 
 -------------------------------------------------------------------------------------------------------------------
 
