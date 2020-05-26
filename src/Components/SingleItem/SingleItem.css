@@ -34,5 +34,4 @@
 
 img {
   width: 100%;
-  width: calc(currentWidth - 20%);
 }
