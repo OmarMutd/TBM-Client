@@ -116,7 +116,7 @@ export default class Cart extends Component {
   }
 
   checkoutCart = () => {
-    fetch(`${config.API_ENDPOINT}/cart/checkout/12345`, {
+    fetch(`${config.API_ENDPOINT}/cart/checkout/`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
