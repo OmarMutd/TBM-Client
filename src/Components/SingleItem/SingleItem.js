@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import config from "../../config";
 import "./SingleItem.css";
 import LoginContext from "../../LoginContext";
+import TokenService from "../../services/token-services";
 
 export default class SingleItem extends Component {
   static contextType = LoginContext;
@@ -30,11 +31,11 @@ export default class SingleItem extends Component {
   };
 
   addToCart = (id) => {
-    const user_id = "1";
+    // const user_id = "1";
     const product_id = id;
     const quantity = "1";
     const added_item = {
-      user_id: user_id,
+      // user_id: user_id,
       product_id: product_id,
       quantity: quantity,
     };
@@ -42,6 +43,7 @@ export default class SingleItem extends Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(added_item),
     })

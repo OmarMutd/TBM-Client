@@ -3,18 +3,23 @@ import "./Cart.css";
 import CartItems from "../CartItem/CartItem";
 import config from "../../config";
 import EmptyCart from "./EmptyCart";
+import TokenService from '../../services/token-services'
+import LoginContext from '../../LoginContext'
 
 export default class Cart extends Component {
+  static contextType = LoginContext
+
   state = {
     cart: {},
     total: 0,
   };
 
   getCart() {
-    fetch(`${config.API_ENDPOINT}/cart/1`, {
+    fetch(`${config.API_ENDPOINT}/cart/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${TokenService.getAuthToken()}`
       },
     })
       .then((response) => response.json())
@@ -57,6 +62,7 @@ export default class Cart extends Component {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({ user_id }),
     })
@@ -110,15 +116,17 @@ export default class Cart extends Component {
   }
 
   checkoutCart = () => {
-    fetch(`${config.API_ENDPOINT}/cart/history/1`, {
+    fetch(`${config.API_ENDPOINT}/cart/checkout/12345`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${TokenService.getAuthToken()}`
       },
     })
       .then((res) => {
         if (!res.ok) return res.json().then((e) => Promise.reject(e));
       })
+      .then(() => this.context.fetchCartQuantity())
       .then(() => {
         this.props.history.push("/OrderHistory");
       });

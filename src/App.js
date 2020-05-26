@@ -41,10 +41,11 @@ class App extends Component {
   };
 
   fetchCartQuantity = () => {
-    fetch(`${config.API_ENDPOINT}/cart/1`, {
+    fetch(`${config.API_ENDPOINT}/cart/`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
+        "Authorization": `Bearer ${TokenService.getAuthToken()}`
       },
     })
       .then((response) => response.json())
@@ -56,7 +57,9 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.fetchCartQuantity();
+    if(this.state.loggedIn){
+    }this.fetchCartQuantity();
+      
   }
 
   render() {

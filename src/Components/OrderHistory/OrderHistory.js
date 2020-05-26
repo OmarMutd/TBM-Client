@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import "./OrderHistory.css";
 import Order from "../Order/Order";
 import config from "../../config";
+
+import TokenService from '../../services/token-services'
+
 import ScrollToTop from "react-scroll-up";
+
 
 
 export default class OrderHistory extends Component {
@@ -11,10 +15,11 @@ export default class OrderHistory extends Component {
   };
 
   componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/cart/history/1`, {
+    fetch(`${config.API_ENDPOINT}/cart/history/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${TokenService.getAuthToken()}`
       },
     })
       .then((response) => response.json())
