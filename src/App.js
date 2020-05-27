@@ -57,9 +57,9 @@ class App extends Component {
   };
 
   componentDidMount() {
-    if(this.state.loggedIn){
-    }this.fetchCartQuantity();
-      
+    if (this.state.loggedIn) {
+    } this.fetchCartQuantity();
+
   }
 
   render() {
@@ -78,7 +78,7 @@ class App extends Component {
         />
         <LoginContext.Provider value={contextValue}>
           <Navbar />
-          <Switch>
+          {/* <Switch>
             <Route exact path="/" component={LandingPage} />
             <PublicRoute path="/SignIn" component={SignIn} />
             <PublicRoute path="/SignUp" component={SignUp} />
@@ -90,7 +90,7 @@ class App extends Component {
             <Route path="/Category/:category" component={Category} />
             <Route path="/SingleItem/:id" component={SingleItem} />
             <Route component={PageDoesNotExist} />
-          </Switch>
+          </Switch> */}
         </LoginContext.Provider>
       </div>
     );
