@@ -38,7 +38,7 @@ class Navbar extends Component {
       method: "GET",
       headers: {
         "Content-type": "application/json",
-        
+
       },
     })
       .then((response) => response.json())
@@ -70,7 +70,7 @@ class Navbar extends Component {
       quantity: this.context.quantity,
     });
     this.fetchCategories();
-    if (TokenService.hasAuthToken()){
+    if (TokenService.hasAuthToken()) {
       this.fetchCartQuantity()
     };
   }
@@ -117,7 +117,7 @@ class Navbar extends Component {
                 state: { query: this.state.query },
               }}
             >
-              <button type="submit">Submit</button>
+              <button type="submit"><i class="fa fa-search"></i></button>
             </Link>
           </form>
           <div className="link-row">

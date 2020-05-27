@@ -42,6 +42,7 @@ export class SearchResults extends Component {
         <div className="no-results">
           <h2>We couldn't find any results for "{this.state.query}"</h2>
           <p>Try searching for something else instead?</p>
+          <p> Hint: Search by product name not category name.</p>
         </div>
       );
     } else if (value.length === 1) {
