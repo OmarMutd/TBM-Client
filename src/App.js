@@ -77,8 +77,8 @@ class App extends Component {
           rel="stylesheet"
         />
         <LoginContext.Provider value={contextValue}>
-          {/* <Navbar /> */}
-          {/* <Switch>
+          <Navbar />
+          <Switch>
             <Route exact path="/" component={LandingPage} />
             <PublicRoute path="/SignIn" component={SignIn} />
             <PublicRoute path="/SignUp" component={SignUp} />
@@ -90,7 +90,7 @@ class App extends Component {
             <Route path="/Category/:category" component={Category} />
             <Route path="/SingleItem/:id" component={SingleItem} />
             <Route component={PageDoesNotExist} />
-          </Switch> */}
+          </Switch>
         </LoginContext.Provider>
       </div>
     );
