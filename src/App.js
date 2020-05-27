@@ -77,7 +77,7 @@ class App extends Component {
           rel="stylesheet"
         />
         <LoginContext.Provider value={contextValue}>
-          <Navbar />
+          {/* <Navbar /> */}
           {/* <Switch>
             <Route exact path="/" component={LandingPage} />
             <PublicRoute path="/SignIn" component={SignIn} />
