@@ -56,7 +56,7 @@ class SignInPage extends Component {
   }
 
   render() {
-    console.log(this.state.fromLanding)
+    
     const { error } = this.state;
     return (
       <div>
