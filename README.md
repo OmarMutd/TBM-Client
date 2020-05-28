@@ -4,7 +4,7 @@
 
 ------------------------------------------------------------------------------------------------------------------
 
-![testing image](/public/img/logo.jpeg?raw=true "Title")
+![Logo](/public/img/logo.jpeg?raw=true "Title")
 
 
 
@@ -26,7 +26,10 @@
 
 ### Screen flows here
 
-Ex: Cart Page in moble & desktop view, 404 page, Products page, Order History Page, TIE FIGHTER.
+![TIE FIGHTER](/public/img/tie-fighter.jpeg?raw=true "Title")
+
+![Products](/public/img/products.jpeg?raw=true "Title")
+
 
 -------------------------------------------------------------------------------------------------------------------
 
