@@ -3,12 +3,24 @@ import "./Order.css";
 import _ from "lodash";
 
 export class Order extends Component {
+  constructor(props) {
+    super(props);
+
+    this.keyCount = 0;
+    this.getKey = this.getKey.bind(this);
+  }
+
   state = {
     orders: [],
     total: 0,
+   
   };
 
   componentDidMount() {}
+
+  getKey() {
+    return this.keyCount++
+  }
 
   parseNumber(strg) {
     var strg = strg || "";
@@ -58,7 +70,7 @@ export class Order extends Component {
               let total = cost * quantity;
 
               return (
-                <div key={id}>
+                <div key={this.getKey()}>
                   {/* <img src={url} /> */}
                   <h4>
                     {title}: {quantity} x {price} = $
