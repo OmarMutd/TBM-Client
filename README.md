@@ -6,7 +6,7 @@
 
 ### Logo Here
 
-![testing image](./build/img/to/black-home.jpg "Title")
+![testing image](./build/img/black-home.jpg "Title")
 
 -------------------------------------------------------------------------------------------------------------------
 
