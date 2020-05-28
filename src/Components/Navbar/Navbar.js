@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/fontawesome-free-solid";
+import { faBars, faSearch } from "@fortawesome/fontawesome-free-solid";
 import Navlinks from "./Navlinks";
 import Lead from "./Lead";
 import SignInOut from "./SignInOut";
 import config from "../../config";
 import "./Navbar.css";
 import LoginContext from "../../LoginContext";
-import TokenService from '../../services/token-services'
+import TokenService from "../../services/token-services";
 
 class Navbar extends Component {
   static contextType = LoginContext;
@@ -38,7 +38,6 @@ class Navbar extends Component {
       method: "GET",
       headers: {
         "Content-type": "application/json",
-        
       },
     })
       .then((response) => response.json())
@@ -54,7 +53,7 @@ class Navbar extends Component {
       method: "GET",
       headers: {
         "Content-type": "application/json",
-        "Authorization": `Bearer ${TokenService.getAuthToken()}`
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then((response) => response.json())
@@ -70,9 +69,9 @@ class Navbar extends Component {
       quantity: this.context.quantity,
     });
     this.fetchCategories();
-    if (TokenService.hasAuthToken()){
-      this.fetchCartQuantity()
-    };
+    if (TokenService.hasAuthToken()) {
+      this.fetchCartQuantity();
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -119,7 +118,13 @@ class Navbar extends Component {
                 state: { query: this.state.query },
               }}
             >
-              <button type="submit">Submit</button>
+              <button type="submit">
+                <FontAwesomeIcon
+                  icon={faSearch}
+                  className="search-bar-icon"
+                  aria-hidden="true"
+                />
+              </button>
             </Link>
           </form>
           <div className="link-row">

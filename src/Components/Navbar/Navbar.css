@@ -36,6 +36,12 @@
 }
 .search-bar-icon {
   cursor: pointer;
+  color: white;
+  background-color: black;
+}
+.nav-bar button {
+  background-color: black;
+  border-color: black;
 }
 
 @media screen and (min-width: 910px) {

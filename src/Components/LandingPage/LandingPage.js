@@ -14,10 +14,14 @@ export default class LandingPage extends Component {
           <p>Click Sign In for further instructions.</p>
           <br />
           <Link to="/SignIn">
-            <button type="button">Sign In</button>
+            <button type="button" aria-label="Sign In">
+              Sign In
+            </button>
           </Link>
           <Link to={{ pathname: "/SignUp", state: { fromLanding: true } }}>
-            <button type="button">Sign Up</button>
+            <button type="button" aria-label="Sign Out">
+              Sign Up
+            </button>
           </Link>
         </section>
       </div>

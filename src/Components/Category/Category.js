@@ -4,7 +4,6 @@ import Item from "../Item/Item";
 import "./Category.css";
 import ScrollToTop from "react-scroll-up";
 
-
 export class Category extends Component {
   state = {
     data: [],
@@ -49,7 +48,9 @@ export class Category extends Component {
     return (
       <div>
         <ScrollToTop showUnder={10}>
-          <button className='scroll-button'>UP</button>
+          <button className="scroll-button" aria-label="scroll to top">
+            UP
+          </button>
         </ScrollToTop>
         <h1 className="category-title">{title}</h1>
         <div className="all-products">
