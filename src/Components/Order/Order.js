@@ -8,7 +8,7 @@ export class Order extends Component {
     total: 0,
   };
 
-  componentDidMount() {}
+  componentDidMount() { }
 
   parseNumber(strg) {
     var strg = strg || "";
@@ -64,7 +64,7 @@ export class Order extends Component {
                 <div key={id} className="single-order">
                   {<img src={url} className="order-img" alt={title} />}
                   <h4 className="order-info">
-                    {title}: {quantity} x {price} = $
+                    {title}: $
                     {total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.00
                   </h4>
                 </div>

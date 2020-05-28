@@ -10,6 +10,7 @@ export default class SingleItem extends Component {
 
   state = {
     data: [],
+    message: "",
   };
 
   componentDidMount() {
@@ -27,7 +28,7 @@ export default class SingleItem extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({ data: data });
-      });
+      })
   };
 
   addToCart = (id) => {
@@ -48,7 +49,12 @@ export default class SingleItem extends Component {
       body: JSON.stringify(added_item),
     })
       .then((response) => response.json())
-      .then((singleitem) => this.context.fetchCartQuantity());
+      .then((singleitem) => this.context.fetchCartQuantity()
+      )
+      .then(
+        this.setState({ message: "Added to Cart!" }),
+        setTimeout(() => this.setState({ message: "" }), 1500)
+      );
   };
 
   render() {
@@ -69,6 +75,7 @@ export default class SingleItem extends Component {
             <p>{price}</p>
             <p>Category: {category}</p>
             <div className="product-desc">{description}</div>
+            <div className="added-to-cart-message-single-item">{this.state.message}</div>
             <button onClick={() => this.addToCart(`${id}`)}>Add to Cart</button>
           </div>
         </div>
