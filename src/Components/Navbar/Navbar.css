@@ -39,6 +39,7 @@
   color: white;
   background-color: black;
 }
+
 .nav-bar button {
   background-color: black;
   border-color: black;
@@ -59,6 +60,7 @@
     display: flex;
     justify-content: space-between;
   }
+
 }
 @media screen and (max-width: 910px) {
   .nav-bar.toggled {

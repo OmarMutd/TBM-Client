@@ -70,8 +70,9 @@ class Navbar extends Component {
     });
     this.fetchCategories();
     if (TokenService.hasAuthToken()) {
-      this.fetchCartQuantity();
-    }
+
+      this.fetchCartQuantity()
+    };
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -118,6 +119,7 @@ class Navbar extends Component {
                 state: { query: this.state.query },
               }}
             >
+
               <button type="submit">
                 <FontAwesomeIcon
                   icon={faSearch}

@@ -19,3 +19,18 @@
 .signup-button:hover {
     color: blue
 }
+
+@media screen and (min-width: 600px) {
+    .tip {
+        height: 15px;
+        width: 15px;
+        background-color: black;
+        color: white;
+        border-radius: 50%;
+        display: inline-block;
+        font-size: 10px;
+        position: absolute;
+        right: 750px;
+        bottom: 340px;
+    }
+}
