@@ -117,7 +117,7 @@ class Navbar extends Component {
                 state: { query: this.state.query },
               }}
             >
-              <button type="submit"><i class="fa fa-search"></i></button>
+              <button className='search-btn' type="submit">Search</button>
             </Link>
           </form>
           <div className="link-row">

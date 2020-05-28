@@ -37,8 +37,10 @@
 .search-bar-icon {
   cursor: pointer;
 }
-.search-bar {
-}
+
+/* .search-btn {
+  color: #fff;
+} */
 
 @media screen and (min-width: 600px) {
   .nav-bar {
@@ -55,6 +57,7 @@
     display: flex;
     justify-content: space-between;
   }
+
 }
 @media screen and (max-width: 600px) {
   .nav-bar.toggled {
