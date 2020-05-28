@@ -3,11 +3,9 @@ import "./OrderHistory.css";
 import Order from "../Order/Order";
 import config from "../../config";
 
-import TokenService from '../../services/token-services'
+import TokenService from "../../services/token-services";
 
 import ScrollToTop from "react-scroll-up";
-
-
 
 export default class OrderHistory extends Component {
   state = {
@@ -19,7 +17,7 @@ export default class OrderHistory extends Component {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${TokenService.getAuthToken()}`
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then((response) => response.json())
@@ -44,7 +42,9 @@ export default class OrderHistory extends Component {
       return (
         <div className=".1cart">
           <ScrollToTop showUnder={200}>
-            <button className='scroll-button'>UP</button>
+            <button className="scroll-button" aria-label="scroll button">
+              UP
+            </button>
           </ScrollToTop>
           <h1>Order History</h1>
           <Order orders={this.state.orders} />

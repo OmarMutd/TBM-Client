@@ -4,7 +4,7 @@ import config from "../../config";
 import "./CartItem.css";
 import ReactTooltip from "react-tooltip";
 import LoginContext from "../../LoginContext";
-import TokenService from '../../services/token-services'
+import TokenService from "../../services/token-services";
 
 export class CartItem extends Component {
   static contextType = LoginContext;
@@ -15,7 +15,7 @@ export class CartItem extends Component {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${TokenService.getAuthToken()}`
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({ user_id }),
     })
@@ -64,6 +64,7 @@ export class CartItem extends Component {
                       <button
                         data-tip="Remove item from cart"
                         className="remove-btn"
+                        aria-label="remove item"
                         onClick={() => this.removeItem(`${cartItem.id}`)}
                       >
                         <i className="fa fa-trash"></i>

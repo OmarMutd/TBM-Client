@@ -7,6 +7,7 @@ export class PageDoesNotExist extends Component {
       <div className="wrapper">
         <img
           src="https://www.reactiongifs.com/r/brule-omg.gif"
+          className="uh-oh"
           alt="shocked face"
         />
         <h1 className="notExist-A">UH-OH!</h1>

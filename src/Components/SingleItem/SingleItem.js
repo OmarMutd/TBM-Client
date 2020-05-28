@@ -56,36 +56,21 @@ export default class SingleItem extends Component {
     return (
       <div>
         <div className="item-card">
-          <div className="item-image">
-            <Link to={`/SingleItem/${id}`}>
-              <img src={url} alt={description} />
-            </Link>
+          <div className="item-column">
+            <div className="item-image">
+              <Link to={`/SingleItem/${id}`}>
+                <img src={url} alt={description} />
+              </Link>
+            </div>
           </div>
-          <button onClick={() => this.addToCart(`${id}`)}>Add to Cart</button>
-          <div className="product-information"></div>
-          <p>{title}</p>
-          <p>{price}</p>
-          <p>
-            quantity:
-            <select>
-              <option> 1 </option>
-              <option> 2 </option>
-              <option> 3 </option>
-              <option> 4 </option>
-              <option> 5 </option>
-              <option> 6 </option>
-              <option> 7 </option>
-              <option> 8 </option>
-              <option> 9 </option>
-              <option> 10 </option>
-            </select>
-          </p>
-
-          <p>Category: {category}</p>
-          <div className="product-desc">{description}</div>
-          <button>
-            <Link to="/Products">Go Back</Link>
-          </button>
+          <div className="item-column">
+            <div className="product-information"></div>
+            <p>{title}</p>
+            <p>{price}</p>
+            <p>Category: {category}</p>
+            <div className="product-desc">{description}</div>
+            <button onClick={() => this.addToCart(`${id}`)}>Add to Cart</button>
+          </div>
         </div>
       </div>
     );
