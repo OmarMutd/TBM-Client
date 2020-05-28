@@ -5,3 +5,6 @@
     border-radius: .3em;
     font-weight: bold;
 }
+.cart-checkout:hover {
+    cursor: pointer;
+}
