@@ -66,6 +66,7 @@ class SignUpPage extends Component {
   }
 
   render() {
+    console.log(this.state.fromLanding, this.state.fromSignIn)
     const { error } = this.state;
     return (
       <div>

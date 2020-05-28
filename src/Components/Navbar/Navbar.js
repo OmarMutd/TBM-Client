@@ -50,19 +50,22 @@ class Navbar extends Component {
   };
 
   fetchCartQuantity = () => {
-    fetch(`${config.API_ENDPOINT}/cart/`, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        "Authorization": `Bearer ${TokenService.getAuthToken()}`
-      },
-    })
-      .then((response) => response.json())
-      .then((data) =>
-        this.setState({
-          quantity: data.length,
-        })
-      );
+    if(this.context.loggedIn == true) {
+
+      fetch(`${config.API_ENDPOINT}/cart/`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          "Authorization": `Bearer ${TokenService.getAuthToken()}`
+        },
+      })
+        .then((response) => response.json())
+        .then((data) =>
+          this.setState({
+            quantity: data.length,
+          })
+        );
+    }
   };
 
   componentDidMount() {

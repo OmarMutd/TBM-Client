@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
 import "./LandingPage.css";
+import Buttons from './Buttons'
 
 export default class LandingPage extends Component {
+
+  
+
   render() {
     return (
       <div>
@@ -12,13 +16,9 @@ export default class LandingPage extends Component {
         <section>
           <h2>Description of app</h2>
           <h3>Instructions for sign in</h3>
+          <Buttons/>
           <br />
-          <Link to="/SignIn">
-            <button type="button">Sign In</button>
-          </Link>
-          <Link to={{ pathname: "/SignUp", state: { fromLanding: true } }}>
-            <button type="button">Sign Up</button>
-          </Link>
+          
         </section>
       </div>
     );

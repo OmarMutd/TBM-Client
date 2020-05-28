@@ -57,8 +57,8 @@ class App extends Component {
   };
 
   componentDidMount() {
-    if (this.state.loggedIn) {
-    } this.fetchCartQuantity();
+    if (this.state.loggedIn === true) {this.fetchCartQuantity()
+    } ;
 
   }
 

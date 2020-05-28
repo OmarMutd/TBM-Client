@@ -12,13 +12,18 @@ class SignInPage extends Component {
 
   state = {
     error: null,
+    fromLanding: false
   };
 
   handleSignInSuccess = () => {
+    // this.setState({});
     this.context.updateLogIn();
-    this.setState({});
+    if (this.state.fromLanding === true) {
+      this.props.history.push("/Products")
+    } else {
+      this.props.history.goBack();
 
-    this.props.history.goBack();
+    }
   };
 
   handleSubmitJwtAuth = (e) => {
@@ -42,7 +47,16 @@ class SignInPage extends Component {
       });
   };
 
+  componentDidMount() {
+    if(this.props.location.state) {
+      this.setState({
+        fromLanding: this.props.location.state.fromLanding
+      })
+    }
+  }
+
   render() {
+    console.log(this.state.fromLanding)
     const { error } = this.state;
     return (
       <div>
