@@ -6,7 +6,9 @@
 
 ### Logo Here
 
-![testing image](/build/img/logo.jpeg?raw=true "Title")
+![testing image](/public/img/logo.jpeg?raw=true "Title")
+
+
 
 -------------------------------------------------------------------------------------------------------------------
 
