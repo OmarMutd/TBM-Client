@@ -13,7 +13,7 @@ class SingleItem extends Component {
   state = {
     data: [],
 
-    history: ""
+    history: "",
 
     message: "",
 
