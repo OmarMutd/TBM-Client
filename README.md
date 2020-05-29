@@ -5,7 +5,7 @@
 ------------------------------------------------------------------------------------------------------------------
 
 <p align="center">
-  <img width="460" height="300" src="/public/img/logo.jpeg?raw=true">
+  <img src="/public/img/logo.jpeg?raw=true">
 </p>
 
 
