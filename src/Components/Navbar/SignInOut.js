@@ -19,17 +19,22 @@ export default class SignInOut extends Component {
     TokenService.clearAuthToken();
     this.context.updateLogIn();
     this.setState({});
+    this.props.toggle();
   };
 
   renderSignOutLink() {
     return (
-      <div>
-        <div className="nav-bar-item">
-          <Link className="nav-bar-item" to="/OrderHistory">
+      <>
+        <div>
+          <Link
+            className="nav-bar-item"
+            to="/OrderHistory"
+            onClick={this.props.toggle}
+          >
             Order History
           </Link>
         </div>
-        <div className="nav-bar-item">
+        <div>
           <Link
             className="nav-bar-item"
             onClick={this.handleSignOutClick}
@@ -38,12 +43,12 @@ export default class SignInOut extends Component {
             Sign Out
           </Link>
         </div>
-        <div className="nav-bar-item">
-          <Link className="nav-bar-item" to="/Cart">
+        <div>
+          <Link className="nav-bar-item" to="/Cart" onClick={this.props.toggle}>
             Cart ({this.context.quantity})
           </Link>
         </div>
-      </div>
+      </>
     );
   }
 

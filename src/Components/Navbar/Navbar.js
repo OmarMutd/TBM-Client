@@ -49,14 +49,12 @@ class Navbar extends Component {
   };
 
   fetchCartQuantity = () => {
-
-    if(this.context.loggedIn == true) {
-
+    if (this.context.loggedIn == true) {
       fetch(`${config.API_ENDPOINT}/cart/`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
-          "Authorization": `Bearer ${TokenService.getAuthToken()}`
+          Authorization: `Bearer ${TokenService.getAuthToken()}`,
         },
       })
         .then((response) => response.json())
@@ -66,7 +64,6 @@ class Navbar extends Component {
           })
         );
     }
-
   };
 
   componentDidMount() {
@@ -75,9 +72,8 @@ class Navbar extends Component {
     });
     this.fetchCategories();
     if (TokenService.hasAuthToken()) {
-
-      this.fetchCartQuantity()
-    };
+      this.fetchCartQuantity();
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -124,7 +120,6 @@ class Navbar extends Component {
                 state: { query: this.state.query },
               }}
             >
-
               <button type="submit">
                 <FontAwesomeIcon
                   icon={faSearch}
@@ -136,7 +131,7 @@ class Navbar extends Component {
           </form>
           <div className="link-row">
             <section className="left">
-              <Link to="/Products">
+              <Link to="/Products" onClick={this.setToggleNavbarClass}>
                 <Navlinks text="All" />
               </Link>
               {categories.map((category) => {
@@ -144,6 +139,7 @@ class Navbar extends Component {
                   <Link
                     key={category}
                     to={{ pathname: `/Category/${category.toLowerCase()}` }}
+                    onClick={this.setToggleNavbarClass}
                   >
                     <div className="nav-bar-item">{category}</div>
                   </Link>
@@ -152,7 +148,10 @@ class Navbar extends Component {
             </section>
 
             <section className="right">
-              <SignInOut quantity={this.state.quantity} />
+              <SignInOut
+                quantity={this.state.quantity}
+                toggle={this.setToggleNavbarClass}
+              />
             </section>
           </div>
           <FontAwesomeIcon

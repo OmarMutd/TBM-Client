@@ -31,7 +31,7 @@ export class Products extends Component {
           </button>
         </ScrollToTop>
         <section>
-          <h2>All Products</h2>
+          <h1 className="products-title">All Products</h1>
         </section>
         <section>
           <div className="products">

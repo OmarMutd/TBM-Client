@@ -122,6 +122,7 @@
   border-radius: 30px;
   font-size: 2em;
   padding-bottom: 5px;
+  margin: auto;
 }
 
 .signup-header {
@@ -129,32 +130,30 @@
 }
 
 .sign-in-dummy {
-    list-style: none;
+  list-style: none;
 }
 
 .signup1 {
-color: black;
-text-align:center;
-transition: all 0.2s;
-font-weight:300;
-box-sizing: border-box;
-text-decoration:none;
-border:0.1em solid black;
-margin:0 0.3em 0.3em 0;
-border-radius:0.12em;
-display:inline-block;
-padding:0.35em 1.2em;
-text-transform: uppercase;
-display: inline-block;
+  color: black;
+  text-align: center;
+  transition: all 0.2s;
+  font-weight: 300;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: 0.1em solid black;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  text-transform: uppercase;
+  display: inline-block;
 }
 
 .signup1:hover {
-    color: black;
-    background-color: blue;
-    cursor: pointer;
-
+  color: black;
+  background-color: blue;
+  cursor: pointer;
 }
-
 
 @media only screen and (min-width: 600px) {
   .signup-form {

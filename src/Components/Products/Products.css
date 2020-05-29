@@ -2,6 +2,10 @@
   visibility: hidden;
 }
 
+.products-title {
+  font-family: "Anton", sans-serif;
+}
+
 @media screen and (min-width: 800px) {
   .scroll-button {
     visibility: visible;
@@ -16,7 +20,7 @@
     cursor: pointer;
     border-radius: 50%;
   }
-  
+
   .scroll-button:hover {
     color: rgb(208, 255, 0);
     background-color: black;
