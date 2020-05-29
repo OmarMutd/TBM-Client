@@ -2,11 +2,23 @@ import React, { Component } from 'react';
 import './EmptyCart.css'
 
 export class EmptyCart extends Component {
+
+    state = {
+        text: ''
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({ text: "Your cart is Empty!"})
+        }, 200)
+    }
+
+    
     render() {
         return (
-            <div>
-                <h1 className='empty-text'>Your cart is Empty!</h1>
-            </div>
+            
+                <h1 className='empty-text'>{this.state.text}</h1>
+            
         )
     }
 }
