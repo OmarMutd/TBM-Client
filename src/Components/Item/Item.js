@@ -6,10 +6,11 @@ import LoginContext from "../../LoginContext";
 import TokenService from '../../services/token-services'
 import { withRouter } from "react-router"
 
+
 class Item extends Component {
   state = {
-    message: ''
-  }
+    message: "",
+  };
   static contextType = LoginContext;
 
   handleErrors(response) {
@@ -33,7 +34,7 @@ class Item extends Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${TokenService.getAuthToken()}`
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(added_item),
     })
@@ -44,9 +45,9 @@ class Item extends Component {
         this.context.fetchCartQuantity();
       })
       .then(
-        this.setState({ message: 'Added to Cart!' }),
-        setTimeout(() => this.setState({ message: '' }), 1500)
-      )
+        this.setState({ message: "Added to Cart!" }),
+        setTimeout(() => this.setState({ message: "" }), 1500)
+      );
   };
 
   render() {
@@ -58,9 +59,14 @@ class Item extends Component {
             <Link to={{ pathname: `/SingleItem/${id}` }}>
               <img src={url} alt={description} />
             </Link>
-            <div className='added-to-cart-message'>{this.state.message}</div>
+            <div className="added-to-cart-message">{this.state.message}</div>
           </div>
-          <button onClick={() => this.addToCart(`${id}`)}>Add to Cart</button>
+          <button
+            aria-label="add to cart"
+            onClick={() => this.addToCart(`${id}`)}
+          >
+            Add to Cart
+          </button>
           <div className="product-information"></div>
           <p>{title}</p>
           <p>{price}</p>

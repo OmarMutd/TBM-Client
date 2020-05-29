@@ -14,11 +14,12 @@ export default class LandingPage extends Component {
           <h1>The Black Market</h1>
         </header>
         <section>
-          <h2>Description of app</h2>
-          <h3>Instructions for sign in</h3>
+
+         <p>An e-commerce site where all the products are the color black.</p>
           <Buttons/>
           <br />
           
+
         </section>
       </div>
     );

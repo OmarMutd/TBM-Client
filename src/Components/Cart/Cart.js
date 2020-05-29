@@ -3,11 +3,11 @@ import "./Cart.css";
 import CartItems from "../CartItem/CartItem";
 import config from "../../config";
 import EmptyCart from "./EmptyCart";
-import TokenService from '../../services/token-services'
-import LoginContext from '../../LoginContext'
+import TokenService from "../../services/token-services";
+import LoginContext from "../../LoginContext";
 
 export default class Cart extends Component {
-  static contextType = LoginContext
+  static contextType = LoginContext;
 
   state = {
     cart: {},
@@ -19,7 +19,7 @@ export default class Cart extends Component {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${TokenService.getAuthToken()}`
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then((response) => response.json())
@@ -62,7 +62,7 @@ export default class Cart extends Component {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${TokenService.getAuthToken()}`
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({ user_id }),
     })
@@ -120,7 +120,7 @@ export default class Cart extends Component {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${TokenService.getAuthToken()}`
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then((res) => {
@@ -144,7 +144,11 @@ export default class Cart extends Component {
             incrementItem={this.incrementItem.bind(this)}
             decrementItem={this.decrementItem.bind(this)}
           />
-          <button className="clear-cart" onClick={() => this.clearCart()}>
+          <button
+            className="clear-cart"
+            aria-label="clear cart"
+            onClick={() => this.clearCart()}
+          >
             Clear cart
           </button>
           <p className="cart-total-title">
@@ -152,7 +156,11 @@ export default class Cart extends Component {
             {this.state.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             .00
           </p>
-          <button className="cart-checkout" onClick={() => this.checkoutCart()}>
+          <button
+            className="cart-checkout"
+            aria-label="cart checkout"
+            onClick={() => this.checkoutCart()}
+          >
             Checkout
           </button>
           <div></div>

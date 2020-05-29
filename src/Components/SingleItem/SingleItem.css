@@ -1,9 +1,11 @@
 .item-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+  max-width: 75%;
   margin: auto;
+  margin-top: 5%;
   text-align: center;
-  font-family: arial;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 100px;
 }
 
 .price {
@@ -27,11 +29,35 @@
   opacity: 0.7;
 }
 
-.img-wrap {
-  overflow: hidden;
-  width: 50%;
+img {
+  width: 100%;
+  display: block;
 }
 
-img {
- width: 100%;
+.added-to-cart-message-single-item {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Allan';font-size: 100px;
+  margin-top: 100px;
+  font-size: 100px;
+}
+
+@media screen and (min-width: 910px) {
+  .item-card {
+    display: flex;
+  }
+  .item-card button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .item-column {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+  }
+  .item-image {
+    max-height: 50%;
+  }
 }

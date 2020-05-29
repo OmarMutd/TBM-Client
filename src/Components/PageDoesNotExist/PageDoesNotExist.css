@@ -41,7 +41,9 @@
 }
 
 @media screen and (min-width: 600px) {
-  img {
+  .uh-oh {
     max-width: 50%;
+    position: relative;
+    left: 25%;
   }
 }

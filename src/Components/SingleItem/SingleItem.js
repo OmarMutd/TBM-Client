@@ -12,7 +12,11 @@ class SingleItem extends Component {
 
   state = {
     data: [],
+
     history: ""
+
+    message: "",
+
   };
 
   componentDidMount() {
@@ -39,7 +43,7 @@ class SingleItem extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({ data: data });
-      });
+      })
   };
 
   addToCart = (id) => {
@@ -61,7 +65,12 @@ class SingleItem extends Component {
     })
       .then((response) => this.handleErrors(response))
       .then((response) => response.json())
-      .then((singleitem) => this.context.fetchCartQuantity());
+      .then((singleitem) => this.context.fetchCartQuantity()
+      )
+      .then(
+        this.setState({ message: "Added to Cart!" }),
+        setTimeout(() => this.setState({ message: "" }), 1500)
+      );
   };
 
   render() {
@@ -70,36 +79,23 @@ class SingleItem extends Component {
     return (
       <div>
         <div className="item-card">
-          <div className="item-image">
-            <Link to={`/SingleItem/${id}`}>
-              <img src={url} alt={description} />
-            </Link>
+          <div className="item-column">
+            <div className="item-image">
+              <Link to={`/SingleItem/${id}`}>
+                <img src={url} alt={description} />
+              </Link>
+            </div>
           </div>
-          <button onClick={() => this.addToCart(`${id}`)}>Add to Cart</button>
-          <div className="product-information"></div>
-          <p>{title}</p>
-          <p>{price}</p>
-          {/* <p>
-            quantity:
-            <select>
-              <option> 1 </option>
-              <option> 2 </option>
-              <option> 3 </option>
-              <option> 4 </option>
-              <option> 5 </option>
-              <option> 6 </option>
-              <option> 7 </option>
-              <option> 8 </option>
-              <option> 9 </option>
-              <option> 10 </option>
-            </select>
-          </p> */}
+          <div className="item-column">
+            <div className="product-information"></div>
+            <p>{title}</p>
+            <p>{price}</p>
+            <p>Category: {category}</p>
+            <div className="product-desc">{description}</div>
+            <div className="added-to-cart-message-single-item">{this.state.message}</div>
+            <button onClick={() => this.addToCart(`${id}`)}>Add to Cart</button>
+          </div>
 
-          <p>Category: {category}</p>
-          <div className="product-desc">{description}</div>
-          <button>
-            <Link to="/Products">Go Back</Link>
-          </button>
         </div>
       </div>
     );

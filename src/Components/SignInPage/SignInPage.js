@@ -102,7 +102,7 @@ class SignInPage extends Component {
           </p>
 
           <div className="useful-buttons">
-            <button typer="submit" className="sign">
+            <button typer="submit" className="sign" aria-label="">
               Sign In
             </button>
 

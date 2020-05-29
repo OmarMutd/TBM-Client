@@ -4,7 +4,6 @@ import Item from "../Item/Item";
 import config from "../../config";
 import ScrollToTop from "react-scroll-up";
 
-
 export class Products extends Component {
   state = {
     data: [],
@@ -27,7 +26,9 @@ export class Products extends Component {
     return (
       <div>
         <ScrollToTop showUnder={160}>
-          <button className='scroll-button'>UP</button>
+          <button className="scroll-button" aria-label="scroll button">
+            UP
+          </button>
         </ScrollToTop>
         <section>
           <h2>All Products</h2>

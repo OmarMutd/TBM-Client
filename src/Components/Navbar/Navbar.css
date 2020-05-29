@@ -1,5 +1,5 @@
 .nav-bar {
-  padding: 5px 0 5px;
+  padding: 5px 0 7px;
   max-height: 10vh;
   overflow: hidden;
   background-color: black;
@@ -36,11 +36,16 @@
 }
 .search-bar-icon {
   cursor: pointer;
-}
-.search-bar {
+  color: white;
+  background-color: black;
 }
 
-@media screen and (min-width: 600px) {
+.nav-bar button {
+  background-color: black;
+  border-color: black;
+}
+
+@media screen and (min-width: 910px) {
   .nav-bar {
     padding: 40px 20px 20px 20px;
 
@@ -55,8 +60,9 @@
     display: flex;
     justify-content: space-between;
   }
+
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 910px) {
   .nav-bar.toggled {
     padding: 10px 0 0 0;
     max-height: 1500px;

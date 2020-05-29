@@ -16,7 +16,7 @@ export class Order extends Component {
    
   };
 
-  componentDidMount() {}
+  componentDidMount() { }
 
   getKey() {
     return this.keyCount++
@@ -60,29 +60,30 @@ export class Order extends Component {
           return acc + amount;
         }, 0);
         return (
-          <div key={invoiceId}>
+          <div key={invoiceId} className="order-row">
             <div>
-              <h2>Order #{invoiceId}</h2>
-              <h3>Products Purchased:</h3>
+              <h2 className="order-num">Order #{invoiceId}</h2>
+              <h3 className="order-total">
+                Order Total = $
+                {totalOrder.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.00
+              </h3>
             </div>
             {products.map(({ id, title, price, quantity, url }) => {
               let cost = this.parseNumber(price.slice(1));
               let total = cost * quantity;
 
               return (
-                <div key={this.getKey()}>
-                  {/* <img src={url} /> */}
-                  <h4>
-                    {title}: {quantity} x {price} = $
+
+                <div key={this.getKey()} className="single-order">
+                  {<img src={url} className="order-img" alt={title} />}
+                  <h4 className="order-info">
+                    {title}: $
+
                     {total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.00
                   </h4>
                 </div>
               );
             })}
-            <h3>
-              Order Total = $
-              {totalOrder.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.00
-            </h3>
           </div>
         );
       });
