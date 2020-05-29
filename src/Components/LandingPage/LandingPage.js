@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
 import "./LandingPage.css";
+import Buttons from './Buttons'
 
 export default class LandingPage extends Component {
+
+  
+
   render() {
     return (
       <div>
@@ -10,19 +14,12 @@ export default class LandingPage extends Component {
           <h1>The Black Market</h1>
         </header>
         <section>
-          <p>An e-commerce site where all the products are the color black.</p>
-          <p>Click Sign In for further instructions.</p>
+
+         <p>An e-commerce site where all the products are the color black.</p>
+          <Buttons/>
           <br />
-          <Link to="/SignIn">
-            <button type="button" aria-label="Sign In">
-              Sign In
-            </button>
-          </Link>
-          <Link to={{ pathname: "/SignUp", state: { fromLanding: true } }}>
-            <button type="button" aria-label="Sign Out">
-              Sign Up
-            </button>
-          </Link>
+          
+
         </section>
       </div>
     );

@@ -66,6 +66,7 @@ class SignUpPage extends Component {
   }
 
   render() {
+    
     const { error } = this.state;
     return (
       <div>

@@ -3,20 +3,30 @@ import "./Item.css";
 import { Link } from "react-router-dom";
 import config from "../../config";
 import LoginContext from "../../LoginContext";
-import TokenService from "../../services/token-services";
+import TokenService from '../../services/token-services'
+import { withRouter } from "react-router"
 
-export default class Item extends Component {
+
+class Item extends Component {
   state = {
     message: "",
   };
   static contextType = LoginContext;
 
+  handleErrors(response) {
+    if(!response.ok) {
+     
+     this.props.history.push("/SignIn")
+    }
+    return response;
+  }
+
   addToCart = (id) => {
-    // const user_id = "1";
+    
     const product_id = id;
     const quantity = "1";
     const added_item = {
-      // user_id: user_id,
+      
       product_id: product_id,
       quantity: quantity,
     };
@@ -28,6 +38,7 @@ export default class Item extends Component {
       },
       body: JSON.stringify(added_item),
     })
+      .then((response) => this.handleErrors(response))
       .then((response) => response.json())
       .then((data) => {
         this.setState({ data: data });
@@ -64,3 +75,5 @@ export default class Item extends Component {
     );
   }
 }
+
+export default withRouter(Item)
