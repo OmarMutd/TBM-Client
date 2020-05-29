@@ -6,14 +6,11 @@
 }
 
 .nav-bar .right {
-  display: flex;
 }
 .nav-bar .left {
-  display: flex;
 }
 .nav-bar .left > *,
 .nav-bar .right > * {
-  padding: 10px;
   text-align: center;
   min-width: 50px;
   text-decoration: none;
@@ -39,6 +36,7 @@
   color: white;
   background-color: black;
 }
+
 .nav-bar button {
   background-color: black;
   border-color: black;
@@ -46,8 +44,6 @@
 
 @media screen and (min-width: 910px) {
   .nav-bar {
-    padding: 40px 20px 20px 20px;
-
     user-select: none;
     max-height: none;
   }
@@ -58,6 +54,7 @@
   .link-row {
     display: flex;
     justify-content: space-between;
+    margin: 20px 0;
   }
 }
 @media screen and (max-width: 910px) {

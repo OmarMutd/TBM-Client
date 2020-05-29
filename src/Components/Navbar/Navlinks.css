@@ -12,4 +12,5 @@
   font-family: "Roboto", sans-serif;
   margin: 4px 2px;
   transition: 0.3s;
+  display: inline;
 }

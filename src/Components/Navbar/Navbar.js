@@ -129,7 +129,7 @@ class Navbar extends Component {
           </form>
           <div className="link-row">
             <section className="left">
-              <Link to="/Products">
+              <Link to="/Products" onClick={this.setToggleNavbarClass}>
                 <Navlinks text="All" />
               </Link>
               {categories.map((category) => {
@@ -137,6 +137,7 @@ class Navbar extends Component {
                   <Link
                     key={category}
                     to={{ pathname: `/Category/${category.toLowerCase()}` }}
+                    onClick={this.setToggleNavbarClass}
                   >
                     <div className="nav-bar-item">{category}</div>
                   </Link>

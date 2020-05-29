@@ -15,10 +15,23 @@ export default class SignInOut extends Component {
     quantity: this.context.quantity,
   };
 
+  setToggleNavbarClass = () => {
+    if (this.state.menu_class === "") {
+      this.setState({
+        menu_class: "toggled",
+      });
+    } else {
+      this.setState({
+        menu_class: "",
+      });
+    }
+  };
+
   handleSignOutClick = () => {
     TokenService.clearAuthToken();
     this.context.updateLogIn();
     this.setState({});
+    this.setToggleNavbarClass();
   };
 
   renderSignOutLink() {
@@ -39,7 +52,11 @@ export default class SignInOut extends Component {
           </Link>
         </div>
         <div className="nav-bar-item">
-          <Link className="nav-bar-item" to="/Cart">
+          <Link
+            className="nav-bar-item"
+            to="/Cart"
+            onClick={this.setToggleNavbarClass}
+          >
             Cart ({this.context.quantity})
           </Link>
         </div>

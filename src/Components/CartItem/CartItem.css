@@ -64,34 +64,33 @@
 
 .remove-btn {
   color: white;
-  background-color: #eb5757;
+  background-color: black;
   border: none;
 
   font-weight: bold;
 }
 
 .remove-btn:hover {
-  background-color: #cc4c4c;
+  background-color: white;
   cursor: pointer;
   color: black;
 }
 
 .clear-cart {
   color: white;
-  background-color: #eb5757;
+  background-color: black;
   border: none;
   border-radius: 0.3em;
   font-weight: bold;
 }
 
 .clear-cart:hover {
-  background-color: #cc4c4c;
+  background-color: white;
+  color: black;
   cursor: pointer;
 }
 
 @media screen and (min-width: 600px) {
-  .remove-btn {
-  }
   .cart-row {
     padding-left: 0px;
     display: flex;
