@@ -1,14 +1,10 @@
 .nav-bar {
-  padding: 5px 0 7px;
+  padding: 5px 0 20px;
   max-height: 10vh;
   overflow: hidden;
   background-color: black;
 }
 
-.nav-bar .right {
-}
-.nav-bar .left {
-}
 .nav-bar .left > *,
 .nav-bar .right > * {
   text-align: center;
@@ -37,6 +33,10 @@
   background-color: black;
 }
 
+.search-bar {
+  margin-bottom: 2em;
+}
+
 .nav-bar button {
   background-color: black;
   border-color: black;
@@ -47,6 +47,9 @@
     user-select: none;
     max-height: none;
   }
+  .nav-bar-item {
+    padding: 16px 8px;
+  }
 
   .nav-bar-icon {
     visibility: hidden;
@@ -55,6 +58,9 @@
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
+  }
+  .right {
+    display: flex;
   }
 }
 @media screen and (max-width: 910px) {
@@ -72,5 +78,11 @@
     display: block !important;
     text-align: left;
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav-bar {
+    padding: 5px 0;
   }
 }

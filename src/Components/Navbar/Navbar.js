@@ -49,14 +49,12 @@ class Navbar extends Component {
   };
 
   fetchCartQuantity = () => {
-
-    if(this.context.loggedIn == true) {
-
+    if (this.context.loggedIn == true) {
       fetch(`${config.API_ENDPOINT}/cart/`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
-          "Authorization": `Bearer ${TokenService.getAuthToken()}`
+          Authorization: `Bearer ${TokenService.getAuthToken()}`,
         },
       })
         .then((response) => response.json())
@@ -66,7 +64,6 @@ class Navbar extends Component {
           })
         );
     }
-
   };
 
   componentDidMount() {
@@ -151,7 +148,10 @@ class Navbar extends Component {
             </section>
 
             <section className="right">
-              <SignInOut quantity={this.state.quantity} />
+              <SignInOut
+                quantity={this.state.quantity}
+                toggle={this.setToggleNavbarClass}
+              />
             </section>
           </div>
           <FontAwesomeIcon

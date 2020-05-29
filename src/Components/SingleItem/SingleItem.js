@@ -4,7 +4,7 @@ import config from "../../config";
 import "./SingleItem.css";
 import LoginContext from "../../LoginContext";
 import TokenService from "../../services/token-services";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 
 class SingleItem extends Component {
@@ -16,18 +16,16 @@ class SingleItem extends Component {
     history: "",
 
     message: "",
-
   };
 
   componentDidMount() {
-    this.getSingleItem()
-    this.setState({ history: this.props.history })
+    this.getSingleItem();
+    this.setState({ history: this.props.history });
   }
 
   handleErrors(response) {
     if (!response.ok) {
-
-      this.props.history.push("/SignIn")
+      this.props.history.push("/SignIn");
     }
     return response;
   }
@@ -43,15 +41,13 @@ class SingleItem extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({ data: data });
-      })
+      });
   };
 
   addToCart = (id) => {
-
     const product_id = id;
     const quantity = "1";
     const added_item = {
-
       product_id: product_id,
       quantity: quantity,
     };
@@ -59,14 +55,13 @@ class SingleItem extends Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${TokenService.getAuthToken()}`,
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(added_item),
     })
       .then((response) => this.handleErrors(response))
       .then((response) => response.json())
-      .then((singleitem) => this.context.fetchCartQuantity()
-      )
+      .then((singleitem) => this.context.fetchCartQuantity())
       .then(
         this.setState({ message: "Added to Cart!" }),
         setTimeout(() => this.setState({ message: "" }), 1500)
@@ -74,7 +69,6 @@ class SingleItem extends Component {
   };
 
   render() {
-
     const { id, title, description, category, price, url } = this.state.data;
     return (
       <div>
@@ -88,14 +82,15 @@ class SingleItem extends Component {
           </div>
           <div className="item-column">
             <div className="product-information"></div>
-            <p>{title}</p>
+            <p className="product-name">{title}</p>
             <p>{price}</p>
             <p>Category: {category}</p>
             <div className="product-desc">{description}</div>
-            <div className="added-to-cart-message-single-item">{this.state.message}</div>
+            <div className="added-to-cart-message-single-item">
+              {this.state.message}
+            </div>
             <button onClick={() => this.addToCart(`${id}`)}>Add to Cart</button>
           </div>
-
         </div>
       </div>
     );
