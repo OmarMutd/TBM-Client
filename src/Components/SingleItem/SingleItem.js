@@ -4,17 +4,32 @@ import config from "../../config";
 import "./SingleItem.css";
 import LoginContext from "../../LoginContext";
 import TokenService from "../../services/token-services";
+import PropTypes from "prop-types"
+import { withRouter } from "react-router";
 
-export default class SingleItem extends Component {
+class SingleItem extends Component {
   static contextType = LoginContext;
 
   state = {
     data: [],
+
+    history: ""
+
     message: "",
+
   };
 
   componentDidMount() {
-    this.getSingleItem();
+    this.getSingleItem()
+    this.setState({history: this.props.history})
+  }
+
+  handleErrors(response) {
+    if(!response.ok) {
+     
+     this.props.history.push("/SignIn")
+    }
+    return response;
   }
 
   getSingleItem = () => {
@@ -32,11 +47,11 @@ export default class SingleItem extends Component {
   };
 
   addToCart = (id) => {
-    // const user_id = "1";
+   
     const product_id = id;
     const quantity = "1";
     const added_item = {
-      // user_id: user_id,
+      
       product_id: product_id,
       quantity: quantity,
     };
@@ -48,6 +63,7 @@ export default class SingleItem extends Component {
       },
       body: JSON.stringify(added_item),
     })
+      .then((response) => this.handleErrors(response))
       .then((response) => response.json())
       .then((singleitem) => this.context.fetchCartQuantity()
       )
@@ -58,6 +74,7 @@ export default class SingleItem extends Component {
   };
 
   render() {
+   
     const { id, title, description, category, price, url } = this.state.data;
     return (
       <div>
@@ -78,8 +95,11 @@ export default class SingleItem extends Component {
             <div className="added-to-cart-message-single-item">{this.state.message}</div>
             <button onClick={() => this.addToCart(`${id}`)}>Add to Cart</button>
           </div>
+
         </div>
       </div>
     );
   }
 }
+
+export default withRouter(SingleItem);
