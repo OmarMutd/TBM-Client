@@ -4,7 +4,9 @@
 
 ------------------------------------------------------------------------------------------------------------------
 
-![Logo](/public/img/logo.jpeg?raw=true "Title")
+<p align="center">
+  <img src="/public/img/logo.jpeg?raw=true">
+</p>
 
 
 

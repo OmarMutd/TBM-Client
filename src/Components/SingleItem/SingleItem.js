@@ -21,13 +21,13 @@ class SingleItem extends Component {
 
   componentDidMount() {
     this.getSingleItem()
-    this.setState({history: this.props.history})
+    this.setState({ history: this.props.history })
   }
 
   handleErrors(response) {
-    if(!response.ok) {
-     
-     this.props.history.push("/SignIn")
+    if (!response.ok) {
+
+      this.props.history.push("/SignIn")
     }
     return response;
   }
@@ -47,11 +47,11 @@ class SingleItem extends Component {
   };
 
   addToCart = (id) => {
-   
+
     const product_id = id;
     const quantity = "1";
     const added_item = {
-      
+
       product_id: product_id,
       quantity: quantity,
     };
@@ -74,7 +74,7 @@ class SingleItem extends Component {
   };
 
   render() {
-   
+
     const { id, title, description, category, price, url } = this.state.data;
     return (
       <div>
