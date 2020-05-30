@@ -103,7 +103,7 @@ class Navbar extends Component {
     return (
       <div>
         <div className={nav_bar_class}>
-          <Link to="/Products">
+          <Link to="/Products" aria-label="all products">
             <Lead text="The Black Market" />
           </Link>
           <form className="search-bar" onSubmit={this.handleSearch}>
@@ -124,14 +124,18 @@ class Navbar extends Component {
                 <FontAwesomeIcon
                   icon={faSearch}
                   className="search-bar-icon"
-                  aria-hidden="true"
+                  aria-label="search"
                 />
               </button>
             </Link>
           </form>
           <div className="link-row">
             <section className="left">
-              <Link to="/Products" onClick={this.setToggleNavbarClass}>
+              <Link
+                to="/Products"
+                onClick={this.setToggleNavbarClass}
+                aria-label="all products"
+              >
                 <Navlinks text="All" />
               </Link>
               {categories.map((category) => {
@@ -140,6 +144,7 @@ class Navbar extends Component {
                     key={category}
                     to={{ pathname: `/Category/${category.toLowerCase()}` }}
                     onClick={this.setToggleNavbarClass}
+                    aria-label={category}
                   >
                     <div className="nav-bar-item">{category}</div>
                   </Link>
