@@ -89,7 +89,12 @@ class SingleItem extends Component {
             <div className="added-to-cart-message-single-item">
               {this.state.message}
             </div>
-            <button onClick={() => this.addToCart(`${id}`)}>Add to Cart</button>
+            <button
+              onClick={() => this.addToCart(`${id}`)}
+              aria-label="Add to Cart"
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>

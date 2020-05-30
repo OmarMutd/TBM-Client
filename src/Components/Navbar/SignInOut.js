@@ -30,6 +30,7 @@ export default class SignInOut extends Component {
             className="nav-bar-item"
             to="/OrderHistory"
             onClick={this.props.toggle}
+            aria-label="Order History"
           >
             Order History
           </Link>
@@ -39,12 +40,18 @@ export default class SignInOut extends Component {
             className="nav-bar-item"
             onClick={this.handleSignOutClick}
             to="/"
+            aria-label="Sign Out"
           >
             Sign Out
           </Link>
         </div>
         <div>
-          <Link className="nav-bar-item" to="/Cart" onClick={this.props.toggle}>
+          <Link
+            className="nav-bar-item"
+            to="/Cart"
+            onClick={this.props.toggle}
+            aria-label="Cart"
+          >
             Cart ({this.context.quantity})
           </Link>
         </div>
@@ -55,10 +62,10 @@ export default class SignInOut extends Component {
   renderSignInLink() {
     return (
       <div>
-        <Link to="/SignUp">
+        <Link to="/SignUp" onClick={this.props.toggle} aria-label="Sign Up">
           <Navlinks text="Sign Up" />
         </Link>
-        <Link to="/SignIn">
+        <Link to="/SignIn" onClick={this.props.toggle} aria-label="Sign In">
           <Navlinks text="Sign In" />
         </Link>
       </div>
